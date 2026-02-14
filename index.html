@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaac Sarfo Adjei - PR, Design & Digital Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #f5f5f0;
+            --accent: #d4a574;
+            --text: #2d2d2d;
+            --border: #e0e0d8;
+            --hover: #c99563;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--secondary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 8rem 3rem 6rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 650px;
+            line-height: 1.8;
+        }
+
+        .accent-line {
+            width: 120px;
+            height: 4px;
+            background: var(--accent);
+            margin: 3rem 0;
+            animation: expandWidth 0.8s ease-out 0.6s both;
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+            to {
+                width: 120px;
+            }
+        }
+
+        /* Profile Section - Artistic Redesign */
+        .profile-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-top: 6rem;
+            padding: 0;
+            background: transparent;
+            position: relative;
+            min-height: 700px;
+        }
+
+        .profile-image-container {
+            position: relative;
+            grid-column: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 4rem;
+        }
+
+        .profile-image {
+            width: 500px;
+            height: 650px;
+            object-fit: cover;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-content {
+            grid-column: 2;
+            background: white;
+            padding: 5rem 4rem 5rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            margin-left: -3rem;
+            z-index: 1;
+        }
+
+        .profile-content::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 3rem;
+            bottom: 3rem;
+            width: 6px;
+            background: var(--accent);
+        }
+
+        .profile-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .profile-content .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .profile-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1.2rem;
+        }
+
+        .profile-content p:first-of-type {
+            font-size: 1.05rem;
+            color: #666;
+        }
+
+        .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.4s ease;
+            margin-top: 1.5rem;
+            align-self: flex-start;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .resume-btn:hover::before {
+            left: 0;
+        }
+
+        .resume-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .resume-btn::after {
+            content: '↓';
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .resume-btn:hover::after {
+            transform: translateY(3px);
+        }
+
+        .resume-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .view-resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border: 2px solid var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.4s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .view-resume-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .view-resume-btn::after {
+            content: '👁';
+            font-size: 1.2rem;
+        }
+
+        /* Resume Modal/Viewer */
+        .resume-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .resume-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .resume-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            animation: modalZoomIn 0.4s ease-out;
+        }
+
+        .resume-modal-header {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .resume-modal-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .resume-modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .resume-modal-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+
+        .resume-modal-body {
+            height: calc(90vh - 140px);
+            overflow: auto;
+            padding: 2rem;
+        }
+
+        .resume-modal-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .resume-modal-footer {
+            background: var(--secondary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .modal-download-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-download-btn:hover {
+            background: var(--hover);
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .modal-download-btn::after {
+            content: '↓';
+            font-size: 1.2rem;
+        }
+
+        /* Decorative element */
+        .profile-section::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            opacity: 0.05;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+        }
+
+        /* PR Articles Section */
+        .pr-articles {
+            background: white;
+            border-radius: 8px;
+            padding: 4rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .articles-container {
+            position: relative;
+        }
+
+        .articles-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .articles-list.collapsed .article-card:nth-child(n+4) {
+            display: none;
+        }
+
+        .show-more-btn {
+            display: block;
+            margin: 2rem auto 0;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .show-more-btn:hover {
+            background: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .article-card {
+            border: 2px solid var(--border);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            background: var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.1));
+            transition: width 0.6s ease;
+        }
+
+        .article-card:hover::before {
+            width: 100%;
+        }
+
+        .article-card:hover {
+            border-color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .article-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .article-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Design Gallery - Horizontal Scroll */
+        .design-scroll-container {
+            position: relative;
+            margin-top: 3rem;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+
+        .design-grid {
+            display: flex;
+            gap: 3rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 0 calc(50vw - 300px);
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .design-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .design-item {
+            position: relative;
+            min-width: 500px;
+            max-width: 500px;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            scroll-snap-align: center;
+            opacity: 0.6;
+            transform: scale(0.85);
+        }
+
+        .design-item.in-focus {
+            transform: scale(1);
+            opacity: 1;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+
+        .design-item:hover {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .design-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design-placeholder::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: slidePattern 20s linear infinite;
+        }
+
+        @keyframes slidePattern {
+            0% {
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .design-placeholder span {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .design-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .design-item:hover .design-overlay {
+            transform: translateY(0);
+        }
+
+        .design-overlay h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .design-overlay p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Carousel Navigation */
+        .scroll-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .scroll-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-btn:hover {
+            background: var(--hover);
+            transform: scale(1.1);
+        }
+
+        .scroll-btn:active {
+            transform: scale(0.95);
+        }
+
+        .scroll-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .indicator.active {
+            background: var(--accent);
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* Design Modal/Lightbox */
+        .design-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .design-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90vh;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: modalZoomIn 0.4s ease-out;
+        }
+
+        @keyframes modalZoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-image-container {
+            position: relative;
+            max-width: 100%;
+            max-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        #modalPlaceholder {
+            width: 800px;
+            height: 600px;
+            max-width: 90vw;
+        }
+
+        .modal-info {
+            background: white;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .modal-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-info p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2001;
+        }
+
+        .modal-close:hover {
+            background: var(--accent);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-nav:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .modal-nav.prev {
+            left: 2rem;
+        }
+
+        .modal-nav.next {
+            right: 2rem;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+  
+
+        .blog-image::after {
+            content: 'Featured Image';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-category {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .blog-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 1rem;
+        }
+
+        .read-more::after {
+            content: '→';
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            padding: 6rem 4rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .contact-btn:hover {
+            background: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .pr-articles {
+                padding: 2rem;
+            }
+
+            .article-card {
+                padding: 2rem;
+            }
+
+            .design-item {
+                min-width: 350px;
+                max-width: 350px;
+            }
+
+            .design-grid {
+                padding: 0 calc(50vw - 175px);
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact {
+                padding: 4rem 2rem;
+            }
+
+            .contact h2 {
+                font-size: 2.5rem;
+            }
+
+            .profile-section {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                gap: 0;
+                margin-top: 3rem;
+            }
+
+            .profile-image-container {
+                padding-right: 0;
+                justify-content: center;
+                margin-bottom: -3rem;
+                z-index: 2;
+            }
+
+            .profile-image {
+                width: 100%;
+                max-width: 400px;
+                height: 500px;
+            }
+
+            .profile-content {
+                margin-left: 0;
+                padding: 4rem 2rem 3rem;
+                margin-top: 0;
+            }
+
+            .profile-content::before {
+                left: 2rem;
+                top: 0;
+                bottom: auto;
+                width: 60px;
+                height: 6px;
+            }
+
+            .profile-content h3 {
+                font-size: 2.5rem;
+            }
+
+            .profile-content .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .profile-content p {
+                font-size: 1rem;
+            }
+
+            .resume-btn {
+                padding: 1rem 2rem;
+                font-size: 0.85rem;
+            }
+
+            .profile-section::after {
+                width: 200px;
+                height: 200px;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+            }
+
+            .modal-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .modal-nav.prev {
+                left: 1rem;
+            }
+
+            .modal-nav.next {
+                right: 1rem;
+            }
+
+            .modal-info {
+                padding: 1.5rem;
+                margin-top: 1rem;
+            }
+
+            .modal-info h3 {
+                font-size: 1.5rem;
+            }
+
+            #modalPlaceholder {
+                width: 90vw;
+                height: 300px;
+            }
+
+            .resume-modal-content {
+                width: 95%;
+                max-height: 95vh;
+            }
+
+            .resume-modal-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .resume-modal-header h3 {
+                font-size: 1.2rem;
+            }
+
+            .resume-modal-body {
+                height: calc(95vh - 120px);
+                padding: 1rem;
+            }
+
+            .resume-modal-footer {
+                padding: 0.8rem 1.5rem;
+            }
+
+            .resume-actions {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .view-resume-btn,
+            .resume-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Isaac Sarfo Adjei</a>
+            <ul class="nav-links">
+                <li><a href="#pr">PR Work</a></li>
+                <li><a href="#design">Design</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Crafting Stories, Designing Experiences</h1>
+            <p class="hero-subtitle">PR Strategist • Graphic Designer • Digital Media Writer</p>
+            <div class="accent-line"></div>
+            <p>I am passionate about public relations and advertising. I specialize in creating compelling narratives and visual identities that resonate among target audiences. Through my blog, I explore the evolving landscape of digital media and its impact on communication.</p>
+        </div>
+
+        <div class="profile-section fade-in">
+            <div class="profile-image-container">
+                <img src="Images/WhatsApp Image 2026-02-11 at 1.59.42 PM.jpeg" alt="Your Name" class="profile-image">
+            </div>
+            <div class="profile-content">
+                <h3>About Me</h3>
+                <p class="subtitle">Passionate Communicator & Creative Professional</p>
+                <p>With a background in Publishing Studies, I bring a unique perspective to strategic communications. My work combines analytical thinking with creative expression, whether I'm crafting PR strategies, designing visual content, or analyzing digital media trends.</p>
+                <p>I believe in the power of storytelling to create meaningful connections between brands and their audiences. My approach integrates traditional PR principles with modern digital strategies, always keeping authenticity and impact at the forefront.</p>
+                <div class="resume-actions">
+                    <button class="view-resume-btn" id="viewResumeBtn">View Resume</button>
+                    <a href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" class="resume-btn" target="_blank">Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PR Work Section -->
+    <section id="pr">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Public Relations & CSR</h2>
+            <p class="section-subtitle">Strategic communications and thought leadership in PR, advertising, and corporate social responsibility</p>
+        </div>
+        <div class="pr-articles">
+            <div class="articles-container">
+                <div class="articles-list collapsed">
+                    <a href="https://isaacdigitalmedia0.wordpress.com/2026/02/10/a-reflection-on-corporate-social-responsibility-and-its-communication-restrictions/" target="_blank" style="text-decoration: none; color: inherit;">
+    <div class="article-card fade-in">
+        <div class="article-meta">Published Article • PR Strategy</div>
+        <h3>A Reflection on Corporate Social Responsibility and Its Communication Restrictions</h3>
+        <p> Corporate social responsibility (CSR) activities are essential for achieving positive outcomes for organizations, serving as a key factor in corporate legitimacy and success (Benno Viererbl and Thomas Koch, 2023). According to Archie Carroll in his work on CSR, these activities extend beyond mere organizational profit and provide additional benefits to society.</p>
+    </div>
+</a>
+                    
+                    
+                </div>
+                <button class="show-more-btn" id="showMoreBtn">Show More Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Gallery Section -->
+    <section id="design">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Graphic Design</h2>
+            <p class="section-subtitle">Visual storytelling through design - scroll to explore, click to view full size</p>
+        </div>
+        <div class="design-scroll-container">
+            <div class="design-grid" id="designCarousel">
+                <div class="design-item" 
+     data-index="0" 
+     data-title="Brand Design for Antique Padded Chair Sale" 
+     data-description="Design made to advertise a antique style chair">
+    
+    <!-- YOUR DESIGN IMAGE -->
+    <img src="Images/Cline.jpg" alt="Brand Design for Antique Padded Chair Sale" style="width: 100%; height: 100%; object-fit: cover;">
+    
+    <div class="design-overlay">
+        <h3>Brand Design for Antique Padded Chair Sale</h3>
+        <p>Click to view full project</p>
+    </div>
+</div>
+
+<div class="design-item" 
+     data-index="0" 
+     data-title="Product Design for Hybrid Generator" 
+     data-description="Design features a hybrid generator in a forest setting">
+    
+    <!-- YOUR DESIGN IMAGE -->
+    <img src="Images/HYBRID (1).jpg" alt="Hybrid Generator" style="width: 100%; height: 100%; object-fit: cover;">
+    
+    <div class="design-overlay">
+        <h3>Product advertisement design for a Hybrid Generator</h3>
+        <p>Click to view full project</p>
+    </div>
+</div>
+                <div class="design-item" 
+     data-index="0" 
+     data-title="Brand Design for Antique Padded Chair Sale" 
+     data-description=" Poster design made for a ballet performance, featuring a ballerina figurine">
+    
+    <!-- YOUR DESIGN IMAGE -->
+    <img src="Images/Grace (1).jpg" alt="Poster design made for a ballet performance, featuring a ballerina figurine" style="width: 100%; height: 100%; object-fit: cover;">
+    
+    <div class="design-overlay">
+        <h3>Poster design made for a ballet performance, featuring a ballerina figurine</h3>
+        <p>Click to view full project</p>
+    </div>
+</div>
+                
+                <div class="design-item" 
+     data-index="0" 
+     data-title="Brand Design for Antique Padded Chair Sale" 
+     data-description="Poster Design made to advertise the Accra Zoo">
+    
+    <!-- YOUR DESIGN IMAGE -->
+    <img src="Images/ACE 15.jpg" alt="Poster Design made to advertise the Accra Zoo" style="width: 100%; height: 100%; object-fit: cover;">
+    
+    <div class="design-overlay">
+        <h3>Poster design made to advertise the Accra Zoo</h3>
+        <p>Click to view full project</p>
+    </div>
+</div>
+
+<div class="design-item" 
+     data-index="0" 
+     data-title="Brand Design for Antique Padded Chair Sale" 
+     data-description="Design made to advertise a sea food restaurant">
+    
+    <!-- YOUR DESIGN IMAGE -->
+    <img src="Images/sea.jpg" alt="Poster design for a sea food restaurant" style="width: 100%; height: 100%; object-fit: cover;">
+    
+    <div class="design-overlay">
+        <h3>Poster design for a sea food restaurant</h3>
+        <p>Click to view full project</p>
+    </div>
+</div>
+
+<div class="design-item" 
+     data-index="0" 
+     data-title="Brand Design for Antique Padded Chair Sale" 
+     data-description="Poster design for Texas State University's SPJ chapter">
+    
+    <!-- YOUR DESIGN IMAGE -->
+    <img src="Images/SPJ A4.jpg" alt="Poster design for Texas State University's SPJ chapter" style="width: 100%; height: 100%; object-fit: cover;">
+    
+    <div class="design-overlay">
+        <h3>Poster design for Texas State University's SPJ chapter</h3>
+        <p>Click to view full project</p>
+    </div>
+</div>
+
+<div class="design-item" 
+     data-index="0" 
+     data-title="Brand Design for Antique Padded Chair Sale" 
+     data-description="Poster design for a dog shelter and pet store">
+    
+    <!-- YOUR DESIGN IMAGE -->
+    <img src="Images/ACE 11 (1).jpg" alt="Poster design for a dog shelter and pet store" style="width: 100%; height: 100%; object-fit: cover;">
+    
+    <div class="design-overlay">
+        <h3>Poster design for a dog shelter and pet store</h3>
+        <p>Click to view full project</p>
+    </div>
+</div>
+
+<div class="design-item" 
+     data-index="0" 
+     data-title="Poster design for a laptop store" 
+     data-description="Poster design for a laptop store">
+    
+    <!-- YOUR DESIGN IMAGE -->
+    <img src="Images/Ace 6 (1).jpg" alt="Poster design for a laptop store" style="width: 100%; height: 100%; object-fit: cover;">
+    
+    <div class="design-overlay">
+        <h3>Poster design for a laptop store</h3>
+        <p>Click to view full project</p>
+    </div>
+</div>
+
+<div class="design-item" 
+     data-index="0" 
+     data-title="Poster design for SJMC Mass Communication week" 
+     data-description="Poster design for SJMC Mass Communication week">
+    
+    <!-- YOUR DESIGN IMAGE -->
+    <img src="Images/poster.jpg" alt="Poster design for SJMC Mass Communication week" style="width: 100%; height: 100%; object-fit: cover;">
+    
+    <div class="design-overlay">
+        <h3>Poster design for SJMC Mass Communication week</h3>
+        <p>Click to view full project</p>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        <div class="scroll-nav">
+            <button class="scroll-btn" id="scrollLeft">←</button>
+            <button class="scroll-btn" id="scrollRight">→</button>
+        </div>
+        <div class="scroll-indicators" id="indicators"></div>
+    </section>
+
+    <!-- Design Modal/Lightbox -->
+    <div class="design-modal" id="designModal">
+        <button class="modal-close" id="modalClose">×</button>
+        <button class="modal-nav prev" id="modalPrev">←</button>
+        <button class="modal-nav next" id="modalNext">→</button>
+        <div class="modal-content">
+            <div class="modal-image-container">
+                <!-- Image will be dynamically inserted here -->
+                <div class="design-placeholder" id="modalPlaceholder">
+                    <span id="modalPlaceholderText">Design</span>
+                </div>
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle">Design Title</h3>
+                <p id="modalDescription">Design description goes here</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Viewer Modal -->
+    <div class="resume-modal" id="resumeModal">
+        <div class="resume-modal-content">
+            <div class="resume-modal-header">
+                <h3>Resume</h3>
+                <button class="resume-modal-close" id="resumeModalClose">×</button>
+            </div>
+            <div class="resume-modal-body">
+                <iframe id="resumeViewer" src=""></iframe>
+            </div>
+            <div class="resume-modal-footer">
+                <a href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" class="modal-download-btn" download>Download PDF</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Digital Media Blog</h2>
+            <p class="section-subtitle">I explore trends, challenges, and innovations in digital media in my blog. Give them a read!</p>
+        </div>
+        <div class="blog-grid">
+            <article class="blog-card fade-in">
+                <img src="Images/sos.jpg" width="100%" height="350px"/>
+                <div class="blog-content">
+                    <div class="blog-category">Digital Media</div>
+                    <h3>Shelves of Selves : A look at Our Online Identities as Products</h3>
+                    <p>Picture this: endless shelves filled with animate products; they are restless, self-aware, and caught in a relentless loop to allure buyers.. </p>
+                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/11/26/shelves-of-selves-a-look-at-our-online-identities-as-products/" class="read-more">Read Article</a>
+                </div>
+            </article>
+            <article class="blog-card fade-in">
+                <img src="Images/Legal Remix" width="100%" height="350px"/>
+                <div class="blog-content">
+                    <div class="blog-category">Digital Media</div>
+                    <h3>The Legal Remix: Navigating AI and Digital Creativity</h3>
+                    <p>In this current age of technology, content creation has abounded. Software and tools that can bring ideas to life have abounded, helping creators to create increasingly quality and engaging forms of media.</p>
+                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/10/26/the-legal-remix-navigating-ai-and-digital-creativity/" class="read-more">Read Article</a>
+                </div>
+            </article>
+            <article class="blog-card fade-in">
+                <img src="Images/vr.webp" width="100%" height="350px"/>
+                <div class="blog-content">
+                    <div class="blog-category">Digital Media</div>
+                    <h3>Virtually Everything: How Extended Realities Are Shaping Our Real Lives</h3>
+                    <p> The Metaverse has been touted by companies like Facebook as the next frontier for communication, work, and networking. It is often thought of as an expansive world where users traverse with their customizable avatars that perform activities in their stead. </p>
+                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/11/02/virtually-everything-how-extended-realities-are-shaping-our-real-lives/" class="read-more">Read Article</a>
+                </div>
+            </article>
+            <article class="blog-card fade-in">
+                <img src="Images/querry.webp" width="100%" height="350px"/>
+                <div class="blog-content">
+                    <div class="blog-category">Digital Media</div>
+                    <h3>Dear ChatGPT, How Do I Stay Relevant?</h3>
+                    <p>Have you ever wondered what AI “thinks” about the future? Or even the future of your job? In this article, I ask ChatGPT, ...</p>
+                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/10/12/dear-chatgpt-how-do-i-stay-relevant/" class="read-more">Read Article</a>
+                </div>
+            </article>
+            <article class="blog-card fade-in">
+                <img src="Images/g.webp" width="100%" height="350px"/>
+                <div class="blog-content">
+                    <div class="blog-category">Digital Media</div>
+                    <h3>The AI showdown: ChatGPT vs Gemini</h3>
+                    <p>I am going to come outright and say it: I am an AI enthusiast through and through. Its functions have always intrigued me...</p>
+                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/10/17/the-ai-showdown-chatgpt-vs-gemini/" class="read-more">Read Article</a>
+                </div>
+            </article>
+            <article class="blog-card fade-in">
+                <img src="Images/dc.webp" width="100%" height="350px"/>
+                <div class="blog-content">
+                    <div class="blog-category">Digital Media</div>
+                    <h3>The Pantheon Show: A Discussion About Data Centers and Their Implications.</h3>
+                    <p>In recent times, there has been substantial discussion about how data centers hosting numerous servers have been impacting the environment...</p>
+                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/12/28/the-pantheon-show-a-discussion-about-data-centers-and-their-implications/" class="read-more">Read Article</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact fade-in">
+            <h2>Let's Connect</h2>
+            <p>Interested in collaboration or want to discuss PR, design, or digital media?</p>
+            <div class="contact-links">
+                <a href="mailto:adjeisarfoike@gmail.com" class="contact-btn">Email Me</a>
+                <a href="https://www.linkedin.com/in/isaac-adjei-b94b90381?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="contact-btn" target="_blank">LinkedIn</a>
+                <a href="https://x.com/isaacsarfoadjei?s=21" class="contact-btn" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Isaac Sarfo Adjei. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add stagger effect to blog items
+        document.querySelectorAll('.blog-grid .fade-in').forEach((el, index) => {
+            el.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Design Carousel Functionality
+        const carousel = document.getElementById('designCarousel');
+        const designItems = document.querySelectorAll('.design-item');
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+        const indicatorsContainer = document.getElementById('indicators');
+        const modal = document.getElementById('designModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalPlaceholderText = document.getElementById('modalPlaceholderText');
+        
+        let currentIndex = 0;
+        let currentModalIndex = 0;
+
+        // Create indicators
+        designItems.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('indicator');
+            if (index === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => scrollToIndex(index));
+            indicatorsContainer.appendChild(indicator);
+        });
+
+        const indicators = document.querySelectorAll('.indicator');
+
+        // Update focus on scroll
+        function updateFocus() {
+            const carouselRect = carousel.getBoundingClientRect();
+            const carouselCenter = carouselRect.left + carouselRect.width / 2;
+            
+            let closestIndex = 0;
+            let closestDistance = Infinity;
+
+            designItems.forEach((item, index) => {
+                const itemRect = item.getBoundingClientRect();
+                const itemCenter = itemRect.left + itemRect.width / 2;
+                const distance = Math.abs(carouselCenter - itemCenter);
+                
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+                
+                item.classList.remove('in-focus');
+            });
+
+            designItems[closestIndex].classList.add('in-focus');
+            currentIndex = closestIndex;
+
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === closestIndex);
+            });
+        }
+
+        // Scroll to specific index
+        function scrollToIndex(index) {
+            const item = designItems[index];
+            const itemRect = item.getBoundingClientRect();
+            const carouselRect = carousel.getBoundingClientRect();
+            const scrollAmount = itemRect.left - carouselRect.left - (carouselRect.width / 2) + (itemRect.width / 2);
+            
+            carousel.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Navigation buttons
+        scrollLeftBtn.addEventListener('click', () => {
+            const newIndex = Math.max(0, currentIndex - 1);
+            scrollToIndex(newIndex);
+        });
+
+        scrollRightBtn.addEventListener('click', () => {
+            const newIndex = Math.min(designItems.length - 1, currentIndex + 1);
+            scrollToIndex(newIndex);
+        });
+
+        // Listen to scroll events
+        carousel.addEventListener('scroll', updateFocus);
+
+        // Initialize focus
+        updateFocus();
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                } else if (e.key === 'ArrowLeft') {
+                    showModalImage(Math.max(0, currentModalIndex - 1));
+                } else if (e.key === 'ArrowRight') {
+                    showModalImage(Math.min(designItems.length - 1, currentModalIndex + 1));
+                }
+            } else {
+                if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    scrollToIndex(currentIndex - 1);
+                } else if (e.key === 'ArrowRight' && currentIndex < designItems.length - 1) {
+                    scrollToIndex(currentIndex + 1);
+                }
+            }
+        });
+
+        // Modal functionality
+        function openModal(index) {
+            currentModalIndex = index;
+            showModalImage(index);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showModalImage(index) {
+    currentModalIndex = index;
+    const item = designItems[index];
+    const title = item.dataset.title;
+    const description = item.dataset.description;
+    
+    modalTitle.textContent = title;
+    modalDescription.textContent = description;
+    
+    // Get the image from the carousel item
+    const img = item.querySelector('img');
+    const modalImageContainer = document.querySelector('.modal-image-container');
+    
+    // Clear the container
+    modalImageContainer.innerHTML = '';
+    
+    // If there's an image, clone it and show it
+    if (img) {
+        const modalImg = img.cloneNode(true);
+        modalImg.id = '';
+        modalImg.style.maxWidth = '100%';
+        modalImg.style.maxHeight = '70vh';
+        modalImg.style.objectFit = 'contain';
+        modalImg.style.borderRadius = '8px';
+        modalImg.style.boxShadow = '0 20px 60px rgba(0,0,0,0.5)';
+        modalImageContainer.appendChild(modalImg);
+    } else {
+        // Fallback to placeholder if no image
+        modalImageContainer.innerHTML = `
+            <div class="design-placeholder" style="width: 800px; height: 600px; max-width: 90vw;">
+                <span>Design ${String(index + 1).padStart(2, '0')}</span>
+            </div>
+        `;
+    }
+}
+
+        // Add click handlers to design items
+        designItems.forEach((item, index) => {
+            item.addEventListener('click', () => openModal(index));
+        });
+
+        // Modal controls
+        modalClose.addEventListener('click', closeModal);
+        modalPrev.addEventListener('click', () => {
+            showModalImage(Math.max(0, currentModalIndex - 1));
+        });
+        modalNext.addEventListener('click', () => {
+            showModalImage(Math.min(designItems.length - 1, currentModalIndex + 1));
+        });
+
+        // Close modal on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // PR Articles Show More/Less functionality
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        const articlesList = document.querySelector('.articles-list');
+        let articlesExpanded = false;
+
+        showMoreBtn.addEventListener('click', () => {
+            articlesExpanded = !articlesExpanded;
+            
+            if (articlesExpanded) {
+                articlesList.classList.remove('collapsed');
+                showMoreBtn.textContent = 'Show Less';
+            } else {
+                articlesList.classList.add('collapsed');
+                showMoreBtn.textContent = 'Show More Articles';
+                document.getElementById('pr').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+        });
+
+        // Resume Viewer Modal
+        const viewResumeBtn = document.getElementById('viewResumeBtn');
+        const resumeModal = document.getElementById('resumeModal');
+        const resumeModalClose = document.getElementById('resumeModalClose');
+        const resumeViewer = document.getElementById('resumeViewer');
+
+        function openResumeViewer() {
+            resumeViewer.src = 'Images/ISAAC-SARFO-ADJEI-RESUME.pdf';
+            resumeModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeResumeViewer() {
+            resumeModal.classList.remove('active');
+            resumeViewer.src = '';
+            document.body.style.overflow = '';
+        }
+
+        viewResumeBtn.addEventListener('click', openResumeViewer);
+        resumeModalClose.addEventListener('click', closeResumeViewer);
+
+        // Close resume modal on background click
+        resumeModal.addEventListener('click', (e) => {
+            if (e.target === resumeModal) {
+                closeResumeViewer();
+            }
+        });
+
+        // Close resume modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && resumeModal.classList.contains('active')) {
+                closeResumeViewer();
+            }
+        });
+    </script>
+</body>
+</html>
