@@ -1435,7 +1435,7 @@
         <div class="scroll-indicators" id="indicators"></div>
     </section>
 
-        <section id="design">
+        <section id="advocacy">
         <div class="section-header fade-in">
             <h2 class="section-title"> Visualizing Advocacy: Save Asaase Yaa</h2>
             <p class="section-subtitle">Digital art created in support of Save Asaase Yaa: confronting illegal mining and land degradation in Ghana- scroll to explore, click to view full size.
@@ -1443,7 +1443,18 @@
   </a>on Instagram</p>
         </div>
         <div class="design-scroll-container">
-            <div class="design-grid" id="designCarousel">
+            <div class="design-grid" id="advocacyCarousel">
+                <div class="design-item" data-index="0" ...>...</div>
+            <div class="design-item" data-index="1" ...>...</div>
+            <div class="design-item" data-index="2" ...>...</div>
+            <div class="design-item" data-index="3" ...>...</div>
+        </div>
+    </div>
+    <div class="scroll-nav">
+        <button class="scroll-btn" id="advocacyScrollLeft">←</button>
+        <button class="scroll-btn" id="advocacyScrollRight">→</button>
+    </div>
+    <div class="scroll-indicators" id="advocacyIndicators"></div>
                 <div class="design-item" 
      data-index="0" 
      data-title=" An excavator in a forest" 
@@ -1459,7 +1470,7 @@
 </div>
 
 <div class="design-item" 
-     data-index="0" 
+     data-index="1" 
      data-title="An illegal miners' raft on a muddy river" 
      data-description="This piece depicts illegal alluvial mining in Ghanaian rivers.">
     
@@ -1472,7 +1483,7 @@
     </div>
 </div>
                 <div class="design-item" 
-     data-index="0" 
+     data-index="2" 
      data-title=" A young boy in a river with dead fish" 
      data-description=" This piece depicts the deadly effects of illegal mining on the local community and wildlife.">
     
@@ -1486,7 +1497,7 @@
 </div>
                 
                 <div class="design-item" 
-     data-index="0" 
+     data-index="3" 
      data-title="Where do you get your gold from?" 
      data-description=" This piece was designed to challenge consumers to reflect on the true cost behind illegally mined gold">
     
@@ -1664,180 +1675,123 @@
         });
 
         // Design Carousel Functionality
-        const carousel = document.getElementById('designCarousel');
-        const designItems = document.querySelectorAll('.design-item');
-        const scrollLeftBtn = document.getElementById('scrollLeft');
-        const scrollRightBtn = document.getElementById('scrollRight');
-        const indicatorsContainer = document.getElementById('indicators');
         const modal = document.getElementById('designModal');
-        const modalClose = document.getElementById('modalClose');
-        const modalPrev = document.getElementById('modalPrev');
-        const modalNext = document.getElementById('modalNext');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDescription = document.getElementById('modalDescription');
-        const modalPlaceholderText = document.getElementById('modalPlaceholderText');
-        
-        let currentIndex = 0;
-        let currentModalIndex = 0;
+const modalClose = document.getElementById('modalClose');
+const modalPrev = document.getElementById('modalPrev');
+const modalNext = document.getElementById('modalNext');
+const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
 
-        // Create indicators
-        designItems.forEach((_, index) => {
-            const indicator = document.createElement('div');
-            indicator.classList.add('indicator');
-            if (index === 0) indicator.classList.add('active');
-            indicator.addEventListener('click', () => scrollToIndex(index));
-            indicatorsContainer.appendChild(indicator);
-        });
+let activeItems = [];
+let currentModalIndex = 0;
 
-        const indicators = document.querySelectorAll('.indicator');
+function setupGallery(carouselId, leftBtnId, rightBtnId, indicatorsId) {
+    const carousel = document.getElementById(carouselId);
+    const items = Array.from(carousel.querySelectorAll('.design-item'));
+    const leftBtn = document.getElementById(leftBtnId);
+    const rightBtn = document.getElementById(rightBtnId);
+    const indicatorsContainer = document.getElementById(indicatorsId);
+    let currentIndex = 0;
 
-        // Update focus on scroll
-        function updateFocus() {
-            const carouselRect = carousel.getBoundingClientRect();
-            const carouselCenter = carouselRect.left + carouselRect.width / 2;
-            
-            let closestIndex = 0;
-            let closestDistance = Infinity;
+    items.forEach((_, i) => {
+        const indicator = document.createElement('div');
+        indicator.classList.add('indicator');
+        if (i === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => scrollToIndex(i));
+        indicatorsContainer.appendChild(indicator);
+    });
+    const indicators = indicatorsContainer.querySelectorAll('.indicator');
 
-            designItems.forEach((item, index) => {
-                const itemRect = item.getBoundingClientRect();
-                const itemCenter = itemRect.left + itemRect.width / 2;
-                const distance = Math.abs(carouselCenter - itemCenter);
-                
-                if (distance < closestDistance) {
-                    closestDistance = distance;
-                    closestIndex = index;
-                }
-                
-                item.classList.remove('in-focus');
-            });
+    function updateFocus() {
+        const carouselRect = carousel.getBoundingClientRect();
+        const carouselCenter = carouselRect.left + carouselRect.width / 2;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
 
-            designItems[closestIndex].classList.add('in-focus');
-            currentIndex = closestIndex;
-
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === closestIndex);
-            });
-        }
-
-        // Scroll to specific index
-        function scrollToIndex(index) {
-            const item = designItems[index];
+        items.forEach((item, index) => {
             const itemRect = item.getBoundingClientRect();
-            const carouselRect = carousel.getBoundingClientRect();
-            const scrollAmount = itemRect.left - carouselRect.left - (carouselRect.width / 2) + (itemRect.width / 2);
-            
-            carousel.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-
-        // Navigation buttons
-        scrollLeftBtn.addEventListener('click', () => {
-            const newIndex = Math.max(0, currentIndex - 1);
-            scrollToIndex(newIndex);
-        });
-
-        scrollRightBtn.addEventListener('click', () => {
-            const newIndex = Math.min(designItems.length - 1, currentIndex + 1);
-            scrollToIndex(newIndex);
-        });
-
-        // Listen to scroll events
-        carousel.addEventListener('scroll', updateFocus);
-
-        // Initialize focus
-        updateFocus();
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (modal.classList.contains('active')) {
-                if (e.key === 'Escape') {
-                    closeModal();
-                } else if (e.key === 'ArrowLeft') {
-                    showModalImage(Math.max(0, currentModalIndex - 1));
-                } else if (e.key === 'ArrowRight') {
-                    showModalImage(Math.min(designItems.length - 1, currentModalIndex + 1));
-                }
-            } else {
-                if (e.key === 'ArrowLeft' && currentIndex > 0) {
-                    scrollToIndex(currentIndex - 1);
-                } else if (e.key === 'ArrowRight' && currentIndex < designItems.length - 1) {
-                    scrollToIndex(currentIndex + 1);
-                }
+            const itemCenter = itemRect.left + itemRect.width / 2;
+            const distance = Math.abs(carouselCenter - itemCenter);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
             }
+            item.classList.remove('in-focus');
         });
 
-        // Modal functionality
-        function openModal(index) {
-            currentModalIndex = index;
-            showModalImage(index);
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+        items[closestIndex].classList.add('in-focus');
+        currentIndex = closestIndex;
+        indicators.forEach((ind, i) => ind.classList.toggle('active', i === closestIndex));
+    }
 
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+    function scrollToIndex(index) {
+        const item = items[index];
+        const itemRect = item.getBoundingClientRect();
+        const carouselRect = carousel.getBoundingClientRect();
+        const scrollAmount = itemRect.left - carouselRect.left - (carouselRect.width / 2) + (itemRect.width / 2);
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
 
-        function showModalImage(index) {
+    leftBtn.addEventListener('click', () => scrollToIndex(Math.max(0, currentIndex - 1)));
+    rightBtn.addEventListener('click', () => scrollToIndex(Math.min(items.length - 1, currentIndex + 1)));
+    carousel.addEventListener('scroll', updateFocus);
+    updateFocus();
+
+    items.forEach((item, index) => {
+        item.addEventListener('click', () => openModal(items, index));
+    });
+}
+
+function openModal(items, index) {
+    activeItems = items;
     currentModalIndex = index;
-    const item = designItems[index];
-    const title = item.dataset.title;
-    const description = item.dataset.description;
-    
-    modalTitle.textContent = title;
-    modalDescription.textContent = description;
-    
-    // Get the image from the carousel item
+    showModalImage(index);
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function showModalImage(index) {
+    currentModalIndex = index;
+    const item = activeItems[index];
+    modalTitle.textContent = item.dataset.title;
+    modalDescription.textContent = item.dataset.description;
+
     const img = item.querySelector('img');
     const modalImageContainer = document.querySelector('.modal-image-container');
-    
-    // Clear the container
     modalImageContainer.innerHTML = '';
-    
-    // If there's an image, clone it and show it
+
     if (img) {
         const modalImg = img.cloneNode(true);
-        modalImg.id = '';
+        modalImg.removeAttribute('id');
         modalImg.style.maxWidth = '100%';
         modalImg.style.maxHeight = '70vh';
         modalImg.style.objectFit = 'contain';
         modalImg.style.borderRadius = '8px';
         modalImg.style.boxShadow = '0 20px 60px rgba(0,0,0,0.5)';
         modalImageContainer.appendChild(modalImg);
-    } else {
-        // Fallback to placeholder if no image
-        modalImageContainer.innerHTML = `
-            <div class="design-placeholder" style="width: 800px; height: 600px; max-width: 90vw;">
-                <span>Design ${String(index + 1).padStart(2, '0')}</span>
-            </div>
-        `;
     }
 }
 
-        // Add click handlers to design items
-        designItems.forEach((item, index) => {
-            item.addEventListener('click', () => openModal(index));
-        });
+modalClose.addEventListener('click', closeModal);
+modalPrev.addEventListener('click', () => showModalImage(Math.max(0, currentModalIndex - 1)));
+modalNext.addEventListener('click', () => showModalImage(Math.min(activeItems.length - 1, currentModalIndex + 1)));
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-        // Modal controls
-        modalClose.addEventListener('click', closeModal);
-        modalPrev.addEventListener('click', () => {
-            showModalImage(Math.max(0, currentModalIndex - 1));
-        });
-        modalNext.addEventListener('click', () => {
-            showModalImage(Math.min(designItems.length - 1, currentModalIndex + 1));
-        });
+document.addEventListener('keydown', (e) => {
+    if (modal.classList.contains('active')) {
+        if (e.key === 'Escape') closeModal();
+        else if (e.key === 'ArrowLeft') showModalImage(Math.max(0, currentModalIndex - 1));
+        else if (e.key === 'ArrowRight') showModalImage(Math.min(activeItems.length - 1, currentModalIndex + 1));
+    }
+});
 
-        // Close modal on background click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
+setupGallery('designCarousel', 'scrollLeft', 'scrollRight', 'indicators');
+setupGallery('advocacyCarousel', 'advocacyScrollLeft', 'advocacyScrollRight', 'advocacyIndicators');
 
         // PR Articles Show More/Less functionality
         const showMoreBtn = document.getElementById('showMoreBtn');
