@@ -1,1827 +1,832 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isaac Sarfo Adjei - Communication, Design & Digital Media</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a1a1a;
-            --secondary: #f5f5f0;
-            --accent: #d4a574;
-            --text: #2d2d2d;
-            --border: #e0e0d8;
-            --hover: #c99563;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--secondary);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(245, 245, 240, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            animation: slideDown 0.6s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        nav .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.5rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-            letter-spacing: 0.3px;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            padding: 8rem 3rem 6rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            letter-spacing: -2px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 2rem;
-            letter-spacing: 0.5px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 650px;
-            line-height: 1.8;
-        }
-
-        .accent-line {
-            width: 120px;
-            height: 4px;
-            background: var(--accent);
-            margin: 3rem 0;
-            animation: expandWidth 0.8s ease-out 0.6s both;
-        }
-
-        @keyframes expandWidth {
-            from {
-                width: 0;
-            }
-            to {
-                width: 120px;
-            }
-        }
-
-        /* Profile Section - Artistic Redesign */
-        .profile-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            margin-top: 6rem;
-            padding: 0;
-            background: transparent;
-            position: relative;
-            min-height: 700px;
-        }
-
-        .profile-image-container {
-            position: relative;
-            grid-column: 1;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 4rem;
-        }
-
-        .profile-image {
-            width: 500px;
-            height: 650px;
-            object-fit: cover;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 2;
-        }
-
-        .profile-content {
-            grid-column: 2;
-            background: white;
-            padding: 5rem 4rem 5rem 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            margin-left: -3rem;
-            z-index: 1;
-        }
-
-        .profile-content::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 3rem;
-            bottom: 3rem;
-            width: 6px;
-            background: var(--accent);
-        }
-
-        .profile-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        .profile-content .subtitle {
-            font-size: 1.1rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .profile-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #666;
-            margin-bottom: 1.2rem;
-        }
-
-        .profile-content p:first-of-type {
-            font-size: 1.05rem;
-            color: #666;
-        }
-
-        .resume-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 2.5rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 0;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.4s ease;
-            margin-top: 1.5rem;
-            align-self: flex-start;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .resume-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--accent);
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
-
-        .resume-btn:hover::before {
-            left: 0;
-        }
-
-        .resume-btn:hover {
-            transform: translateX(5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        .resume-btn::after {
-            content: '↓';
-            font-size: 1.3rem;
-            transition: transform 0.3s ease;
-        }
-
-        .resume-btn:hover::after {
-            transform: translateY(3px);
-        }
-
-        .resume-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .view-resume-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 2.5rem;
-            background: white;
-            color: var(--primary);
-            text-decoration: none;
-            border: 2px solid var(--primary);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.4s ease;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        .view-resume-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateX(5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        .view-resume-btn::after {
-            content: '👁';
-            font-size: 1.2rem;
-        }
-
-        /* Resume Modal/Viewer */
-        .resume-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 3000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .resume-modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .resume-modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 900px;
-            max-height: 90vh;
-            margin: auto;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            animation: modalZoomIn 0.4s ease-out;
-        }
-
-        .resume-modal-header {
-            background: var(--primary);
-            color: white;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .resume-modal-header h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
-        .resume-modal-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .resume-modal-close:hover {
-            background: rgba(255,255,255,0.2);
-            transform: rotate(90deg);
-        }
-
-        .resume-modal-body {
-            height: calc(90vh - 140px);
-            overflow: auto;
-            padding: 2rem;
-        }
-
-        .resume-modal-body iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .resume-modal-footer {
-            background: var(--secondary);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .modal-download-btn {
-            padding: 0.8rem 1.5rem;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .modal-download-btn:hover {
-            background: var(--hover);
-            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
-        }
-
-        .modal-download-btn::after {
-            content: '↓';
-            font-size: 1.2rem;
-        }
-
-        /* Decorative element */
-        .profile-section::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 300px;
-            height: 300px;
-            background: var(--accent);
-            opacity: 0.05;
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 6rem 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            letter-spacing: -1px;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-        }
-
-        /* PR Articles Section */
-        .pr-articles {
-            background: white;
-            border-radius: 8px;
-            padding: 4rem;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-        }
-
-        .articles-container {
-            position: relative;
-        }
-
-        .articles-list {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .articles-list.collapsed .article-card:nth-child(n+4) {
-            display: none;
-        }
-
-        .show-more-btn {
-            display: block;
-            margin: 2rem auto 0;
-            padding: 1rem 2.5rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .show-more-btn:hover {
-            background: var(--hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
-        }
-
-        .article-card {
-            border: 2px solid var(--border);
-            padding: 3rem;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-            background: var(--secondary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .article-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.1));
-            transition: width 0.6s ease;
-        }
-
-        .article-card:hover::before {
-            width: 100%;
-        }
-
-        .article-card:hover {
-            border-color: var(--accent);
-            transform: translateX(10px);
-        }
-
-        .article-meta {
-            font-size: 0.9rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .article-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .article-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Design Gallery - Horizontal Scroll */
-        .design-scroll-container {
-            position: relative;
-            margin-top: 3rem;
-            overflow: hidden;
-            padding: 4rem 0;
-        }
-
-        .design-grid {
-            display: flex;
-            gap: 3rem;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 0 calc(50vw - 300px);
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-
-        .design-grid::-webkit-scrollbar {
-            display: none;
-        }
-
-        .design-item {
-            position: relative;
-            min-width: 500px;
-            max-width: 500px;
-            aspect-ratio: 4/3;
-            overflow: hidden;
-            border-radius: 4px;
-            cursor: pointer;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            scroll-snap-align: center;
-            opacity: 0.6;
-            transform: scale(0.85);
-        }
-
-        .design-item.in-focus {
-            transform: scale(1);
-            opacity: 1;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-        }
-
-        .design-item:hover {
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        .design-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .design-placeholder::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255,255,255,0.05) 10px,
-                rgba(255,255,255,0.05) 20px
-            );
-            animation: slidePattern 20s linear infinite;
-        }
-
-        @keyframes slidePattern {
-            0% {
-                transform: translate(-50%, -50%);
-            }
-            100% {
-                transform: translate(0, 0);
-            }
-        }
-
-        .design-placeholder span {
-            font-family: 'Playfair Display', serif;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-            z-index: 1;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .design-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            padding: 2rem;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-
-        .design-item:hover .design-overlay {
-            transform: translateY(0);
-        }
-
-        .design-overlay h3 {
-            color: white;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .design-overlay p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem;
-        }
-
-        /* Carousel Navigation */
-        .scroll-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .scroll-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--accent);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .scroll-btn:hover {
-            background: var(--hover);
-            transform: scale(1.1);
-        }
-
-        .scroll-btn:active {
-            transform: scale(0.95);
-        }
-
-        .scroll-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-
-        .indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--border);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .indicator.active {
-            background: var(--accent);
-            width: 30px;
-            border-radius: 5px;
-        }
-
-        /* Design Modal/Lightbox */
-        .design-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 2000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .design-modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 1200px;
-            max-height: 90vh;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            animation: modalZoomIn 0.4s ease-out;
-        }
-
-        @keyframes modalZoomIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .modal-image-container {
-            position: relative;
-            max-width: 100%;
-            max-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-image {
-            max-width: 100%;
-            max-height: 70vh;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-
-        #modalPlaceholder {
-            width: 800px;
-            height: 600px;
-            max-width: 90vw;
-        }
-
-        .modal-info {
-            background: white;
-            padding: 2rem;
-            margin-top: 2rem;
-            border-radius: 8px;
-            max-width: 800px;
-            text-align: center;
-        }
-
-        .modal-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-info p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 2001;
-        }
-
-        .modal-close:hover {
-            background: var(--accent);
-            color: white;
-            transform: rotate(90deg);
-        }
-
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-nav:hover {
-            background: var(--accent);
-            color: white;
-        }
-
-        .modal-nav.prev {
-            left: 2rem;
-        }
-
-        .modal-nav.next {
-            right: 2rem;
-        }
-
-        /* Blog Section */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 3rem;
-        }
-
-        .blog-card {
-            background: white;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
-
-        .blog-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-  
-
-        .blog-image::after {
-            content: 'Featured Image';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .blog-content {
-            padding: 2rem;
-        }
-
-        .blog-category {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.8rem;
-        }
-
-        .blog-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            line-height: 1.3;
-        }
-
-        .blog-card p {
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .read-more {
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
-        }
-
-        .read-more:hover {
-            gap: 1rem;
-        }
-
-        .read-more::after {
-            content: '→';
-            font-size: 1.2rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--primary);
-            color: white;
-            border-radius: 8px;
-            padding: 6rem 4rem;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            padding: 1rem 2.5rem;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1.05rem;
-        }
-
-        .contact-btn:hover {
-            background: var(--hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav .container {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .hero {
-                padding: 4rem 1.5rem 3rem;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .pr-articles {
-                padding: 2rem;
-            }
-
-            .article-card {
-                padding: 2rem;
-            }
-
-            .design-item {
-                min-width: 350px;
-                max-width: 350px;
-            }
-
-            .design-grid {
-                padding: 0 calc(50vw - 175px);
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact {
-                padding: 4rem 2rem;
-            }
-
-            .contact h2 {
-                font-size: 2.5rem;
-            }
-
-            .profile-section {
-                grid-template-columns: 1fr;
-                min-height: auto;
-                gap: 0;
-                margin-top: 3rem;
-            }
-
-            .profile-image-container {
-                padding-right: 0;
-                justify-content: center;
-                margin-bottom: -3rem;
-                z-index: 2;
-            }
-
-            .profile-image {
-                width: 100%;
-                max-width: 400px;
-                height: 500px;
-            }
-
-            .profile-content {
-                margin-left: 0;
-                padding: 4rem 2rem 3rem;
-                margin-top: 0;
-            }
-
-            .profile-content::before {
-                left: 2rem;
-                top: 0;
-                bottom: auto;
-                width: 60px;
-                height: 6px;
-            }
-
-            .profile-content h3 {
-                font-size: 2.5rem;
-            }
-
-            .profile-content .subtitle {
-                font-size: 0.9rem;
-            }
-
-            .profile-content p {
-                font-size: 1rem;
-            }
-
-            .resume-btn {
-                padding: 1rem 2rem;
-                font-size: 0.85rem;
-            }
-
-            .profile-section::after {
-                width: 200px;
-                height: 200px;
-            }
-
-            .modal-content {
-                width: 95%;
-            }
-
-            .modal-close {
-                top: 1rem;
-                right: 1rem;
-                width: 40px;
-                height: 40px;
-            }
-
-            .modal-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .modal-nav.prev {
-                left: 1rem;
-            }
-
-            .modal-nav.next {
-                right: 1rem;
-            }
-
-            .modal-info {
-                padding: 1.5rem;
-                margin-top: 1rem;
-            }
-
-            .modal-info h3 {
-                font-size: 1.5rem;
-            }
-
-            #modalPlaceholder {
-                width: 90vw;
-                height: 300px;
-            }
-
-            .resume-modal-content {
-                width: 95%;
-                max-height: 95vh;
-            }
-
-            .resume-modal-header {
-                padding: 1rem 1.5rem;
-            }
-
-            .resume-modal-header h3 {
-                font-size: 1.2rem;
-            }
-
-            .resume-modal-body {
-                height: calc(95vh - 120px);
-                padding: 1rem;
-            }
-
-            .resume-modal-footer {
-                padding: 0.8rem 1.5rem;
-            }
-
-            .resume-actions {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-
-            .view-resume-btn,
-            .resume-btn {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isaac Sarfo Adjei — Communication, Design, Digital Media</title>
+<meta name="description" content="Portfolio of Isaac Sarfo Adjei: strategic communication, graphic design, and writing on digital media.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1712;
+  --ink-raised:#122019;
+  --bone:#EDE7DA;
+  --bone-dim:#BDB5A5;
+  --emerald:#1F5240;
+  --peach:#E3A78D;
+  --slate:#7C90A6;
+  --brass:#B4924F;
+  --rule-dark:rgba(237,231,218,.16);
+  --rule-light:rgba(11,23,18,.16);
+
+  --display:'Bodoni Moda',Georgia,serif;
+  --text:'Archivo',system-ui,-apple-system,sans-serif;
+
+  --gut:clamp(1.5rem,5vw,5.5rem);
+  --stack:clamp(5rem,11vw,10rem);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--ink);
+  color:var(--bone);
+  font-family:var(--text);
+  font-size:1.0625rem;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+
+:focus-visible{
+  outline:2px solid var(--brass);
+  outline-offset:3px;
+}
+
+.wrap{max-width:1560px;margin:0 auto;padding-inline:var(--gut)}
+
+/* ─── Nav ─────────────────────────────────────────── */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:2rem;
+  padding:1.4rem var(--gut);
+  transition:background .5s ease,border-color .5s ease,padding .5s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.settled{
+  background:rgba(11,23,18,.94);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--rule-dark);
+  padding-block:1rem;
+}
+.nav__name{
+  font-family:var(--display);
+  font-size:1.2rem;
+  font-weight:500;
+  letter-spacing:.01em;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.nav__links{
+  display:flex;gap:clamp(1.1rem,2.6vw,2.4rem);
+  list-style:none;
+  font-size:.9rem;
+  letter-spacing:.02em;
+}
+.nav__links a{
+  text-decoration:none;
+  color:var(--bone-dim);
+  padding-block:.2rem;
+  border-bottom:1px solid transparent;
+  transition:color .3s,border-color .3s;
+}
+.nav__links a:hover{color:var(--bone);border-bottom-color:var(--peach)}
+
+/* ─── Hero: one work, lit ─────────────────────────── */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+.hero__art{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 38%;
+  opacity:0;
+  transform:scale(1.06);
+  animation:plateIn 2.2s cubic-bezier(.22,.61,.36,1) .15s forwards;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(to top,rgba(11,23,18,.96) 0%,rgba(11,23,18,.72) 32%,rgba(11,23,18,.16) 62%,rgba(11,23,18,.5) 100%);
+}
+.hero__label{
+  position:relative;z-index:2;
+  width:100%;
+  padding:0 var(--gut) clamp(3.5rem,8vh,7rem);
+  max-width:1560px;margin-inline:auto;
+}
+.hero__kicker{
+  font-size:.82rem;
+  letter-spacing:.14em;
+  color:var(--peach);
+  margin-bottom:1.4rem;
+  opacity:0;animation:labelUp 1.1s ease 1s forwards;
+}
+.hero__title{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(2.6rem,7.2vw,6.2rem);
+  line-height:1.02;
+  letter-spacing:-.015em;
+  max-width:17ch;
+  opacity:0;animation:labelUp 1.1s ease 1.18s forwards;
+}
+.hero__meta{
+  margin-top:1.6rem;
+  display:flex;flex-wrap:wrap;
+  gap:.5rem 1.6rem;
+  align-items:baseline;
+  font-size:.95rem;
+  color:var(--bone-dim);
+  opacity:0;animation:labelUp 1.1s ease 1.36s forwards;
+}
+.hero__meta em{font-style:italic;color:var(--bone)}
+.hero__note{
+  margin-top:1.5rem;
+  max-width:46ch;
+  color:var(--bone-dim);
+  font-size:1.02rem;
+  opacity:0;animation:labelUp 1.1s ease 1.52s forwards;
+}
+.hero__scroll{
+  position:absolute;
+  right:var(--gut);bottom:clamp(3.5rem,8vh,7rem);
+  z-index:2;
+  writing-mode:vertical-rl;
+  font-size:.78rem;letter-spacing:.16em;
+  color:var(--bone-dim);
+  text-decoration:none;
+  display:flex;align-items:center;gap:.9rem;
+  opacity:0;animation:labelUp 1.1s ease 1.7s forwards;
+}
+.hero__scroll::after{content:'';width:1px;height:56px;background:linear-gradient(var(--brass),transparent)}
+
+@keyframes plateIn{to{opacity:1;transform:scale(1)}}
+@keyframes labelUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ─── Section furniture ───────────────────────────── */
+.band{padding-block:var(--stack)}
+.band--bone{background:var(--bone);color:var(--ink)}
+.band--emerald{background:var(--emerald);color:var(--bone)}
+
+.head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
+  gap:clamp(1.5rem,4vw,4rem);
+  align-items:end;
+  padding-bottom:2.6rem;
+  margin-bottom:clamp(2.5rem,5vw,4rem);
+  border-bottom:1px solid var(--rule-dark);
+}
+.band--bone .head{border-bottom-color:var(--rule-light)}
+.head h2{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(1.9rem,4.2vw,3.3rem);
+  line-height:1.06;
+  letter-spacing:-.012em;
+}
+.head p{
+  max-width:50ch;
+  color:var(--bone-dim);
+  font-size:1rem;
+}
+.band--bone .head p{color:#4A4A44}
+
+/* ─── About ───────────────────────────────────────── */
+.about{
+  display:grid;
+  grid-template-columns:minmax(280px,.85fr) minmax(0,1.25fr);
+  gap:clamp(2rem,6vw,6rem);
+  align-items:center;
+}
+.about__portrait{
+  position:relative;
+}
+.about__portrait img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  filter:saturate(.94);
+}
+.about__portrait::after{
+  content:'';position:absolute;
+  inset:auto -14px -14px auto;
+  width:58%;height:34%;
+  border-right:1px solid var(--brass);
+  border-bottom:1px solid var(--brass);
+  pointer-events:none;
+}
+.about h2{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(1.9rem,4vw,3rem);
+  line-height:1.08;
+  letter-spacing:-.012em;
+  margin-bottom:1.6rem;
+  max-width:16ch;
+}
+.about p{max-width:58ch;margin-bottom:1.15rem;color:#3D3D38}
+.about__actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+
+.btn{
+  display:inline-block;
+  padding:.95rem 2rem;
+  font-size:.9rem;
+  font-weight:500;
+  letter-spacing:.03em;
+  text-decoration:none;
+  border:1px solid var(--ink);
+  background:var(--ink);
+  color:var(--bone);
+  cursor:pointer;
+  font-family:var(--text);
+  transition:background .3s,color .3s;
+}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn--quiet{background:transparent;color:var(--ink)}
+.btn--quiet:hover{background:var(--ink);color:var(--bone)}
+
+/* ─── Work grids ──────────────────────────────────── */
+.plates{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:clamp(1.6rem,3.2vw,3.2rem) clamp(1.4rem,2.6vw,2.6rem);
+}
+.plates--advocacy{grid-template-columns:repeat(auto-fit,minmax(360px,1fr))}
+
+.plate{
+  display:block;width:100%;
+  background:none;border:0;padding:0;
+  text-align:left;
+  color:inherit;
+  font:inherit;
+  cursor:pointer;
+}
+.plate__frame{
+  position:relative;
+  overflow:hidden;
+  background:var(--ink-raised);
+  aspect-ratio:4/5;
+}
+.plates--advocacy .plate__frame{aspect-ratio:1/1}
+.plate__frame img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform .8s cubic-bezier(.22,.61,.36,1),filter .6s ease;
+  filter:saturate(.9) brightness(.93);
+}
+.plate:hover .plate__frame img,
+.plate:focus-visible .plate__frame img{
+  transform:scale(1.03);
+  filter:saturate(1) brightness(1);
+}
+.plate__cap{
+  padding-top:1.05rem;
+  display:grid;gap:.3rem;
+}
+.plate__cap h3{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:1.22rem;
+  line-height:1.25;
+  letter-spacing:-.005em;
+}
+.plate__cap span{
+  font-size:.86rem;
+  color:var(--bone-dim);
+}
+.band--bone .plate__cap span{color:#6B6B62}
+
+/* ─── Writing list ────────────────────────────────── */
+.reads{border-top:1px solid var(--rule-dark)}
+.read{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+  gap:.6rem clamp(1.5rem,4vw,4rem);
+  align-items:baseline;
+  padding:2.1rem 0;
+  border-bottom:1px solid var(--rule-dark);
+  text-decoration:none;
+  transition:padding-inline-start .45s cubic-bezier(.22,.61,.36,1),background .45s ease;
+}
+.read:hover,.read:focus-visible{
+  padding-inline-start:1.4rem;
+  background:linear-gradient(90deg,rgba(227,167,141,.09),transparent 70%);
+}
+.read h3{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(1.3rem,2.3vw,1.85rem);
+  line-height:1.2;
+  letter-spacing:-.008em;
+}
+.read__side{display:grid;gap:.55rem}
+.read__side p{color:var(--bone-dim);font-size:.97rem;max-width:52ch}
+.read__when{font-size:.84rem;letter-spacing:.05em;color:var(--peach)}
+
+/* ─── Contact ─────────────────────────────────────── */
+.contact{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(2rem,5vw,5rem);
+  align-items:end;
+}
+.contact h2{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(2.2rem,5.4vw,4.4rem);
+  line-height:1.03;
+  letter-spacing:-.015em;
+  max-width:12ch;
+}
+.contact p{color:rgba(237,231,218,.78);max-width:44ch;margin-top:1.3rem}
+.contact__list{display:grid;gap:0;border-top:1px solid rgba(237,231,218,.24)}
+.contact__list a{
+  display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;
+  padding:1.15rem 0;
+  border-bottom:1px solid rgba(237,231,218,.24);
+  text-decoration:none;
+  transition:padding-inline-start .4s ease,color .3s ease;
+}
+.contact__list a:hover,.contact__list a:focus-visible{padding-inline-start:.8rem;color:var(--peach)}
+.contact__list span:last-child{font-size:.86rem;color:rgba(237,231,218,.6)}
+
+footer{
+  padding:2.4rem var(--gut);
+  display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;
+  font-size:.83rem;color:var(--bone-dim);
+  border-top:1px solid var(--rule-dark);
+}
+
+/* ─── Lightbox ────────────────────────────────────── */
+.viewer{
+  position:fixed;inset:0;z-index:2000;
+  display:none;
+  background:rgba(6,13,10,.97);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  padding:clamp(1rem,4vw,3.5rem);
+}
+.viewer[open]{display:grid;grid-template-rows:1fr auto;gap:1.6rem}
+.viewer__stage{
+  display:flex;align-items:center;justify-content:center;
+  min-height:0;
+}
+.viewer__stage img{
+  max-width:100%;max-height:100%;
+  object-fit:contain;
+  animation:plateIn .5s ease;
+}
+.viewer__cap{
+  display:flex;flex-wrap:wrap;gap:.4rem 2rem;
+  align-items:baseline;justify-content:space-between;
+  border-top:1px solid var(--rule-dark);
+  padding-top:1.2rem;
+}
+.viewer__cap h3{font-family:var(--display);font-weight:400;font-size:1.4rem}
+.viewer__cap p{color:var(--bone-dim);font-size:.95rem;max-width:56ch}
+.viewer__ctrl{
+  position:absolute;
+  background:transparent;
+  border:1px solid var(--rule-dark);
+  color:var(--bone);
+  width:46px;height:46px;
+  font-size:1.1rem;
+  cursor:pointer;
+  display:grid;place-items:center;
+  transition:background .3s,border-color .3s;
+}
+.viewer__ctrl:hover{background:rgba(237,231,218,.1);border-color:var(--peach)}
+.viewer__close{top:clamp(1rem,3vw,2rem);right:clamp(1rem,3vw,2rem)}
+.viewer__prev{left:clamp(.5rem,2vw,1.5rem);top:50%;transform:translateY(-50%)}
+.viewer__next{right:clamp(.5rem,2vw,1.5rem);top:50%;transform:translateY(-50%)}
+
+/* ─── Résumé viewer ───────────────────────────────── */
+.paper{
+  position:fixed;inset:0;z-index:2100;
+  display:none;
+  place-items:center;
+  background:rgba(6,13,10,.97);
+  padding:clamp(1rem,3vw,2.5rem);
+}
+.paper[open]{display:grid}
+.paper__sheet{
+  width:min(920px,100%);
+  height:min(88vh,100%);
+  background:var(--bone);
+  display:grid;grid-template-rows:auto 1fr auto;
+}
+.paper__bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.4rem;
+  background:var(--ink);color:var(--bone);
+}
+.paper__bar h3{font-family:var(--display);font-weight:400;font-size:1.15rem}
+.paper__bar button{
+  background:none;border:0;color:var(--bone);
+  font-size:1.5rem;cursor:pointer;line-height:1;
+  width:34px;height:34px;
+}
+.paper iframe{width:100%;height:100%;border:0}
+.paper__foot{
+  padding:.9rem 1.4rem;
+  display:flex;justify-content:flex-end;
+  border-top:1px solid var(--rule-light);
+}
+
+/* ─── Responsive ──────────────────────────────────── */
+@media (max-width:900px){
+  .head{grid-template-columns:1fr;align-items:start;gap:1.1rem}
+  .about{grid-template-columns:1fr;gap:2.6rem}
+  .about__portrait{max-width:420px}
+  .read{grid-template-columns:1fr;gap:.7rem}
+  .contact{grid-template-columns:1fr;gap:2.6rem}
+  .hero__scroll{display:none}
+}
+@media (max-width:560px){
+  .plates,.plates--advocacy{grid-template-columns:1fr}
+  .nav__links{gap:1rem;font-size:.84rem}
+  .nav__name{font-size:1.05rem}
+  .btn{width:100%;text-align:center}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+  .hero__art,.hero__kicker,.hero__title,.hero__meta,.hero__note,.hero__scroll{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="#" class="logo">Isaac Sarfo Adjei</a>
-            <ul class="nav-links">
-                <li><a href="#pr">PR Work</a></li>
-                <li><a href="#design">Design</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Crafting Stories, Designing Experiences</h1>
-            <p class="hero-subtitle">Communiation Strategist • Graphic Designer • Digital Media Writer</p>
-            <div class="accent-line"></div>
-            <p>I am passionate about strategic communication and advertising. I specialize in creating compelling narratives and visual identities that resonate among target audiences. Through my blog, I explore the evolving landscape of digital media and its impact on communication.</p>
-        </div>
+<nav class="nav" id="nav">
+  <a href="#top" class="nav__name">Isaac Sarfo Adjei</a>
+  <ul class="nav__links">
+    <li><a href="#advocacy">Advocacy</a></li>
+    <li><a href="#design">Design</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-        <div class="profile-section fade-in">
-            <div class="profile-image-container">
-                <img src="kwame.jpg" alt="My picture" class="profile-image">
-            </div>
-            <div class="profile-content">
-                <h3>About Me</h3>
-                <p class="subtitle">Passionate Communicator & Creative Professional</p>
-                <p>With a background in Publishing Studies and a Master's in Digital Media Communication, I bring a unique perspective to strategic communications. My work combines analytical thinking with creative expression, whether I'm crafting PR strategies, designing visual content, or analyzing digital media trends.</p>
-                <p>I believe in the power of storytelling to create meaningful connections between brands and their audiences. My approach integrates traditional PR principles with modern digital strategies, always keeping authenticity and impact at the forefront.</p>
-                <div class="resume-actions">
-                    <button class="view-resume-btn" id="viewResumeBtn">View Resume</button>
-                    <a href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" class="resume-btn" target="_blank">Download Resume</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ── Selected work, first ────────────────────────── -->
+<header class="hero" id="top">
+  <img class="hero__art" src="Images/Advocacy%20(3).jpg" alt="Illustration of many arms wearing gold jewellery arranged to form the shape of a skull.">
+  <div class="hero__label">
+    <p class="hero__kicker">Selected work</p>
+    <h1 class="hero__title">Where do you get your gold from?</h1>
+    <p class="hero__meta">
+      <em>Save Asaase Yaa</em>
+      <span>Advocacy illustration</span>
+      <span>Ghana, 2025</span>
+    </p>
+    <p class="hero__note">A piece built to put the buyer inside the transaction — asking whose river, whose forest, whose child paid for the metal on your wrist.</p>
+  </div>
+  <a href="#advocacy" class="hero__scroll">See the series</a>
+</header>
 
-    <!-- PR Work Section -->
-    <section id="pr">
-        <div class="section-header fade-in">
-            <h2 class="section-title">Public Relations & CSR</h2>
-            <p class="section-subtitle">Strategic communications and thought leadership in PR, advertising, and corporate social responsibility</p>
-        </div>
-        <div class="pr-articles">
-            <div class="articles-container">
-                <div class="articles-list collapsed">
-                    <a href="https://isaacdigitalmedia0.wordpress.com/2026/02/10/a-reflection-on-corporate-social-responsibility-and-its-communication-restrictions/" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="article-card fade-in">
-        <div class="article-meta">Published Article • PR Strategy</div>
-        <h3>A Reflection on Corporate Social Responsibility and Its Communication Restrictions</h3>
-        <p> Corporate social responsibility (CSR) activities are essential for achieving positive outcomes for organizations, serving as a key factor in corporate legitimacy and success (Benno Viererbl and Thomas Koch, 2023). According to Archie Carroll in his work on CSR, these activities extend beyond mere organizational profit and provide additional benefits to society.</p>
+<!-- ── Advocacy series ─────────────────────────────── -->
+<section class="band" id="advocacy">
+  <div class="wrap">
+    <div class="head">
+      <h2>Save Asaase Yaa</h2>
+      <p>Four illustrations on galamsey — illegal small-scale mining — and what it takes from Ghana's rivers, forests, and the people who live beside them. The series runs on Instagram as <a href="https://www.instagram.com/saveasaaseyaa" target="_blank" rel="noopener" style="color:var(--peach)">@saveasaaseyaa</a>.</p>
     </div>
-</a>
-                    
-                    
-                </div>
-                <button class="show-more-btn" id="showMoreBtn">Show More Articles</button>
-            </div>
-        </div>
-    </section>
 
-    <!-- Design Gallery Section -->
-    <section id="design">
-        <div class="section-header fade-in">
-            <h2 class="section-title">Graphic Design</h2>
-            <p class="section-subtitle">Visual storytelling through design - scroll to explore, click to view full size</p>
-        </div>
-        <div class="design-scroll-container">
-            <div class="design-grid" id="designCarousel">
-                <div class="design-item" 
-     data-index="0" 
-     data-title="Brand Design for Antique Padded Chair Sale" 
-     data-description="Design made to advertise an antique-style chair">
-    
-    <!-- YOUR DESIGN IMAGE -->
-    <img src="Images/Cline.jpg" alt="Brand Design for Antique Padded Chair Sale" style="width: 100%; height: 100%; object-fit: cover;">
-    
-    <div class="design-overlay">
-        <h3>Brand Design for Antique Padded Chair Sale</h3>
-        <p>Click to view full project</p>
-    </div>
-</div>
+    <div class="plates plates--advocacy" data-gallery="advocacy">
+      <button class="plate" type="button"
+        data-src="Images/Advocacy%20(2).jpg"
+        data-title="Before the clearing"
+        data-note="An excavator at the edge of forest that has stood for centuries, moments before it is taken down.">
+        <span class="plate__frame"><img src="Images/Advocacy%20(2).jpg" alt="An excavator standing at the edge of dense forest."></span>
+        <span class="plate__cap"><h3>Before the clearing</h3><span>Advocacy illustration</span></span>
+      </button>
 
-<div class="design-item" 
-     data-index="0" 
-     data-title="Product Design for Hybrid Generator" 
-     data-description="Design features a hybrid generator in a forest setting">
-    
-    <!-- YOUR DESIGN IMAGE -->
-    <img src="Images/HYBRID (1).jpg" alt="Hybrid Generator" style="width: 100%; height: 100%; object-fit: cover;">
-    
-    <div class="design-overlay">
-        <h3>Product advertisement design for a Hybrid Generator</h3>
-        <p>Click to view full project</p>
-    </div>
-</div>
-                <div class="design-item" 
-     data-index="0" 
-     data-title="Brand Design for Antique Padded Chair Sale" 
-     data-description=" Poster design made for a ballet performance, featuring a ballerina figurine">
-    
-    <!-- YOUR DESIGN IMAGE -->
-    <img src="Images/Grace (1).jpg" alt="Poster design made for a ballet performance, featuring a ballerina figurine" style="width: 100%; height: 100%; object-fit: cover;">
-    
-    <div class="design-overlay">
-        <h3>Poster design made for a ballet performance, featuring a ballerina figurine</h3>
-        <p>Click to view full project</p>
-    </div>
-</div>
-                
-                <div class="design-item" 
-     data-index="0" 
-     data-title="Brand Design for Antique Padded Chair Sale" 
-     data-description="Poster Design made to advertise the Accra Zoo">
-    
-    <!-- YOUR DESIGN IMAGE -->
-    <img src="Images/ACE 15.jpg" alt="Poster Design made to advertise the Accra Zoo" style="width: 100%; height: 100%; object-fit: cover;">
-    
-    <div class="design-overlay">
-        <h3>Poster design made to advertise the Accra Zoo</h3>
-        <p>Click to view full project</p>
-    </div>
-</div>
+      <button class="plate" type="button"
+        data-src="Images/Advocacy%20(1).jpg"
+        data-title="Raft on a brown river"
+        data-note="Alluvial mining turns Ghana's waterways to silt. The rafts stay; the water does not come back clear.">
+        <span class="plate__frame"><img src="Images/Advocacy%20(1).jpg" alt="A mining raft floating on a muddy brown river."></span>
+        <span class="plate__cap"><h3>Raft on a brown river</h3><span>Advocacy illustration</span></span>
+      </button>
 
-<div class="design-item" 
-     data-index="0" 
-     data-title="Brand Design for Antique Padded Chair Sale" 
-     data-description="Design made to advertise a sea food restaurant">
-    
-    <!-- YOUR DESIGN IMAGE -->
-    <img src="Images/sea.jpg" alt="Poster design for a sea food restaurant" style="width: 100%; height: 100%; object-fit: cover;">
-    
-    <div class="design-overlay">
-        <h3>Poster design for a sea food restaurant</h3>
-        <p>Click to view full project</p>
+      <button class="plate" type="button"
+        data-src="Images/Advocacy%20(4).jpg"
+        data-title="The boy and the dead river"
+        data-note="What mining runoff leaves behind for the communities downstream, and for everything that used to live in the water.">
+        <span class="plate__frame"><img src="Images/Advocacy%20(4).jpg" alt="A young boy standing in a river surrounded by dead fish."></span>
+        <span class="plate__cap"><h3>The boy and the dead river</h3><span>Advocacy illustration</span></span>
+      </button>
+
+      <button class="plate" type="button"
+        data-src="Images/Advocacy%20(3).jpg"
+        data-title="Where do you get your gold from?"
+        data-note="Arms in gold jewellery arranged into a skull — the true cost of the metal, carried by the person wearing it.">
+        <span class="plate__frame"><img src="Images/Advocacy%20(3).jpg" alt="Many arms wearing gold jewellery arranged to form a skull."></span>
+        <span class="plate__cap"><h3>Where do you get your gold from?</h3><span>Advocacy illustration</span></span>
+      </button>
     </div>
-</div>
-
-<div class="design-item" 
-     data-index="0" 
-     data-title="Brand Design for Antique Padded Chair Sale" 
-     data-description="Poster design for Texas State University's SPJ chapter">
-    
-    <!-- YOUR DESIGN IMAGE -->
-    <img src="Images/SPJ A4.jpg" alt="Poster design for Texas State University's SPJ chapter" style="width: 100%; height: 100%; object-fit: cover;">
-    
-    <div class="design-overlay">
-        <h3>Poster design for Texas State University's SPJ chapter</h3>
-        <p>Click to view full project</p>
-    </div>
-</div>
-
-<div class="design-item" 
-     data-index="0" 
-     data-title="Brand Design for Antique Padded Chair Sale" 
-     data-description="Poster design for a dog shelter and pet store">
-    
-    <!-- YOUR DESIGN IMAGE -->
-    <img src="Images/ACE 11 (1).jpg" alt="Poster design for a dog shelter and pet store" style="width: 100%; height: 100%; object-fit: cover;">
-    
-    <div class="design-overlay">
-        <h3>Poster design for a dog shelter and pet store</h3>
-        <p>Click to view full project</p>
-    </div>
-</div>
-
-<div class="design-item" 
-     data-index="0" 
-     data-title="Poster design for a laptop store" 
-     data-description="Poster design for a laptop store">
-    
-    <!-- YOUR DESIGN IMAGE -->
-    <img src="Images/Ace 6 (1).jpg" alt="Poster design for a laptop store" style="width: 100%; height: 100%; object-fit: cover;">
-    
-    <div class="design-overlay">
-        <h3>Poster design for a laptop store</h3>
-        <p>Click to view full project</p>
-    </div>
-</div>
-
-<div class="design-item" 
-     data-index="0" 
-     data-title="Poster design for SJMC Mass Communication week" 
-     data-description="Poster design for SJMC Mass Communication week">
-    
-    <!-- YOUR DESIGN IMAGE -->
-    <img src="Images/poster.jpg" alt="Poster design for SJMC Mass Communication week" style="width: 100%; height: 100%; object-fit: cover;">
-    
-    <div class="design-overlay">
-        <h3>Poster design for SJMC Mass Communication week</h3>
-        <p>Click to view full project</p>
-    </div>
-</div>
-
-
-            </div>
-        </div>
-        <div class="scroll-nav">
-            <button class="scroll-btn" id="scrollLeft">←</button>
-            <button class="scroll-btn" id="scrollRight">→</button>
-        </div>
-        <div class="scroll-indicators" id="indicators"></div>
-    </section>
-<section id="advocacy">
-    <div class="section-header fade-in">
-        <h2 class="section-title">Visualizing Advocacy: Save Asaase Yaa</h2>
-        <p class="section-subtitle">Digital art created in support of Save Asaase Yaa: confronting illegal mining and land degradation in Ghana - scroll to explore, click to view full size.
-            Follow <a href="https://www.instagram.com/saveasaaseyaa?igsh=OHFpaHpxMDRtNWZp&utm_source=qr" class="btn btn--ghost" target="_blank" rel="noopener">@saveasaaseyaa</a> on Instagram</p>
-    </div>
-    <div class="design-scroll-container">
-        <div class="design-grid" id="advocacyCarousel">
-            <div class="design-item" 
-                 data-index="0" 
-                 data-title="An excavator in a forest" 
-                 data-description="This piece depicts the scene before forests that have stood for eons are decimated">
-                <img src="Images/Advocacy (2).jpg" alt="excavator in a forest" style="width: 100%; height: 100%; object-fit: cover;">
-                <div class="design-overlay">
-                    <h3>An excavator in a forest</h3>
-                    <p>Click to view full project</p>
-                </div>
-            </div>
-
-            <div class="design-item" 
-                 data-index="1" 
-                 data-title="An illegal miners' raft on a muddy river" 
-                 data-description="This piece depicts illegal alluvial mining in Ghanaian rivers.">
-                <img src="Images/Advocacy (1).jpg" alt="Illegal alluvial mining" style="width: 100%; height: 100%; object-fit: cover;">
-                <div class="design-overlay">
-                    <h3>This piece depicts illegal alluvial mining in Ghanaian rivers.</h3>
-                    <p>Click to view full project</p>
-                </div>
-            </div>
-
-            <div class="design-item" 
-                 data-index="2" 
-                 data-title="A young boy in a river with dead fish" 
-                 data-description="This piece depicts the deadly effects of illegal mining on the local community and wildlife.">
-                <img src="Images/Advocacy (4).jpg" alt="the boy and the dead river" style="width: 100%; height: 100%; object-fit: cover;">
-                <div class="design-overlay">
-                    <h3>This piece shows the impact of illegal mining on the local community</h3>
-                    <p>Click to view full project</p>
-                </div>
-            </div>
-
-            <div class="design-item" 
-                 data-index="3" 
-                 data-title="Where do you get your gold from?" 
-                 data-description="This piece was designed to challenge consumers to reflect on the true cost behind illegally mined gold">
-                <img src="Images/Advocacy (3).jpg" alt="Many arms wearing gold drawn to form a skull" style="width: 100%; height: 100%; object-fit: cover;">
-                <div class="design-overlay">
-                    <h3>This piece was designed to challenge consumers to reflect on the true cost behind illegally mined gold</h3>
-                    <p>Click to view full project</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="scroll-nav">
-        <button class="scroll-btn" id="advocacyScrollLeft">←</button>
-        <button class="scroll-btn" id="advocacyScrollRight">→</button>
-    </div>
-    <div class="scroll-indicators" id="advocacyIndicators"></div>
+  </div>
 </section>
-    
-<!-- Design Modal/Lightbox -->
-<div class="design-modal" id="designModal">
-    <button class="modal-close" id="modalClose">×</button>
-    <button class="modal-nav prev" id="modalPrev">←</button>
-    <button class="modal-nav next" id="modalNext">→</button>
-    <div class="modal-content">
-        <div class="modal-image-container">
-            <div class="design-placeholder" id="modalPlaceholder">
-                <span id="modalPlaceholderText">Design</span>
-            </div>
-        </div>
-        <div class="modal-info">
-            <h3 id="modalTitle">Design Title</h3>
-            <p id="modalDescription">Design description goes here</p>
-        </div>
-    </div>
-</div> 
-    
-    <!-- Resume Viewer Modal -->
-    <div class="resume-modal" id="resumeModal">
-        <div class="resume-modal-content">
-            <div class="resume-modal-header">
-                <h3>Resume</h3>
-                <button class="resume-modal-close" id="resumeModalClose">×</button>
-            </div>
-            <div class="resume-modal-body">
-                <iframe id="resumeViewer" src=""></iframe>
-            </div>
-            <div class="resume-modal-footer">
-                <a href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" class="modal-download-btn" download>Download PDF</a>
-            </div>
-        </div>
+
+<!-- ── Commercial & campaign design ────────────────── -->
+<section class="band band--bone" id="design">
+  <div class="wrap">
+    <div class="head">
+      <h2>Campaign and brand design</h2>
+      <p>Posters and product advertising built for retail, arts, and student organisations, in Accra and at Texas State.</p>
     </div>
 
-    <!-- Blog Section -->
-    <section id="blog">
-        <div class="section-header fade-in">
-            <h2 class="section-title">Digital Media Blog</h2>
-            <p class="section-subtitle">I explore trends, challenges, and innovations in digital media in my blog. Give them a read!</p>
-        </div>
-        <div class="blog-grid">
-            <article class="blog-card fade-in">
-                <img src="Images/sos.jpg" width="100%" height="350px"/>
-                <div class="blog-content">
-                    <div class="blog-category">Digital Media</div>
-                    <h3>Shelves of Selves : A look at Our Online Identities as Products</h3>
-                    <p>Picture this: endless shelves filled with animate products; they are restless, self-aware, and caught in a relentless loop to allure buyers.. </p>
-                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/11/26/shelves-of-selves-a-look-at-our-online-identities-as-products/" class="read-more">Read Article</a>
-                </div>
-            </article>
-            <article class="blog-card fade-in">
-                <img src="Images/Legal Remix" width="100%" height="350px"/>
-                <div class="blog-content">
-                    <div class="blog-category">Digital Media</div>
-                    <h3>The Legal Remix: Navigating AI and Digital Creativity</h3>
-                    <p>In this current age of technology, content creation has abounded. Software and tools that can bring ideas to life have abounded, helping creators to create increasingly quality and engaging forms of media.</p>
-                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/10/26/the-legal-remix-navigating-ai-and-digital-creativity/" class="read-more">Read Article</a>
-                </div>
-            </article>
-            <article class="blog-card fade-in">
-                <img src="Images/vr.webp" width="100%" height="350px"/>
-                <div class="blog-content">
-                    <div class="blog-category">Digital Media</div>
-                    <h3>Virtually Everything: How Extended Realities Are Shaping Our Real Lives</h3>
-                    <p> The Metaverse has been touted by companies like Facebook as the next frontier for communication, work, and networking. It is often thought of as an expansive world where users traverse with their customizable avatars that perform activities in their stead. </p>
-                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/11/02/virtually-everything-how-extended-realities-are-shaping-our-real-lives/" class="read-more">Read Article</a>
-                </div>
-            </article>
-            <article class="blog-card fade-in">
-                <img src="Images/querry.webp" width="100%" height="350px"/>
-                <div class="blog-content">
-                    <div class="blog-category">Digital Media</div>
-                    <h3>Dear ChatGPT, How Do I Stay Relevant?</h3>
-                    <p>Have you ever wondered what AI “thinks” about the future? Or even the future of your job? In this article, I ask ChatGPT, ...</p>
-                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/10/12/dear-chatgpt-how-do-i-stay-relevant/" class="read-more">Read Article</a>
-                </div>
-            </article>
-            <article class="blog-card fade-in">
-                <img src="Images/g.webp" width="100%" height="350px"/>
-                <div class="blog-content">
-                    <div class="blog-category">Digital Media</div>
-                    <h3>The AI showdown: ChatGPT vs Gemini</h3>
-                    <p>I am going to come outright and say it: I am an AI enthusiast through and through. Its functions have always intrigued me...</p>
-                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/10/17/the-ai-showdown-chatgpt-vs-gemini/" class="read-more">Read Article</a>
-                </div>
-            </article>
-            <article class="blog-card fade-in">
-                <img src="Images/dc.webp" width="100%" height="350px"/>
-                <div class="blog-content">
-                    <div class="blog-category">Digital Media</div>
-                    <h3>The Pantheon Show: A Discussion About Data Centers and Their Implications.</h3>
-                    <p>In recent times, there has been substantial discussion about how data centers hosting numerous servers have been impacting the environment...</p>
-                    <a href="https://isaacdigitalmedia0.wordpress.com/2025/12/28/the-pantheon-show-a-discussion-about-data-centers-and-their-implications/" class="read-more">Read Article</a>
-                </div>
-            </article>
-        </div>
-    </section>
+    <div class="plates" data-gallery="design">
+      <button class="plate" type="button"
+        data-src="Images/Grace%20(1).jpg" data-title="Grace"
+        data-note="Performance poster for a ballet production, built around a single figurine and a lot of quiet space.">
+        <span class="plate__frame"><img src="Images/Grace%20(1).jpg" alt="Ballet performance poster featuring a ballerina figurine."></span>
+        <span class="plate__cap"><h3>Grace</h3><span>Performance poster</span></span>
+      </button>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="contact fade-in">
-            <h2>Let's Connect</h2>
-            <p>Interested in collaboration or want to discuss PR, design, or digital media?</p>
-            <div class="contact-links">
-                <a href="mailto:adjeisarfoike@gmail.com" class="contact-btn">Email Me</a>
-                <a href="https://www.linkedin.com/in/isaac-adjei-b94b90381?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="contact-btn" target="_blank">LinkedIn</a>
-                <a href="https://x.com/isaacsarfoadjei?s=21" class="contact-btn" target="_blank">Twitter</a>
-            </div>
-        </div>
-    </section>
+      <button class="plate" type="button"
+        data-src="Images/ACE%2015.jpg" data-title="Accra Zoo"
+        data-note="Visitor campaign poster for the Accra Zoo.">
+        <span class="plate__frame"><img src="Images/ACE%2015.jpg" alt="Poster advertising the Accra Zoo."></span>
+        <span class="plate__cap"><h3>Accra Zoo</h3><span>Visitor campaign</span></span>
+      </button>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Isaac Sarfo Adjei. All rights reserved.</p>
-    </footer>
+      <button class="plate" type="button"
+        data-src="Images/HYBRID%20(1).jpg" data-title="Hybrid generator"
+        data-note="Product advertisement placing a hybrid generator in a forest setting, leaning on the quiet-running claim.">
+        <span class="plate__frame"><img src="Images/HYBRID%20(1).jpg" alt="Product advertisement for a hybrid generator set in a forest."></span>
+        <span class="plate__cap"><h3>Hybrid generator</h3><span>Product advertising</span></span>
+      </button>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+      <button class="plate" type="button"
+        data-src="Images/sea.jpg" data-title="Seafood house"
+        data-note="Restaurant poster built around the catch rather than the plate.">
+        <span class="plate__frame"><img src="Images/sea.jpg" alt="Poster design for a seafood restaurant."></span>
+        <span class="plate__cap"><h3>Seafood house</h3><span>Restaurant poster</span></span>
+      </button>
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+      <button class="plate" type="button"
+        data-src="Images/Cline.jpg" data-title="Cline"
+        data-note="Brand design for a sale of antique padded chairs — furniture treated as portraiture.">
+        <span class="plate__frame"><img src="Images/Cline.jpg" alt="Brand design advertising an antique padded chair."></span>
+        <span class="plate__cap"><h3>Cline</h3><span>Brand design</span></span>
+      </button>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+      <button class="plate" type="button"
+        data-src="Images/ACE%2011%20(1).jpg" data-title="Shelter and pet store"
+        data-note="Adoption poster for a dog shelter and pet store.">
+        <span class="plate__frame"><img src="Images/ACE%2011%20(1).jpg" alt="Poster design for a dog shelter and pet store."></span>
+        <span class="plate__cap"><h3>Shelter and pet store</h3><span>Adoption poster</span></span>
+      </button>
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+      <button class="plate" type="button"
+        data-src="Images/Ace%206%20(1).jpg" data-title="Laptop store"
+        data-note="Retail poster for a laptop store.">
+        <span class="plate__frame"><img src="Images/Ace%206%20(1).jpg" alt="Poster design for a laptop store."></span>
+        <span class="plate__cap"><h3>Laptop store</h3><span>Retail poster</span></span>
+      </button>
 
-        // Add stagger effect to blog items
-        document.querySelectorAll('.blog-grid .fade-in').forEach((el, index) => {
-            el.style.transitionDelay = `${index * 0.1}s`;
-        });
+      <button class="plate" type="button"
+        data-src="Images/SPJ%20A4.jpg" data-title="SPJ, Texas State"
+        data-note="Recruitment poster for the Texas State student chapter of the Society of Professional Journalists.">
+        <span class="plate__frame"><img src="Images/SPJ%20A4.jpg" alt="Poster for the Texas State SPJ student chapter."></span>
+        <span class="plate__cap"><h3>SPJ, Texas State</h3><span>Chapter recruitment</span></span>
+      </button>
 
-        // Design Carousel Functionality
-        const modal = document.getElementById('designModal');
-const modalClose = document.getElementById('modalClose');
-const modalPrev = document.getElementById('modalPrev');
-const modalNext = document.getElementById('modalNext');
-const modalTitle = document.getElementById('modalTitle');
-const modalDescription = document.getElementById('modalDescription');
+      <button class="plate" type="button"
+        data-src="Images/poster.jpg" data-title="Mass Communication Week"
+        data-note="Event poster for the School of Journalism and Mass Communication's annual Mass Communication Week.">
+        <span class="plate__frame"><img src="Images/poster.jpg" alt="Poster for SJMC Mass Communication Week."></span>
+        <span class="plate__cap"><h3>Mass Communication Week</h3><span>Event poster, SJMC</span></span>
+      </button>
+    </div>
+  </div>
+</section>
 
-let activeItems = [];
-let currentModalIndex = 0;
+<!-- ── Writing ─────────────────────────────────────── -->
+<section class="band" id="writing">
+  <div class="wrap">
+    <div class="head">
+      <h2>Writing</h2>
+      <p>Essays on digital media, platform culture, and corporate communication. Published on my blog and in coursework at Texas State.</p>
+    </div>
 
-function setupGallery(carouselId, leftBtnId, rightBtnId, indicatorsId) {
-    const carousel = document.getElementById(carouselId);
-    const items = Array.from(carousel.querySelectorAll('.design-item'));
-    const leftBtn = document.getElementById(leftBtnId);
-    const rightBtn = document.getElementById(rightBtnId);
-    const indicatorsContainer = document.getElementById(indicatorsId);
-    let currentIndex = 0;
+    <div class="reads">
+      <a class="read" href="https://isaacdigitalmedia0.wordpress.com/2026/02/10/a-reflection-on-corporate-social-responsibility-and-its-communication-restrictions/" target="_blank" rel="noopener">
+        <h3>A reflection on corporate social responsibility and its communication restrictions</h3>
+        <span class="read__side">
+          <span class="read__when">February 2026</span>
+          <p>Why the companies doing the most CSR work are often the least able to talk about it, and what that costs them.</p>
+        </span>
+      </a>
 
-    items.forEach((_, i) => {
-        const indicator = document.createElement('div');
-        indicator.classList.add('indicator');
-        if (i === 0) indicator.classList.add('active');
-        indicator.addEventListener('click', () => scrollToIndex(i));
-        indicatorsContainer.appendChild(indicator);
-    });
-    const indicators = indicatorsContainer.querySelectorAll('.indicator');
+      <a class="read" href="https://isaacdigitalmedia0.wordpress.com/2025/12/28/the-pantheon-show-a-discussion-about-data-centers-and-their-implications/" target="_blank" rel="noopener">
+        <h3>The Pantheon show: data centres and their implications</h3>
+        <span class="read__side">
+          <span class="read__when">December 2025</span>
+          <p>The environmental bill arriving behind the server racks that make everything else feel weightless.</p>
+        </span>
+      </a>
 
-    function updateFocus() {
-        const carouselRect = carousel.getBoundingClientRect();
-        const carouselCenter = carouselRect.left + carouselRect.width / 2;
-        let closestIndex = 0;
-        let closestDistance = Infinity;
+      <a class="read" href="https://isaacdigitalmedia0.wordpress.com/2025/11/26/shelves-of-selves-a-look-at-our-online-identities-as-products/" target="_blank" rel="noopener">
+        <h3>Shelves of selves: our online identities as products</h3>
+        <span class="read__side">
+          <span class="read__when">November 2025</span>
+          <p>Endless shelves of animate products — restless, self-aware, and caught in a loop of trying to attract a buyer.</p>
+        </span>
+      </a>
 
-        items.forEach((item, index) => {
-            const itemRect = item.getBoundingClientRect();
-            const itemCenter = itemRect.left + itemRect.width / 2;
-            const distance = Math.abs(carouselCenter - itemCenter);
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestIndex = index;
-            }
-            item.classList.remove('in-focus');
-        });
+      <a class="read" href="https://isaacdigitalmedia0.wordpress.com/2025/11/02/virtually-everything-how-extended-realities-are-shaping-our-real-lives/" target="_blank" rel="noopener">
+        <h3>Virtually everything: how extended realities shape our real lives</h3>
+        <span class="read__side">
+          <span class="read__when">November 2025</span>
+          <p>The metaverse as promised, the metaverse as delivered, and the gap where the communication happens.</p>
+        </span>
+      </a>
 
-        items[closestIndex].classList.add('in-focus');
-        currentIndex = closestIndex;
-        indicators.forEach((ind, i) => ind.classList.toggle('active', i === closestIndex));
-    }
+      <a class="read" href="https://isaacdigitalmedia0.wordpress.com/2025/10/17/the-ai-showdown-chatgpt-vs-gemini/" target="_blank" rel="noopener">
+        <h3>The AI showdown: ChatGPT versus Gemini</h3>
+        <span class="read__side">
+          <span class="read__when">October 2025</span>
+          <p>A working comparison from someone who uses both daily, rather than a benchmark table.</p>
+        </span>
+      </a>
 
-    function scrollToIndex(index) {
-        const item = items[index];
-        const itemRect = item.getBoundingClientRect();
-        const carouselRect = carousel.getBoundingClientRect();
-        const scrollAmount = itemRect.left - carouselRect.left - (carouselRect.width / 2) + (itemRect.width / 2);
-        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
+      <a class="read" href="https://isaacdigitalmedia0.wordpress.com/2025/10/26/the-legal-remix-navigating-ai-and-digital-creativity/" target="_blank" rel="noopener">
+        <h3>The legal remix: navigating AI and digital creativity</h3>
+        <span class="read__side">
+          <span class="read__when">October 2025</span>
+          <p>Where copyright sits when the tools that make the work were trained on other people's.</p>
+        </span>
+      </a>
 
-    leftBtn.addEventListener('click', () => scrollToIndex(Math.max(0, currentIndex - 1)));
-    rightBtn.addEventListener('click', () => scrollToIndex(Math.min(items.length - 1, currentIndex + 1)));
-    carousel.addEventListener('scroll', updateFocus);
-    updateFocus();
+      <a class="read" href="https://isaacdigitalmedia0.wordpress.com/2025/10/12/dear-chatgpt-how-do-i-stay-relevant/" target="_blank" rel="noopener">
+        <h3>Dear ChatGPT, how do I stay relevant?</h3>
+        <span class="read__side">
+          <span class="read__when">October 2025</span>
+          <p>Asking the machine directly about the future of the job it is most likely to change.</p>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
 
-    items.forEach((item, index) => {
-        item.addEventListener('click', () => openModal(items, index));
-    });
-}
+<!-- ── About ───────────────────────────────────────── -->
+<section class="band band--bone" id="about">
+  <div class="wrap about">
+    <div class="about__portrait">
+      <img src="Images/port_2.JPG" alt="Portrait of Isaac Sarfo Adjei.">
+    </div>
+    <div>
+      <h2>Strategy on one side, a drawing hand on the other</h2>
+      <p>I work across strategic communication, design, and digital media writing. My background is in publishing studies; my graduate work is in digital media communication at Texas State University, where I handle web content and communications for the School of Journalism and Mass Communication.</p>
+      <p>That combination is the useful part. I can build the campaign argument and then draw it, which means the message and the image are not negotiated across two desks. Most of what is on this site started as a communication problem before it became a poster.</p>
+      <p>Recent work runs from CSR communication research to the Save Asaase Yaa series on illegal mining in Ghana. I am open to collaboration on campaign work, brand identity, and editorial projects.</p>
+      <div class="about__actions">
+        <button class="btn" type="button" id="openResume">Read résumé</button>
+        <a class="btn btn--quiet" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" download>Download PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-function openModal(items, index) {
-    activeItems = items;
-    currentModalIndex = index;
-    showModalImage(index);
-    modal.classList.add('active');
+<!-- ── Contact ─────────────────────────────────────── -->
+<section class="band band--emerald" id="contact">
+  <div class="wrap contact">
+    <div>
+      <h2>Let's make something</h2>
+      <p>Available for campaign work, brand identity, and editorial commissions. I reply to email fastest.</p>
+    </div>
+    <div class="contact__list">
+      <a href="mailto:adjeisarfoike@gmail.com"><span>adjeisarfoike@gmail.com</span><span>Email</span></a>
+      <a href="https://www.linkedin.com/in/isaac-adjei-b94b90381" target="_blank" rel="noopener"><span>Isaac Adjei</span><span>LinkedIn</span></a>
+      <a href="https://x.com/isaacsarfoadjei" target="_blank" rel="noopener"><span>@isaacsarfoadjei</span><span>X</span></a>
+      <a href="https://www.instagram.com/saveasaaseyaa" target="_blank" rel="noopener"><span>@saveasaaseyaa</span><span>Instagram</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Isaac Sarfo Adjei</span>
+  <span>Communication, design, digital media</span>
+</footer>
+
+<!-- ── Lightbox ────────────────────────────────────── -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Work viewer">
+  <button class="viewer__ctrl viewer__close" id="viewerClose" aria-label="Close viewer">✕</button>
+  <button class="viewer__ctrl viewer__prev" id="viewerPrev" aria-label="Previous work">←</button>
+  <button class="viewer__ctrl viewer__next" id="viewerNext" aria-label="Next work">→</button>
+  <div class="viewer__stage"><img id="viewerImg" src="" alt=""></div>
+  <div class="viewer__cap">
+    <h3 id="viewerTitle"></h3>
+    <p id="viewerNote"></p>
+  </div>
+</div>
+
+<!-- ── Résumé ──────────────────────────────────────── -->
+<div class="paper" id="paper" role="dialog" aria-modal="true" aria-label="Résumé">
+  <div class="paper__sheet">
+    <div class="paper__bar">
+      <h3>Résumé</h3>
+      <button type="button" id="paperClose" aria-label="Close résumé">✕</button>
+    </div>
+    <iframe id="paperFrame" title="Résumé of Isaac Sarfo Adjei" src=""></iframe>
+    <div class="paper__foot">
+      <a class="btn" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" download>Download PDF</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* Nav settles once you leave the hero */
+  var nav = document.getElementById('nav');
+  var settle = function(){ nav.classList.toggle('settled', window.scrollY > 80); };
+  settle();
+  window.addEventListener('scroll', settle, {passive:true});
+
+  /* Lightbox */
+  var viewer = document.getElementById('viewer');
+  var vImg   = document.getElementById('viewerImg');
+  var vTitle = document.getElementById('viewerTitle');
+  var vNote  = document.getElementById('viewerNote');
+  var set = [], at = 0, opener = null;
+
+  function paint(i){
+    at = (i + set.length) % set.length;
+    var p = set[at];
+    vImg.src = p.dataset.src;
+    vImg.alt = p.querySelector('img').alt;
+    vTitle.textContent = p.dataset.title;
+    vNote.textContent  = p.dataset.note;
+  }
+  function open(list, i, el){
+    set = list; opener = el;
+    paint(i);
+    viewer.setAttribute('open','');
     document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-    modal.classList.remove('active');
+    document.getElementById('viewerClose').focus();
+  }
+  function close(){
+    viewer.removeAttribute('open');
+    vImg.src = '';
     document.body.style.overflow = '';
-}
+    if (opener) { opener.focus(); opener = null; }
+  }
 
-function showModalImage(index) {
-    currentModalIndex = index;
-    const item = activeItems[index];
-    modalTitle.textContent = item.dataset.title;
-    modalDescription.textContent = item.dataset.description;
+  Array.prototype.forEach.call(document.querySelectorAll('[data-gallery]'), function(grid){
+    var plates = Array.prototype.slice.call(grid.querySelectorAll('.plate'));
+    plates.forEach(function(p, i){
+      p.addEventListener('click', function(){ open(plates, i, p); });
+    });
+  });
 
-    const img = item.querySelector('img');
-    const modalImageContainer = document.querySelector('.modal-image-container');
-    modalImageContainer.innerHTML = '';
+  document.getElementById('viewerClose').addEventListener('click', close);
+  document.getElementById('viewerPrev').addEventListener('click', function(){ paint(at - 1); });
+  document.getElementById('viewerNext').addEventListener('click', function(){ paint(at + 1); });
+  viewer.addEventListener('click', function(e){ if (e.target === viewer) close(); });
 
-    if (img) {
-        const modalImg = img.cloneNode(true);
-        modalImg.removeAttribute('id');
-        modalImg.style.maxWidth = '100%';
-        modalImg.style.maxHeight = '70vh';
-        modalImg.style.objectFit = 'contain';
-        modalImg.style.borderRadius = '8px';
-        modalImg.style.boxShadow = '0 20px 60px rgba(0,0,0,0.5)';
-        modalImageContainer.appendChild(modalImg);
+  /* Résumé */
+  var paper = document.getElementById('paper');
+  var frame = document.getElementById('paperFrame');
+  var PDF = 'Images/ISAAC-SARFO-ADJEI-RESUME.pdf';
+
+  document.getElementById('openResume').addEventListener('click', function(){
+    frame.src = PDF;
+    paper.setAttribute('open','');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('paperClose').focus();
+  });
+  function shut(){
+    paper.removeAttribute('open');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('paperClose').addEventListener('click', shut);
+  paper.addEventListener('click', function(e){ if (e.target === paper) shut(); });
+
+  /* Keyboard */
+  document.addEventListener('keydown', function(e){
+    if (paper.hasAttribute('open')){
+      if (e.key === 'Escape') shut();
+      return;
     }
-}
-
-modalClose.addEventListener('click', closeModal);
-modalPrev.addEventListener('click', () => showModalImage(Math.max(0, currentModalIndex - 1)));
-modalNext.addEventListener('click', () => showModalImage(Math.min(activeItems.length - 1, currentModalIndex + 1)));
-modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-
-document.addEventListener('keydown', (e) => {
-    if (modal.classList.contains('active')) {
-        if (e.key === 'Escape') closeModal();
-        else if (e.key === 'ArrowLeft') showModalImage(Math.max(0, currentModalIndex - 1));
-        else if (e.key === 'ArrowRight') showModalImage(Math.min(activeItems.length - 1, currentModalIndex + 1));
-    }
-});
-
-setupGallery('designCarousel', 'scrollLeft', 'scrollRight', 'indicators');
-setupGallery('advocacyCarousel', 'advocacyScrollLeft', 'advocacyScrollRight', 'advocacyIndicators');
-
-        // PR Articles Show More/Less functionality
-        const showMoreBtn = document.getElementById('showMoreBtn');
-        const articlesList = document.querySelector('.articles-list');
-        let articlesExpanded = false;
-
-        showMoreBtn.addEventListener('click', () => {
-            articlesExpanded = !articlesExpanded;
-            
-            if (articlesExpanded) {
-                articlesList.classList.remove('collapsed');
-                showMoreBtn.textContent = 'Show Less';
-            } else {
-                articlesList.classList.add('collapsed');
-                showMoreBtn.textContent = 'Show More Articles';
-                document.getElementById('pr').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
-            }
-        });
-
-        // Resume Viewer Modal
-        const viewResumeBtn = document.getElementById('viewResumeBtn');
-        const resumeModal = document.getElementById('resumeModal');
-        const resumeModalClose = document.getElementById('resumeModalClose');
-        const resumeViewer = document.getElementById('resumeViewer');
-
-        function openResumeViewer() {
-            resumeViewer.src = 'Images/ISAAC-SARFO-ADJEI-RESUME.pdf';
-            resumeModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeResumeViewer() {
-            resumeModal.classList.remove('active');
-            resumeViewer.src = '';
-            document.body.style.overflow = '';
-        }
-
-        viewResumeBtn.addEventListener('click', openResumeViewer);
-        resumeModalClose.addEventListener('click', closeResumeViewer);
-
-        // Close resume modal on background click
-        resumeModal.addEventListener('click', (e) => {
-            if (e.target === resumeModal) {
-                closeResumeViewer();
-            }
-        });
-
-        // Close resume modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && resumeModal.classList.contains('active')) {
-                closeResumeViewer();
-            }
-        });
-    </script>
+    if (!viewer.hasAttribute('open')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  paint(at - 1);
+    if (e.key === 'ArrowRight') paint(at + 1);
+  });
+})();
+</script>
 </body>
 </html>
