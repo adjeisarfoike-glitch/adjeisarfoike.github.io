@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Isaac Sarfo Adjei — Communication, Design, Digital Media</title>
-<meta name="description" content="Portfolio of Isaac Sarfo Adjei: strategic communication, graphic design, and writing on digital media.">
+<title>Isaac Sarfo Adjei — Communication Research, Design, Digital Media</title>
+<meta name="description" content="Isaac Sarfo Adjei — graduate researcher at Texas State University studying credibility, framing, and AI-mediated communication. Research, design, and writing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
@@ -207,6 +207,19 @@ a{color:inherit}
 .feature--bone .plate__cap span{color:#6A6459}
 .feature--bone .plate__cap .fig{color:#8A6A32}
 
+/* ─── Research ────────────────────────────────────── */
+.thesis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(1.5rem,4vw,4.5rem);padding:2.2rem 0 2.6rem;border-top:2px solid var(--rule-dark);border-bottom:1px solid var(--rule-dark)}
+.thesis h3{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.1;letter-spacing:-.01em;margin-top:.7rem;max-width:18ch}
+.thesis__body p{color:var(--bone-dim);margin-bottom:1rem;max-width:56ch}
+.thesis__meta{font-size:.88rem;color:var(--brass)!important;font-style:italic}
+.subhead{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin:clamp(3.5rem,7vw,6rem) 0 1.2rem;scroll-margin-top:5rem}
+.subhead h3{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.05}
+.subhead p{font-style:italic;color:var(--bone-dim);font-size:.95rem}
+.subhead a{color:var(--peach)}
+@media (max-width:860px){
+  .thesis{grid-template-columns:1fr;gap:1.2rem}
+}
+
 /* ─── Essays ──────────────────────────────────────── */
 .essays{border-top:2px solid var(--rule-dark)}
 .essay{
@@ -331,11 +344,11 @@ footer{
 <nav class="nav" id="nav">
   <a href="#top" class="nav__name">Isaac Sarfo Adjei</a>
   <ul class="nav__links">
-    <li><a href="#contents">Contents</a></li>
+    <li><a href="#research">Thesis</a></li>
+    <li><a href="#essays">Essays</a></li>
+    <li><a href="#profile">Profile</a></li>
     <li><a href="#advocacy">Advocacy</a></li>
     <li><a href="#design">Design</a></li>
-    <li><a href="#writing">Writing</a></li>
-    <li><a href="#profile">Profile</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -348,7 +361,7 @@ footer{
     <p class="masthead">Isaac Sarfo Adjei</p>
     <p class="cover__issue">
       <span>Portfolio, No. 1</span>
-      <span>Communication, design &amp; digital media</span>
+      <span>Communication research, design &amp; digital media</span>
       <span>Accra / San Marcos</span>
     </p>
   </div>
@@ -365,7 +378,7 @@ footer{
   </div>
 
   <div class="cover__foot">
-    <span>Four features, seven essays</span>
+    <span>Thesis, essays, illustration &amp; design</span>
     <a href="#contents" style="text-decoration:none">Turn to contents</a>
   </div>
 </header>
@@ -376,46 +389,138 @@ footer{
     <div>
       <h2>Contents</h2>
       <nav class="toc">
-        <a href="#advocacy">
+        <a href="#research">
           <span class="toc__no">I</span>
+          <span class="toc__ttl">Thesis and essays<span class="toc__sub">Generative AI, credibility, and writing on digital media</span></span>
+          <span class="toc__pg">Research</span>
+        </a>
+        <a href="#profile">
+          <span class="toc__no">II</span>
+          <span class="toc__ttl">Profile<span class="toc__sub">Why someone who makes persuasive messages studies them</span></span>
+          <span class="toc__pg">Interview</span>
+        </a>
+        <a href="#advocacy">
+          <span class="toc__no">III</span>
           <span class="toc__ttl">Save Asaase Yaa<span class="toc__sub">Four illustrations on illegal mining in Ghana</span></span>
           <span class="toc__pg">Feature</span>
         </a>
         <a href="#design">
-          <span class="toc__no">II</span>
+          <span class="toc__no">IV</span>
           <span class="toc__ttl">Campaign and brand design<span class="toc__sub">Nine posters for retail, arts and student work</span></span>
           <span class="toc__pg">Portfolio</span>
         </a>
-        <a href="#writing">
-          <span class="toc__no">III</span>
-          <span class="toc__ttl">Writing<span class="toc__sub">Essays on platform culture and corporate communication</span></span>
-          <span class="toc__pg">Essays</span>
-        </a>
-        <a href="#profile">
-          <span class="toc__no">IV</span>
-          <span class="toc__ttl">Profile<span class="toc__sub">The strategy, the drawing hand, and where they meet</span></span>
-          <span class="toc__pg">Interview</span>
-        </a>
         <a href="#contact">
           <span class="toc__no">V</span>
-          <span class="toc__ttl">Contact<span class="toc__sub">Commissions, collaboration and correspondence</span></span>
+          <span class="toc__ttl">Contact<span class="toc__sub">Research conversations, collaboration and correspondence</span></span>
           <span class="toc__pg">Back page</span>
         </a>
       </nav>
     </div>
 
     <aside class="contents__aside">
-      <p>This issue collects advocacy illustration, campaign design and written work made between Accra and San Marcos, Texas.</p>
+      <p>This issue collects my thesis in progress, essays, advocacy illustration, campaign design and written work made between Accra and San Marcos, Texas.</p>
       <div class="rule"></div>
       <p>Words, images and design by Isaac Sarfo Adjei. Cover illustration from the Save Asaase Yaa series.</p>
     </aside>
   </div>
 </section>
 
-<!-- ── I. Advocacy ─────────────────────────────────── -->
+  <!-- ── I. Thesis and essays ───────────────────────── -->
+  <section class="feature" id="research">
+    <div class="wrap">
+      <div class="runhead"><span>Research I</span><span>Thesis and essays</span></div>
+      <div class="opener">
+        <h2>Thesis and essays</h2>
+        <p class="standfirst">My research asks how people decide what to trust when the source is a machine. My thesis studies that question with undergraduates and generative AI; my essays work through the wider questions of AI, platforms and corporate communication in public.</p>
+      </div>
+
+      <div class="thesis">
+        <div>
+          <span class="essay__no">M.A. thesis &middot; Texas State University &middot; 2026&ndash;27</span>
+          <h3>How undergraduates judge the credibility of generative AI</h3>
+        </div>
+        <div class="thesis__body">
+          <p>Students now turn to tools like ChatGPT, Claude and Gemini for coursework, and they have to decide, often quickly, whether what those tools produce can be trusted. My thesis looks at how they make that call.</p>
+          <p>The study is grounded in Sundar&rsquo;s MAIN model. It examines how two kinds of technological affordance shape credibility judgments: modality affordances, which may cue a realism heuristic, and agency affordances, which may cue a machine heuristic.</p>
+          <p>Through semi-structured interviews with undergraduates about the generative AI tool each uses most, and reflexive thematic analysis of their accounts, the study traces how students themselves explain what makes AI output credible.</p>
+          <p class="thesis__meta">Chair: Dr. Heidi Makady &middot; School of Journalism and Mass Communication</p>
+        </div>
+      </div>
+
+      <div class="subhead" id="essays">
+        <h3>Essays</h3>
+        <p>Published on my blog, <a href="https://isaacdigitalmedia0.wordpress.com/" target="_blank" rel="noopener">Hermes Post</a></p>
+      </div>
+      <div class="essays">
+      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2026/02/10/a-reflection-on-corporate-social-responsibility-and-its-communication-restrictions/" target="_blank" rel="noopener">
+        <span class="essay__no">Feb ’26</span>
+        <h3>A reflection on corporate social responsibility and its communication restrictions</h3>
+        <p>Why the companies doing the most CSR work are often the least able to talk about it, and what that costs them.</p>
+      </a>
+      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/12/28/the-pantheon-show-a-discussion-about-data-centers-and-their-implications/" target="_blank" rel="noopener">
+        <span class="essay__no">Dec ’25</span>
+        <h3>The Pantheon show: data centres and their implications</h3>
+        <p>The environmental bill arriving behind the server racks that make everything else feel weightless.</p>
+      </a>
+      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/11/26/shelves-of-selves-a-look-at-our-online-identities-as-products/" target="_blank" rel="noopener">
+        <span class="essay__no">Nov ’25</span>
+        <h3>Shelves of selves: our online identities as products</h3>
+        <p>Endless shelves of animate products — restless, self-aware, and caught in a loop of trying to attract a buyer.</p>
+      </a>
+      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/11/02/virtually-everything-how-extended-realities-are-shaping-our-real-lives/" target="_blank" rel="noopener">
+        <span class="essay__no">Nov ’25</span>
+        <h3>Virtually everything: how extended realities shape our real lives</h3>
+        <p>The metaverse as promised, the metaverse as delivered, and the gap where the communication happens.</p>
+      </a>
+      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/26/the-legal-remix-navigating-ai-and-digital-creativity/" target="_blank" rel="noopener">
+        <span class="essay__no">Oct ’25</span>
+        <h3>The legal remix: navigating AI and digital creativity</h3>
+        <p>Where copyright sits when the tools that make the work were trained on other people's.</p>
+      </a>
+      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/17/the-ai-showdown-chatgpt-vs-gemini/" target="_blank" rel="noopener">
+        <span class="essay__no">Oct ’25</span>
+        <h3>The AI showdown: ChatGPT versus Gemini</h3>
+        <p>A working comparison from someone who uses both daily, rather than a benchmark table.</p>
+      </a>
+      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/12/dear-chatgpt-how-do-i-stay-relevant/" target="_blank" rel="noopener">
+        <span class="essay__no">Oct ’25</span>
+        <h3>Dear ChatGPT, how do I stay relevant?</h3>
+        <p>Asking the machine directly about the future of the job it is most likely to change.</p>
+      </a>
+    </div>
+    </div>
+  </section>
+
+  <!-- ── II. Profile ─────────────────────────────────── -->
+  <section class="feature feature--bone" id="profile">
+    <div class="wrap">
+      <div class="runhead"><span>Profile II</span><span>Isaac Sarfo Adjei</span></div>
+      <div class="profile">
+        <figure class="profile__portrait">
+          <img src="Images/port 2.JPG" alt="Portrait of Isaac Sarfo Adjei.">
+          <figcaption>Photographed in San Marcos, Texas.</figcaption>
+        </figure>
+        <div>
+          <h2>I make persuasive messages, and I study them</h2>
+          <div class="cols">
+            <p>I am a second-year master&rsquo;s student in digital media communication at Texas State University&rsquo;s School of Journalism and Mass Communication. I came to the field through a BA in Publishing Studies at Kwame Nkrumah University of Science and Technology (KNUST) in Ghana.</p>
+            <p>At Texas State I work as a graduate assistant: I support the course AI and Automation for Media Professionals and handle web content and communications for the school. Both jobs feed my research, which asks how audiences decide what to trust &mdash; in generative AI output, in corporate sustainability claims, and in news about environmental crisis.</p>
+            <p>I also design. The campaign posters and the Save Asaase Yaa illustrations on this site are that practice, and making persuasive messages is a large part of how I learned to take them apart. I am applying to PhD programs in communication and advertising to keep doing both, with an academic career as the goal.</p>
+          </div>
+          <p class="pullquote">Making persuasive messages is part of how I learned to study them.</p>
+          <div class="profile__actions">
+            <button class="btn" type="button" id="openResume">Read résumé</button>
+            <a class="btn btn--quiet" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" download>Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ── III. Advocacy ─────────────────────────────────── -->
 <section class="feature" id="advocacy">
   <div class="wrap">
-    <div class="runhead"><span>Feature I</span><span>Save Asaase Yaa</span></div>
+    <div class="runhead"><span>Feature III</span><span>Save Asaase Yaa</span></div>
     <div class="opener">
       <h2>Save Asaase Yaa</h2>
       <p class="standfirst">Four illustrations on galamsey — illegal small-scale mining — and what it takes from Ghana's rivers, forests, and the people who live beside them. The series runs on Instagram as <a href="https://www.instagram.com/saveasaaseyaa" target="_blank" rel="noopener">@saveasaaseyaa</a>.</p>
@@ -453,10 +558,10 @@ footer{
   </div>
 </section>
 
-<!-- ── II. Design ──────────────────────────────────── -->
+<!-- ── IV. Design ──────────────────────────────────── -->
 <section class="feature feature--bone" id="design">
   <div class="wrap">
-    <div class="runhead"><span>Portfolio II</span><span>Campaign and brand design</span></div>
+    <div class="runhead"><span>Portfolio IV</span><span>Campaign and brand design</span></div>
     <div class="opener">
       <h2>Campaign and brand design</h2>
       <p class="standfirst">Posters and product advertising built for retail, arts, and student organisations, in Accra and at Texas State.</p>
@@ -529,89 +634,14 @@ footer{
   </div>
 </section>
 
-<!-- ── III. Writing ────────────────────────────────── -->
-<section class="feature" id="writing">
-  <div class="wrap">
-    <div class="runhead"><span>Essays III</span><span>Writing</span></div>
-    <div class="opener">
-      <h2>Writing</h2>
-      <p class="standfirst">Essays on digital media, platform culture, and corporate communication. Published on my blog and in coursework at Texas State.</p>
-    </div>
-
-    <div class="essays">
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2026/02/10/a-reflection-on-corporate-social-responsibility-and-its-communication-restrictions/" target="_blank" rel="noopener">
-        <span class="essay__no">Feb ’26</span>
-        <h3>A reflection on corporate social responsibility and its communication restrictions</h3>
-        <p>Why the companies doing the most CSR work are often the least able to talk about it, and what that costs them.</p>
-      </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/12/28/the-pantheon-show-a-discussion-about-data-centers-and-their-implications/" target="_blank" rel="noopener">
-        <span class="essay__no">Dec ’25</span>
-        <h3>The Pantheon show: data centres and their implications</h3>
-        <p>The environmental bill arriving behind the server racks that make everything else feel weightless.</p>
-      </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/11/26/shelves-of-selves-a-look-at-our-online-identities-as-products/" target="_blank" rel="noopener">
-        <span class="essay__no">Nov ’25</span>
-        <h3>Shelves of selves: our online identities as products</h3>
-        <p>Endless shelves of animate products — restless, self-aware, and caught in a loop of trying to attract a buyer.</p>
-      </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/11/02/virtually-everything-how-extended-realities-are-shaping-our-real-lives/" target="_blank" rel="noopener">
-        <span class="essay__no">Nov ’25</span>
-        <h3>Virtually everything: how extended realities shape our real lives</h3>
-        <p>The metaverse as promised, the metaverse as delivered, and the gap where the communication happens.</p>
-      </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/26/the-legal-remix-navigating-ai-and-digital-creativity/" target="_blank" rel="noopener">
-        <span class="essay__no">Oct ’25</span>
-        <h3>The legal remix: navigating AI and digital creativity</h3>
-        <p>Where copyright sits when the tools that make the work were trained on other people's.</p>
-      </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/17/the-ai-showdown-chatgpt-vs-gemini/" target="_blank" rel="noopener">
-        <span class="essay__no">Oct ’25</span>
-        <h3>The AI showdown: ChatGPT versus Gemini</h3>
-        <p>A working comparison from someone who uses both daily, rather than a benchmark table.</p>
-      </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/12/dear-chatgpt-how-do-i-stay-relevant/" target="_blank" rel="noopener">
-        <span class="essay__no">Oct ’25</span>
-        <h3>Dear ChatGPT, how do I stay relevant?</h3>
-        <p>Asking the machine directly about the future of the job it is most likely to change.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── IV. Profile ─────────────────────────────────── -->
-<section class="feature feature--bone" id="profile">
-  <div class="wrap">
-    <div class="runhead"><span>Profile IV</span><span>Isaac Sarfo Adjei</span></div>
-    <div class="profile">
-      <figure class="profile__portrait">
-        <img src="Images/port 2.JPG" alt="Portrait of Isaac Sarfo Adjei.">
-        <figcaption>Photographed in San Marcos, Texas.</figcaption>
-      </figure>
-      <div>
-        <h2>Strategy on one side, a drawing hand on the other</h2>
-        <div class="cols">
-          <p>I work across strategic communication, design, and digital media writing. My background is in publishing studies; my graduate work is in digital media communication at Texas State University, where I handle web content and communications for the School of Journalism and Mass Communication.</p>
-          <p>That combination is the useful part. I can build the campaign argument and then draw it, which means the message and the image are not negotiated across two desks. Most of what is on this site started as a communication problem before it became a poster.</p>
-          <p>Recent work runs from CSR communication research to the Save Asaase Yaa series on illegal mining in Ghana. I am open to collaboration on campaign work, brand identity, and editorial projects.</p>
-        </div>
-        <p class="pullquote">Most of what is here started as a communication problem before it became a poster.</p>
-        <div class="profile__actions">
-          <button class="btn" type="button" id="openResume">Read résumé</button>
-          <a class="btn btn--quiet" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" download>Download PDF</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ── V. Back page ────────────────────────────────── -->
 <section class="feature feature--emerald" id="contact">
   <div class="wrap">
     <div class="runhead"><span>Back page V</span><span>Contact</span></div>
     <div class="colophon">
       <div>
-        <h2>Let's make something</h2>
-        <p>Available for campaign work, brand identity, and editorial commissions. I reply to email fastest.</p>
+        <h2>Let&rsquo;s talk research</h2>
+        <p>I am applying to PhD programs in communication and advertising and welcome conversations with faculty about research fit, collaboration, and graduate study. I still take on select design work. Email reaches me fastest.</p>
       </div>
       <div class="clist">
         <a href="mailto:adjeisarfoike@gmail.com"><span>adjeisarfoike@gmail.com</span><span>Email</span></a>
