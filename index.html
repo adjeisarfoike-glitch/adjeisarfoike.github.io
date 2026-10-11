@@ -1,17 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Isaac Sarfo Adjei — Communication Research, Design, Digital Media</title>
-<meta name="description" content="Isaac Sarfo Adjei — graduate researcher at Texas State University studying credibility, framing, and AI-mediated communication. Research, design, and writing.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isaac Sarfo Adjei — The Research Desk</title>
+<meta name="description" content="Isaac Sarfo Adjei: communication research, design and digital media. Thesis, essays, illustration and design, laid out on a research desk.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&amp;family=JetBrains+Mono:wght@400;600;800&amp;family=Caveat:wght@500;700&amp;family=UnifrakturMaguntia&amp;family=Archivo:wght@400;600;800;900&amp;display=swap">
 <style>
-:root{
-  --ink:#0B1712;
-  --ink-raised:#122019;
+body{margin:0;background:#1E130C}
+html{scroll-behavior:smooth}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid #E2C677;outline-offset:3px}
+
+/* ---------- top bar ---------- */
+.top{position:fixed;top:0;left:0;right:0;z-index:30;height:52px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 20px;background:linear-gradient(180deg,rgba(18,11,6,.92),rgba(18,11,6,.55));color:#EDE7DA;font-family:Newsreader,serif;border-bottom:1px solid rgba(237,231,218,.12)}
+.brand{font-family:'Bodoni Moda',serif;font-size:18px;font-weight:500;text-decoration:none;min-height:44px;display:flex;align-items:center;white-space:nowrap}
+.chap{font-style:italic;font-size:17px;white-space:nowrap;color:#D0C9BB}
+.dots{display:flex;gap:6px;align-items:center}
+.dots a{position:relative;display:flex;align-items:center;justify-content:center;min-width:32px;min-height:32px;border-radius:50%;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px}
+.tip{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);white-space:nowrap;background:#EDE7DA;color:#1E130C;padding:4px 10px;border-radius:4px;font-family:Newsreader,serif;font-style:italic;font-size:15px;opacity:0;pointer-events:none;transition:opacity .15s;box-shadow:0 6px 14px rgba(0,0,0,.35)}
+.dots a:hover .tip,.dots a:focus-visible .tip{opacity:1}
+.acts{display:flex;align-items:center;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 12px;border:1px solid rgba(237,231,218,.5);background:transparent;color:#EDE7DA;font-family:Newsreader,serif;font-style:italic;font-size:16px;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn.solid{background:#EDE7DA;color:#1E130C;border-color:#EDE7DA}
+@media (max-width: 1150px){.chap{display:none}}
+@media (max-width: 820px){.dots,.hide-sm{display:none}.top{padding:0 10px;gap:6px}.brand{font-size:16px}.btn{padding:0 9px;font-size:15px}}
+
+/* ---------- the scroll tour ---------- */
+.tour{position:relative;height:766vh}
+.stage{position:-webkit-sticky;position:sticky;top:0;height:100vh;overflow:hidden;background:#1E130C;touch-action:pan-y}
+.world{position:absolute;left:0;top:0;width:2800px;height:1800px;transform-origin:0 0;will-change:transform;
+  background-color:#6A4630;
+  background-image:
+    radial-gradient(ellipse 46% 40% at 66% 34%, rgba(255,226,170,.22), transparent 70%),
+    radial-gradient(ellipse 60px 22px at 23% 62%, rgba(40,22,10,.55), rgba(40,22,10,.2) 55%, transparent 72%),
+    radial-gradient(ellipse 44px 16px at 81% 18%, rgba(40,22,10,.5), rgba(40,22,10,.18) 55%, transparent 72%),
+    radial-gradient(rgba(0,0,0,.05) 1px, transparent 1.5px),
+    repeating-linear-gradient(180deg, transparent 0 448px, rgba(0,0,0,.38) 448px 450px, rgba(255,255,255,.05) 450px 451px),
+    repeating-linear-gradient(178.6deg, rgba(0,0,0,.07) 0 2px, transparent 2px 17px, rgba(255,255,255,.045) 17px 19px, transparent 19px 37px),
+    repeating-linear-gradient(181.2deg, rgba(0,0,0,.05) 0 1px, transparent 1px 7px),
+    linear-gradient(90deg, #5A3A26, #74503A 22%, #684531 45%, #7B573F 70%, #5E3D29);
+  background-size:100% 100%, 100% 100%, 100% 100%, 5px 5px, 100% 100%, 100% 100%, 100% 100%, 100% 100%}
+.lamp{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,.55))}
+.obj{position:absolute;box-sizing:border-box}
+/* one light source, top-right: every object casts its shadow down and to the left */
+.lift{box-shadow:-16px 24px 34px rgba(0,0,0,.42),-3px 5px 8px rgba(0,0,0,.25)}
+.paper{background:#FBF8F1;box-shadow:-16px 24px 34px rgba(0,0,0,.4),-3px 5px 8px rgba(0,0,0,.22)}
+.hot{position:absolute;inset:-14px;border-radius:20px;z-index:20;cursor:pointer;transition:box-shadow .25s, background-color .25s}
+.hot:hover{box-shadow:0 0 0 6px rgba(255,214,150,.65),0 0 80px rgba(255,214,150,.45);background-color:rgba(255,214,150,.05)}
+
+/* scroll-driven pieces: --a is the object's own progress (0→1), --t a threshold within it */
+.appear{--v:clamp(0, (var(--a) - var(--t, 0)) * 6, 1);opacity:var(--v);transform:translateY(calc((1 - var(--v)) * 14px))}
+.draw{transform-origin:0 50%;transform:scaleX(clamp(0, (var(--a) - var(--t, 0)) * 5, 1))}
+.unfold{transform-origin:50% 0;transform:perspective(1600px) rotateX(calc((1 - var(--a)) * -88deg))}
+.foldshade{opacity:calc(1 - var(--a))}
+.tab{transform:translateX(calc((1 - clamp(0, (var(--a) - var(--t, 0)) * 4, 1)) * -70px))}
+.feed{transform:translateY(calc(var(--a) * -1566px))}
+.slide{transform:translateY(calc((1 - var(--a)) * 150px))}
+.unroll{clip-path:inset(0 calc((1 - var(--a)) * 92%) 0 0)}
+.roll{left:calc((0.08 + var(--a) * 0.92) * 100% - 18px);opacity:calc((1 - var(--a)) * 5)}
+.fan{transform:translate(calc(var(--a) * var(--fx) * 1px), calc(var(--a) * var(--fy) * 1px)) rotate(calc(var(--a) * var(--fr) * 1deg))}
+.cover{transform-origin:0 50%;transform:perspective(2200px) rotateY(calc(var(--open) * -158deg));-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.stampin{--v:clamp(0, (var(--a) - 0.75) * 5, 1);opacity:var(--v);transform:scale(calc(2 - var(--v))) rotate(-8deg)}
+.foil{background:linear-gradient(110deg,#B8923F 20%,#F6E2A0 40%,#B8923F 60%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:foil 7s linear infinite}
+@keyframes foil{to{background-position:-220% 0}}
+.typing i{display:inline-block;width:8px;height:8px;margin-right:4px;border-radius:50%;background:#9AA1AE;animation:dotb 1.2s ease-in-out infinite}
+@keyframes dotb{0%,60%,100%{transform:none;opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.steam{position:absolute;width:60px;height:120px;border-radius:50%;background:radial-gradient(ellipse at 50% 60%, rgba(255,255,255,.35), transparent 65%);filter:blur(10px);animation:steam 5s ease-in-out infinite}
+@keyframes steam{0%{transform:translate(0,10px) scale(.8);opacity:0}40%{opacity:.8}100%{transform:translate(-30px,-110px) scale(1.4);opacity:0}}
+
+/* ---------- explainer placards ---------- */
+.card{position:absolute;width:372px;box-sizing:border-box;padding:0;color:#1D1A16;border-radius:3px;
+  background-color:#FBF8F1;background-image:radial-gradient(rgba(120,90,50,.06) 1px, transparent 1.4px),linear-gradient(180deg,rgba(255,255,255,.6),rgba(255,255,255,0) 40%);background-size:5px 5px,100% 100%;
+  box-shadow:-16px 24px 44px rgba(0,0,0,.52),0 2px 6px rgba(0,0,0,.3),inset 0 0 0 1px rgba(29,26,22,.08);
+  font-family:Newsreader, Georgia, serif;font-size:16px;line-height:1.58;z-index:12;scrollbar-width:thin}
+.card-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:12px 20px;background:#1D1A16;color:#EDE7DA}
+.num{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1.5px solid #E3A78D;font-family:'Bodoni Moda',serif;font-size:16px;color:#F3D7C8}
+.kicker{margin:0;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:#E3C9B4}
+.card-body{padding:16px 22px 6px}
+.h{margin:0;font-family:'Bodoni Moda',serif;font-weight:500;line-height:1.06;letter-spacing:-0.015em}
+.card p{margin:10px 0 0}
+.look{display:flex;gap:10px;align-items:flex-start;margin:12px 0 2px !important;padding:9px 12px;border-radius:3px;background:rgba(176,58,34,.08);font-style:italic;font-size:15px;line-height:1.4;color:#6E2A18}
+.look svg{flex:0 0 auto;width:16px;height:16px;margin-top:2px}
+.meta{font-family:Newsreader,serif;font-style:italic;font-size:14px;color:#6B6458}
+.chip{display:inline-block;padding:2px 8px;margin:4px 4px 0 0;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;border:1.5px solid #1D1A16}
+.ctas{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.cta{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 14px;background:#1D1A16;color:#FBF8F1;border:1.5px solid #1D1A16;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
+.cta:hover{background:#B03A22;border-color:#B03A22}
+.cta.ghost{background:transparent;color:#1D1A16}
+.cta.ghost:hover{background:#1D1A16;color:#FBF8F1;border-color:#1D1A16}
+.prog{display:flex;gap:4px;margin-top:16px}
+.prog i{flex:1;height:4px;border-radius:2px;background:rgba(29,26,22,.14)}
+.prog i.done{background:rgba(29,26,22,.45)}
+.prog i.now{background:#B03A22}
+/* exercise-book page: pale blue rules every 25px, a red margin, text on the lines */
+.card-body{padding:0;position:relative}
+.page-top{padding:16px 20px 11px 50px;border-bottom:1.5px solid rgba(196,72,64,.55);
+  background:linear-gradient(90deg,transparent 34px,rgba(196,72,64,.5) 34px 35.5px,transparent 35.5px 38px,rgba(196,72,64,.32) 38px 39px,transparent 39px)}
+.ruled{padding:0 20px 0 50px;line-height:25px;
+  background:
+    linear-gradient(90deg,transparent 34px,rgba(196,72,64,.5) 34px 35.5px,transparent 35.5px 38px,rgba(196,72,64,.32) 38px 39px,transparent 39px),
+    repeating-linear-gradient(180deg,transparent 0 24px,rgba(84,128,186,.30) 24px 25px)}
+.ruled > *{margin:25px 0 0 !important}
+.ruled > *:first-child{margin-top:0 !important}
+.ruled p,.ruled li,.ruled .meta,.ruled ul{line-height:25px !important}
+.ruled ul{padding-left:18px}
+.ruled li{margin:0 !important}
+.card .ruled .look{margin:0 !important;padding:0 10px;border-radius:0;font-size:15px;line-height:25px;background:rgba(176,58,34,.07)}
+.card .ruled .look svg{margin-top:4.5px}
+.ruled .ctas{gap:0 8px;align-content:flex-start}
+.ruled .cta{min-height:0;height:42px;margin-bottom:8px;line-height:1}
+.ruled .prog{height:25px;align-items:center;gap:4px}
+.ruled .cardnav{min-height:50px;margin-top:0 !important;line-height:25px}
+.ruled .cardnav a{min-height:50px}
+.ruled > div[style*="border-top"]{border-top:0 !important;padding-top:0 !important}
+.ruled button[aria-pressed]{min-height:33px !important;margin-bottom:-8px}
+.ruled > div p{margin-top:0 !important}
+.ruled > div > button{margin-top:0 !important;min-height:0 !important;height:42px;margin-bottom:8px}
+.ruled > div > div[role="group"]{margin-top:0 !important;height:25px;align-items:flex-start}
+/* the page scrolls inside its comb binding */
+.card-scroll{max-height:calc(100vh - 96px);overflow:auto;border-radius:3px;scrollbar-width:thin}
+.comb{position:absolute;top:10px;bottom:10px;left:-24px;width:34px;height:calc(100% - 20px);overflow:visible;z-index:3;transform:scaleX(-1);filter:drop-shadow(3px 4px 3px rgba(0,0,0,.45))}
+.card .card-head{padding-left:28px}
+
+/* handwriting: black for titles, blue ballpoint for the rest, red pen for the notes */
+.card .page-top .h{font-family:Caveat, 'Bradley Hand', cursive !important;font-weight:700;font-size:34px !important;line-height:1 !important;letter-spacing:0;color:#1D1A16}
+.card .ruled{font-family:Caveat, 'Bradley Hand', cursive;color:#22336B}
+.card .ruled p,.card .ruled li,.card .ruled ul{font-size:21px !important;font-weight:500}
+.card .ruled .meta{font-family:Caveat, cursive;font-style:normal;font-size:20px !important;color:#4E5A7A}
+.card .ruled i{font-style:normal;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.card .ruled b{font-weight:700}
+.card .ruled a{color:#1C2E66;text-decoration:underline;text-decoration-thickness:1.2px;text-underline-offset:3px}
+.card .ruled .look{font-family:Caveat, cursive;font-style:normal;font-size:20px;color:#B03A22}
+.card .ruled .cta{font-family:Caveat, cursive;font-size:21px;font-weight:700;letter-spacing:0;text-transform:none;text-decoration:none;padding:0 14px}
+.card .ruled .cta:not(.ghost){color:#FBF8F1}
+.card .ruled .cta.ghost{color:#1C2E66;border-color:#1C2E66}
+.card .ruled .cta.ghost:hover{color:#FBF8F1}
+.card .ruled .cardnav{font-family:Caveat, cursive;font-style:normal;font-size:21px}
+.card .ruled .cardnav a{text-decoration:none}
+.card .ruled button[aria-pressed]{font-family:Caveat, cursive !important;font-size:18px !important}
+.card .ruled > div p{font-size:18px !important}
+/* cite this site: each part on its own line, a blank line between */
+.card .ruled .cite{margin-top:50px !important}
+.card .ruled .cite .meta{margin:0 !important;line-height:25px;font-size:22px !important;font-weight:700;color:#1D1A16}
+.card .ruled .cite-tabs{display:flex;gap:12px;margin-top:25px;height:50px;align-items:flex-start}
+.card .ruled .cite-tabs button{height:42px;min-height:0 !important;margin:0 !important;padding:0 18px !important;font-size:20px !important}
+.card .ruled .cite-text{margin:25px 0 0 !important;padding-left:28px;text-indent:-28px;font-size:20px !important;line-height:25px !important;overflow-wrap:anywhere}
+.card .ruled .cite-copy{margin-top:25px;background:#B03A22;border-color:#B03A22}
+.card .ruled .cite-copy:hover{background:#1D1A16;border-color:#1D1A16}
+.cardnav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px;font-family:Newsreader,serif;font-style:italic;font-size:15px}
+.cardnav a{display:inline-flex;align-items:center;min-height:44px;padding:0 2px;text-decoration:none;border-bottom:1px solid transparent}
+.cardnav a:hover{color:#B03A22}
+.cardnav a:last-child{margin-left:auto;font-weight:600}
+.collapse{display:none;position:absolute;top:13px;right:12px;z-index:3;min-height:36px;min-width:36px;padding:0 10px;border:1px solid rgba(237,231,218,.45);background:transparent;color:#EDE7DA;font-family:Newsreader,serif;font-size:14px;cursor:pointer}
+.leader{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:11;overflow:visible}
+.ping{transform-box:fill-box;transform-origin:center;animation:ping 1.8s ease-out infinite}
+@keyframes ping{from{transform:scale(1);opacity:.8}to{transform:scale(3);opacity:0}}
+.cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);color:#EDE7DA;font-family:Newsreader,serif;font-style:italic;font-size:18px;z-index:11;pointer-events:none;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.bob{display:inline-block;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(8px)}}
+@media (max-width: 820px){
+  .card{left:22px !important;right:10px !important;top:auto !important;bottom:10px !important;width:auto;padding:0;transform:translateY(var(--dy, 0px)) !important}
+  .card-scroll{max-height:48vh}
+  .comb{left:-18px}
+  .card-head{padding-right:84px}
+  .collapse{display:inline-flex;align-items:center}
+  .card.collapsed .card-scroll{max-height:62px;overflow:hidden}
+  .leader,.cue{display:none}
+}
+
+/* ---------- read as a page: the original site ---------- */
+.orig{
+  --oInk:#0B1712;
+  --oInk-raised:#122019;
   --bone:#EDE7DA;
   --bone-dim:#D0C9BB;
   --emerald:#1F5240;
@@ -27,10 +189,10 @@
   --stack:clamp(5rem,11vw,10rem);
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-  background:var(--ink);
+.orig *,.orig *::before,.orig *::after{margin:0;padding:0;box-sizing:border-box}
+
+.orig{min-height:100vh;
+  background:var(--oInk);
   color:var(--bone);
   font-family:var(--text);
   font-size:1.125rem;
@@ -40,14 +202,14 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-img{display:block;max-width:100%}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.orig img{display:block;max-width:100%}
+.orig a{color:inherit}
+.orig :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 
-.wrap{max-width:1500px;margin:0 auto;padding-inline:var(--gut)}
+.o-wrap{max-width:1500px;margin:0 auto;padding-inline:var(--gut)}
 
 /* ─── Running head ────────────────────────────────── */
-.nav{
+.o-nav{
   position:fixed;inset:0 0 auto 0;z-index:900;
   display:flex;align-items:baseline;justify-content:space-between;gap:2rem;
   padding:1.15rem var(--gut);
@@ -55,37 +217,37 @@ a{color:inherit}
   transition:background .5s ease,border-color .5s ease,opacity .4s ease;
   opacity:0;pointer-events:none;
 }
-.nav.settled{
+.o-nav.o-settled{
   opacity:1;pointer-events:auto;
   background:rgba(11,23,18,.95);
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border-bottom-color:var(--rule-dark);
 }
-.nav__name{font-family:var(--display);font-size:1.05rem;font-weight:500;text-decoration:none;white-space:nowrap}
-.nav__links{display:flex;gap:clamp(.9rem,2.4vw,2.1rem);list-style:none;font-size:.95rem;font-style:italic}
-.nav__links a{text-decoration:none;color:var(--bone-dim);border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
-.nav__links a:hover{color:var(--bone);border-bottom-color:var(--peach)}
+.o-nav__name{font-family:var(--display);font-size:1.05rem;font-weight:500;text-decoration:none;white-space:nowrap}
+.o-nav__links{display:flex;align-items:baseline;gap:clamp(.9rem,2.4vw,2.1rem);list-style:none;font-size:.95rem;font-style:italic}
+.o-nav__links a{text-decoration:none;color:var(--bone-dim);border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.o-nav__links a:hover{color:var(--bone);border-bottom-color:var(--peach)}
 
 /* ─── Cover ───────────────────────────────────────── */
-.cover{
+.o-cover{
   position:relative;min-height:100svh;
   display:grid;grid-template-rows:auto 1fr auto;
   overflow:hidden;
   padding:clamp(1.5rem,4vh,3rem) var(--gut) clamp(2rem,5vh,3.5rem);
 }
-.cover__art{
+.o-cover__art{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center 36%;
   opacity:0;transform:scale(1.05);
-  animation:plateIn 2.2s cubic-bezier(.22,.61,.36,1) .15s forwards;
+  animation:oPlateIn 2.2s cubic-bezier(.22,.61,.36,1) .15s forwards;
 }
-.cover::after{
+.o-cover::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(to top,rgba(11,23,18,.95) 0%,rgba(11,23,18,.6) 34%,rgba(11,23,18,.1) 58%,rgba(11,23,18,.72) 100%);
 }
-.cover > *{position:relative;z-index:2}
+.o-cover > *{position:relative;z-index:2}
 
-.masthead{
+.o-masthead{
   font-family:var(--display);
   font-weight:400;
   font-size:clamp(1.9rem,8.4vw,7.5rem);
@@ -93,399 +255,443 @@ a{color:inherit}
   letter-spacing:.005em;
   text-align:center;
   white-space:nowrap;
-  opacity:0;animation:labelUp 1.2s ease .75s forwards;
+  opacity:0;animation:oLabelUp 1.2s ease .75s forwards;
 }
-.cover__issue{
+.o-cover__issue{
   display:flex;flex-wrap:wrap;gap:.3rem 1.6rem;justify-content:center;
   margin-top:.9rem;
   font-size:.9rem;font-style:italic;color:var(--bone-dim);
-  opacity:0;animation:labelUp 1.2s ease .95s forwards;
+  opacity:0;animation:oLabelUp 1.2s ease .95s forwards;
 }
 
-.coverlines{align-self:end;max-width:min(780px,92%)}
-.cover__kicker{
+.o-coverlines{align-self:end;max-width:min(780px,92%)}
+.o-cover__kicker{
   font-size:.9rem;font-style:italic;color:var(--peach);
   margin-bottom:1.1rem;
-  opacity:0;animation:labelUp 1.1s ease 1.1s forwards;
+  opacity:0;animation:oLabelUp 1.1s ease 1.1s forwards;
 }
-.cover__line{
+.o-cover__line{
   font-family:var(--display);font-weight:400;
   font-size:clamp(2.3rem,6.4vw,5.4rem);
   line-height:1.02;letter-spacing:-.015em;
   color:transparent;
   -webkit-text-stroke:1px rgba(237,231,218,.75);
   opacity:0;
-  animation:labelUp 1.1s ease 1.28s forwards, ink 1.6s cubic-bezier(.4,0,.2,1) 2.2s forwards;
+  animation:oLabelUp 1.1s ease 1.28s forwards, oInk 1.6s cubic-bezier(.4,0,.2,1) 2.2s forwards;
 }
-.cover__credit{
+.o-cover__credit{
   margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;align-items:baseline;
   font-size:.94rem;color:var(--bone-dim);
-  opacity:0;animation:labelUp 1.1s ease 1.44s forwards;
+  opacity:0;animation:oLabelUp 1.1s ease 1.44s forwards;
 }
-.cover__credit em{font-family:var(--display);font-style:italic;color:var(--bone);font-size:1.05rem}
-.cover__note{
+.o-cover__credit em{font-family:var(--display);font-style:italic;color:var(--bone);font-size:1.05rem}
+.o-cover__note{
   margin-top:1.1rem;max-width:46ch;color:var(--bone-dim);font-style:italic;
-  opacity:0;animation:labelUp 1.1s ease 1.58s forwards;
+  opacity:0;animation:oLabelUp 1.1s ease 1.58s forwards;
 }
-.cover__foot{
+.o-cover__foot{
   display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;
   margin-top:2.5rem;padding-top:.9rem;
   border-top:1px solid var(--rule-dark);
   font-size:.9rem;font-style:italic;color:var(--bone-dim);
-  opacity:0;animation:labelUp 1.1s ease 1.72s forwards;
+  opacity:0;animation:oLabelUp 1.1s ease 1.72s forwards;
 }
 
-@keyframes plateIn{to{opacity:1;transform:scale(1)}}
-@keyframes labelUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@keyframes ink{to{color:var(--bone);-webkit-text-stroke-color:transparent}}
+@keyframes oPlateIn{to{opacity:1;transform:scale(1)}}
+@keyframes oLabelUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes oInk{to{color:var(--bone);-webkit-text-stroke-color:transparent}}
 
 /* ─── Contents ────────────────────────────────────── */
-.contents{background:var(--bone);color:var(--ink);padding-block:var(--stack)}
-.contents__grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.75fr);gap:clamp(2rem,6vw,6rem)}
-.contents h2{
+.o-contents{background:var(--bone);color:var(--oInk);padding-block:var(--stack)}
+.o-contents__grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.75fr);gap:clamp(2rem,6vw,6rem)}
+.o-contents h2{
   font-family:var(--display);font-weight:400;
   font-size:clamp(2.4rem,6vw,4.6rem);line-height:1;letter-spacing:-.02em;
   margin-bottom:2.2rem;
 }
-.toc{border-top:2px solid var(--ink)}
-.toc a{
+.o-toc{border-top:2px solid var(--oInk)}
+.o-toc a{
   display:grid;grid-template-columns:2.6rem minmax(0,1fr) auto;
   align-items:baseline;gap:.9rem;
   padding:1.15rem 0;border-bottom:1px solid var(--rule-light);
   text-decoration:none;
   transition:padding-inline-start .4s ease,color .3s ease;
 }
-.toc a:hover,.toc a:focus-visible{padding-inline-start:.7rem;color:#7C4A2E}
-.toc__no{font-family:var(--text);font-size:.95rem;font-style:italic;color:#6B665C}
-.toc__ttl{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.2}
-.toc__sub{display:block;font-family:var(--text);font-size:.9rem;font-style:italic;color:#55504A;margin-top:.15rem}
-.toc__pg{font-family:var(--text);font-size:.95rem;font-style:italic;color:#6B665C}
-.contents__aside p{font-style:italic;color:#383833;max-width:34ch}
-.contents__aside .rule{height:1px;background:var(--rule-light);margin:1.4rem 0}
+.o-toc a:hover,.o-toc a:focus-visible{padding-inline-start:.7rem;color:#7C4A2E}
+.o-toc__no{font-family:var(--text);font-size:.95rem;font-style:italic;color:#6B665C}
+.o-toc__ttl{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.2}
+.o-toc__sub{display:block;font-family:var(--text);font-size:.9rem;font-style:italic;color:#55504A;margin-top:.15rem}
+.o-toc__pg{font-family:var(--text);font-size:.95rem;font-style:italic;color:#6B665C}
+.o-contents__aside p{font-style:italic;color:#383833;max-width:34ch}
+.o-contents__aside .o-rule{height:1px;background:var(--rule-light);margin:1.4rem 0}
 
 /* ─── Feature furniture ───────────────────────────── */
-.feature{padding-block:var(--stack)}
-.feature--bone{background:var(--bone);color:var(--ink)}
-.feature--emerald{background:var(--emerald);color:var(--bone)}
+.o-feature{padding-block:var(--stack)}
+.o-feature--bone{background:var(--bone);color:var(--oInk)}
+.o-feature--emerald{background:var(--emerald);color:var(--bone)}
 
-.runhead{
+.o-runhead{
   display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;
   padding-bottom:.55rem;margin-bottom:clamp(2rem,4vw,3.2rem);
   border-bottom:1px solid var(--rule-dark);
   box-shadow:0 3px 0 -2px var(--rule-dark);
   font-size:.9rem;font-style:italic;color:var(--bone-dim);
 }
-.feature--bone .runhead{border-bottom-color:var(--rule-light);box-shadow:0 3px 0 -2px var(--rule-light);color:#55504A}
-.feature--emerald .runhead{color:rgba(237,231,218,.7)}
+.o-feature--bone .o-runhead{border-bottom-color:var(--rule-light);box-shadow:0 3px 0 -2px var(--rule-light);color:#55504A}
+.o-feature--emerald .o-runhead{color:rgba(237,231,218,.7)}
 
-.opener{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(1.5rem,4vw,4.5rem);align-items:end;margin-bottom:clamp(2.6rem,5vw,4.5rem)}
-.opener h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.02em}
-.standfirst{font-size:1.16rem;line-height:1.6;max-width:48ch;color:var(--bone-dim)}
-.feature--bone .standfirst{color:#383833}
-.standfirst a{color:var(--peach)}
-.feature--bone .standfirst a{color:#9A5B3C}
+.o-opener{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(1.5rem,4vw,4.5rem);align-items:end;margin-bottom:clamp(2.6rem,5vw,4.5rem)}
+.o-opener h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.02em}
+.o-standfirst{font-size:1.16rem;line-height:1.6;max-width:48ch;color:var(--bone-dim)}
+.o-feature--bone .o-standfirst{color:#383833}
+.o-standfirst a{color:var(--peach)}
+.o-feature--bone .o-standfirst a{color:#9A5B3C}
 
 /* ─── Plates ──────────────────────────────────────── */
-.plates{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,4vw,3.6rem) clamp(1.4rem,2.6vw,2.6rem)}
-.plates--advocacy{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.o-plates{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,4vw,3.6rem) clamp(1.4rem,2.6vw,2.6rem)}
+.o-plates--advocacy{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
 
-.plate{display:block;width:100%;background:none;border:0;padding:0;text-align:left;color:inherit;font:inherit;cursor:pointer}
-.plate__frame{position:relative;overflow:hidden;background:var(--ink-raised);aspect-ratio:4/5}
-.plates--advocacy .plate__frame{aspect-ratio:1/1}
-.plate--lead .plate__frame{aspect-ratio:16/9}
-.plate--lead{grid-column:1/-1}
-.plate__frame img{
+.o-plate{display:block;width:100%;background:none;border:0;padding:0;text-align:left;color:inherit;font:inherit;cursor:pointer}
+.o-plate__frame{position:relative;overflow:hidden;background:var(--oInk-raised);aspect-ratio:4/5}
+.o-plates--advocacy .o-plate__frame{aspect-ratio:1/1}
+.o-plate--lead .o-plate__frame{aspect-ratio:16/9}
+.o-plate--lead{grid-column:1/-1}
+.o-plate__frame img{
   width:100%;height:100%;object-fit:cover;
   filter:saturate(.9) brightness(.93);
   transition:transform .85s cubic-bezier(.22,.61,.36,1),filter .6s ease;
 }
-.plate:hover .plate__frame img,.plate:focus-visible .plate__frame img{transform:scale(1.03);filter:saturate(1) brightness(1)}
+.o-plate:hover .o-plate__frame img,.o-plate:focus-visible .o-plate__frame img{transform:scale(1.03);filter:saturate(1) brightness(1)}
 
-.plate__cap{display:grid;gap:.2rem;padding-top:.85rem}
-.plate__cap h3{font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.24}
-.plate__cap span{font-size:.93rem;font-style:italic;color:var(--bone-dim)}
-.plate__cap .fig{color:var(--brass);font-style:italic}
-.feature--bone .plate__cap span{color:#55504A}
-.feature--bone .plate__cap .fig{color:#8A6A32}
+.o-plate__cap{display:grid;gap:.2rem;padding-top:.85rem}
+.o-plate__cap h3{font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.24}
+.o-plate__cap span{font-size:.93rem;font-style:italic;color:var(--bone-dim)}
+.o-plate__cap .o-fig{color:var(--brass);font-style:italic}
+.o-feature--bone .o-plate__cap span{color:#55504A}
+.o-feature--bone .o-plate__cap .o-fig{color:#8A6A32}
 
 /* ─── Research ────────────────────────────────────── */
-.thesis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(1.5rem,4vw,4.5rem);padding:2.2rem 0 2.6rem;border-top:2px solid var(--rule-dark);border-bottom:1px solid var(--rule-dark)}
-.thesis h3{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.1;letter-spacing:-.01em;margin-top:.7rem;max-width:18ch}
-.thesis__body p{color:var(--bone-dim);margin-bottom:1.1rem;max-width:58ch;line-height:1.72}
-.thesis__meta{font-size:.95rem;color:var(--brass)!important;font-style:italic}
-.subhead{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin:clamp(3.5rem,7vw,6rem) 0 1.2rem;scroll-margin-top:5rem}
-.subhead h3{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.05}
-.subhead p{font-style:italic;color:var(--bone-dim);font-size:.95rem}
-.subhead a{color:var(--peach)}
+.o-thesis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(1.5rem,4vw,4.5rem);padding:2.2rem 0 2.6rem;border-top:2px solid var(--rule-dark);border-bottom:1px solid var(--rule-dark)}
+.o-thesis h3{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.1;letter-spacing:-.01em;margin-top:.7rem;max-width:18ch}
+.o-thesis__body p{color:var(--bone-dim);margin-bottom:1.1rem;max-width:58ch;line-height:1.72}
+.o-thesis__meta{font-size:.95rem;color:var(--brass)!important;font-style:italic}
+.o-subhead{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin:clamp(3.5rem,7vw,6rem) 0 1.2rem;scroll-margin-top:5rem}
+.o-subhead h3{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.05}
+.o-subhead p{font-style:italic;color:var(--bone-dim);font-size:.95rem}
+.o-subhead a{color:var(--peach)}
 @media (max-width:860px){
-  .thesis{grid-template-columns:1fr;gap:1.2rem}
+  .o-thesis{grid-template-columns:1fr;gap:1.2rem}
 }
 
 /* ─── Essays ──────────────────────────────────────── */
-.essays{border-top:2px solid var(--rule-dark)}
-.essay{
+.o-essays{border-top:2px solid var(--rule-dark)}
+.o-essay{
   display:grid;grid-template-columns:4.5rem minmax(0,1.1fr) minmax(0,.95fr);
   gap:.4rem clamp(1.2rem,3vw,3rem);align-items:baseline;
   padding:1.9rem 0;border-bottom:1px solid var(--rule-dark);
   text-decoration:none;
   transition:padding-inline-start .45s cubic-bezier(.22,.61,.36,1),background .45s ease;
 }
-.essay:hover,.essay:focus-visible{padding-inline-start:1.2rem;background:linear-gradient(90deg,rgba(227,167,141,.09),transparent 68%)}
-.essay__no{font-family:var(--text);font-style:italic;font-size:.95rem;color:var(--brass)}
-.essay h3{font-family:var(--display);font-weight:500;font-size:clamp(1.25rem,2.1vw,1.7rem);line-height:1.25}
-.essay p{font-style:italic;color:var(--bone-dim);font-size:1.04rem;line-height:1.6;max-width:46ch}
+.o-essay:hover,.o-essay:focus-visible{padding-inline-start:1.2rem;background:linear-gradient(90deg,rgba(227,167,141,.09),transparent 68%)}
+.o-essay__no{font-family:var(--text);font-style:italic;font-size:.95rem;color:var(--brass)}
+.o-essay h3{font-family:var(--display);font-weight:500;font-size:clamp(1.25rem,2.1vw,1.7rem);line-height:1.25}
+.o-essay p{font-style:italic;color:var(--bone-dim);font-size:1.04rem;line-height:1.6;max-width:46ch}
 
 /* ─── Profile ─────────────────────────────────────── */
-.profile{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.3fr);gap:clamp(2rem,6vw,5.5rem);align-items:start}
-.profile__portrait{position:relative}
-.profile__portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.94)}
-.profile__portrait figcaption{margin-top:.7rem;font-size:.92rem;font-style:italic;color:#55504A}
-.profile h2{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,4vw,3rem);line-height:1.06;letter-spacing:-.015em;margin-bottom:1.5rem;max-width:18ch}
+.o-profile{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.3fr);gap:clamp(2rem,6vw,5.5rem);align-items:start}
+.o-profile__portrait{position:relative}
+.o-profile__portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.94)}
+.o-profile__portrait figcaption{margin-top:.7rem;font-size:.92rem;font-style:italic;color:#55504A}
+.o-profile h2{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,4vw,3rem);line-height:1.06;letter-spacing:-.015em;margin-bottom:1.5rem;max-width:18ch}
 
-.cols{column-count:2;column-gap:clamp(1.4rem,3vw,2.8rem);text-align:left;hyphens:manual;color:#2C2C28}
-.cols p{margin-bottom:1rem}
-.cols p:first-of-type::first-letter{
+.o-cols{column-count:2;column-gap:clamp(1.4rem,3vw,2.8rem);text-align:left;hyphens:manual;color:#2C2C28}
+.o-cols p{margin-bottom:1rem}
+.o-cols p:first-of-type::first-letter{
   font-family:var(--display);font-weight:400;
   float:left;font-size:4.3em;line-height:.8;
   padding-right:.08em;margin-top:.04em;
-  color:var(--ink);
+  color:var(--oInk);
 }
-.pullquote{
+.o-pullquote{
   margin:2rem 0;padding:1.3rem 0;
-  border-top:2px solid var(--ink);border-bottom:1px solid var(--rule-light);
+  border-top:2px solid var(--oInk);border-bottom:1px solid var(--rule-light);
   font-family:var(--display);font-style:italic;font-weight:400;
   font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.28;
-  color:var(--ink);max-width:26ch;
+  color:var(--oInk);max-width:26ch;
 }
-.profile__actions{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem}
-.btn{
+.o-profile__actions{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem}
+.o-btn{
   display:inline-block;padding:.9rem 2rem;font-family:var(--text);
   font-size:.95rem;font-style:italic;text-decoration:none;
-  border:1px solid var(--ink);background:var(--ink);color:var(--bone);
+  border:1px solid var(--oInk);background:var(--oInk);color:var(--bone);
   cursor:pointer;transition:background .3s,color .3s;
 }
-.btn:hover{background:transparent;color:var(--ink)}
-.btn--quiet{background:transparent;color:var(--ink)}
-.btn--quiet:hover{background:var(--ink);color:var(--bone)}
+.o-btn:hover{background:transparent;color:var(--oInk)}
+.o-btn--quiet{background:transparent;color:var(--oInk)}
+.o-btn--quiet:hover{background:var(--oInk);color:var(--bone)}
 
 /* ─── Colophon ────────────────────────────────────── */
-.colophon{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:end}
-.colophon h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,5.2vw,4.2rem);line-height:1.02;letter-spacing:-.018em;max-width:12ch}
-.colophon > div > p{color:rgba(237,231,218,.9);max-width:42ch;margin-top:1.2rem;font-style:italic}
-.clist{border-top:2px solid rgba(237,231,218,.3)}
-.clist a{
+.o-colophon{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:end}
+.o-colophon h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,5.2vw,4.2rem);line-height:1.02;letter-spacing:-.018em;max-width:12ch}
+.o-colophon > div > p{color:rgba(237,231,218,.9);max-width:42ch;margin-top:1.2rem;font-style:italic}
+.o-clist{border-top:2px solid rgba(237,231,218,.3)}
+.o-clist a{
   display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;
   padding:1.05rem 0;border-bottom:1px solid rgba(237,231,218,.28);
   text-decoration:none;
   transition:padding-inline-start .4s ease,color .3s ease;
 }
-.clist a:hover,.clist a:focus-visible{padding-inline-start:.8rem;color:var(--peach)}
-.clist span:last-child{font-size:.92rem;font-style:italic;color:rgba(237,231,218,.78)}
+.o-clist a:hover,.o-clist a:focus-visible{padding-inline-start:.8rem;color:var(--peach)}
+.o-clist span:last-child{font-size:.92rem;font-style:italic;color:rgba(237,231,218,.78)}
 
-footer{
+.orig footer{
   padding:2.2rem var(--gut);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between;
   font-size:.9rem;font-style:italic;color:var(--bone-dim);border-top:1px solid var(--rule-dark);
 }
 
 /* ─── Lightbox ────────────────────────────────────── */
-.viewer{position:fixed;inset:0;z-index:2000;display:none;background:rgba(6,13,10,.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:clamp(1rem,4vw,3.5rem)}
-.viewer[open]{display:grid;grid-template-rows:1fr auto;gap:1.5rem}
-.viewer__stage{display:flex;align-items:center;justify-content:center;min-height:0}
-.viewer__stage img{max-width:100%;max-height:100%;object-fit:contain;animation:plateIn .5s ease}
-.viewer__cap{display:flex;flex-wrap:wrap;gap:.4rem 2rem;align-items:baseline;justify-content:space-between;border-top:1px solid var(--rule-dark);padding-top:1.1rem}
-.viewer__cap h3{font-family:var(--display);font-weight:500;font-size:1.35rem}
-.viewer__cap p{color:var(--bone-dim);font-style:italic;font-size:.96rem;max-width:56ch}
-.viewer__ctrl{position:absolute;background:transparent;border:1px solid var(--rule-dark);color:var(--bone);width:46px;height:46px;font-size:1.05rem;cursor:pointer;display:grid;place-items:center;transition:background .3s,border-color .3s}
-.viewer__ctrl:hover{background:rgba(237,231,218,.1);border-color:var(--peach)}
-.viewer__close{top:clamp(1rem,3vw,2rem);right:clamp(1rem,3vw,2rem)}
-.viewer__prev{left:clamp(.5rem,2vw,1.5rem);top:50%;transform:translateY(-50%)}
-.viewer__next{right:clamp(.5rem,2vw,1.5rem);top:50%;transform:translateY(-50%)}
+.o-viewer{position:fixed;inset:0;z-index:2000;display:none;background:rgba(6,13,10,.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:clamp(1rem,4vw,3.5rem)}
+.o-viewer.o-open{display:grid;grid-template-rows:1fr auto;gap:1.5rem}
+.o-viewer__stage{display:flex;align-items:center;justify-content:center;min-height:0}
+.o-viewer__stage img{max-width:100%;max-height:100%;object-fit:contain;animation:oPlateIn .5s ease}
+.o-viewer__cap{display:flex;flex-wrap:wrap;gap:.4rem 2rem;align-items:baseline;justify-content:space-between;border-top:1px solid var(--rule-dark);padding-top:1.1rem}
+.o-viewer__cap h3{font-family:var(--display);font-weight:500;font-size:1.35rem}
+.o-viewer__cap p{color:var(--bone-dim);font-style:italic;font-size:.96rem;max-width:56ch}
+.o-viewer__ctrl{position:absolute;background:transparent;border:1px solid var(--rule-dark);color:var(--bone);width:46px;height:46px;font-size:1.05rem;cursor:pointer;display:grid;place-items:center;transition:background .3s,border-color .3s}
+.o-viewer__ctrl:hover{background:rgba(237,231,218,.1);border-color:var(--peach)}
+.o-viewer__close{top:clamp(1rem,3vw,2rem);right:clamp(1rem,3vw,2rem)}
+.o-viewer__prev{left:clamp(.5rem,2vw,1.5rem);top:50%;transform:translateY(-50%)}
+.o-viewer__next{right:clamp(.5rem,2vw,1.5rem);top:50%;transform:translateY(-50%)}
 
 /* ─── Résumé ──────────────────────────────────────── */
-.paper{position:fixed;inset:0;z-index:2100;display:none;place-items:center;background:rgba(6,13,10,.97);padding:clamp(1rem,3vw,2.5rem)}
-.paper[open]{display:grid}
-.paper__sheet{width:min(920px,100%);height:min(88vh,100%);background:var(--bone);display:grid;grid-template-rows:auto 1fr auto}
-.paper__bar{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.4rem;background:var(--ink);color:var(--bone)}
-.paper__bar h3{font-family:var(--display);font-weight:500;font-size:1.1rem}
-.paper__bar button{background:none;border:0;color:var(--bone);font-size:1.4rem;cursor:pointer;line-height:1;width:34px;height:34px}
-.paper iframe{width:100%;height:100%;border:0}
-.paper__foot{padding:.85rem 1.4rem;display:flex;justify-content:flex-end;border-top:1px solid var(--rule-light)}
+.o-paper{position:fixed;inset:0;z-index:2100;display:none;place-items:center;background:rgba(6,13,10,.97);padding:clamp(1rem,3vw,2.5rem)}
+.o-paper.o-open{display:grid}
+.o-paper__sheet{width:min(920px,100%);height:min(88vh,100%);background:var(--bone);display:grid;grid-template-rows:auto 1fr auto}
+.o-paper__bar{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.4rem;background:var(--oInk);color:var(--bone)}
+.o-paper__bar h3{font-family:var(--display);font-weight:500;font-size:1.1rem}
+.o-paper__bar button{background:none;border:0;color:var(--bone);font-size:1.4rem;cursor:pointer;line-height:1;width:34px;height:34px}
+.o-paper iframe{width:100%;height:100%;border:0}
+.o-paper__foot{padding:.85rem 1.4rem;display:flex;justify-content:flex-end;border-top:1px solid var(--rule-light)}
 
 /* ─── Responsive ──────────────────────────────────── */
 @media (max-width:900px){
-  .masthead{white-space:normal;font-size:clamp(1.7rem,9vw,3rem)}
-  .contents__grid{grid-template-columns:1fr;gap:2.4rem}
-  .opener{grid-template-columns:1fr;align-items:start;gap:1.1rem}
-  .profile{grid-template-columns:1fr;gap:2.4rem}
-  .profile__portrait{max-width:400px}
-  .cols{column-count:1;text-align:left;hyphens:none}
-  .pullquote{max-width:none}
-  .essay{grid-template-columns:3rem 1fr;row-gap:.55rem}
-  .essay p{grid-column:2}
-  .colophon{grid-template-columns:1fr;gap:2.4rem}
+  .o-masthead{white-space:normal;font-size:clamp(1.7rem,9vw,3rem)}
+  .o-contents__grid{grid-template-columns:1fr;gap:2.4rem}
+  .o-opener{grid-template-columns:1fr;align-items:start;gap:1.1rem}
+  .o-profile{grid-template-columns:1fr;gap:2.4rem}
+  .o-profile__portrait{max-width:400px}
+  .o-cols{column-count:1;text-align:left;hyphens:none}
+  .o-pullquote{max-width:none}
+  .o-essay{grid-template-columns:3rem 1fr;row-gap:.55rem}
+  .o-essay p{grid-column:2}
+  .o-colophon{grid-template-columns:1fr;gap:2.4rem}
 }
 @media (max-width:560px){
-  .plates,.plates--advocacy{grid-template-columns:1fr}
-  .plate--lead .plate__frame{aspect-ratio:4/3}
-  .nav__links{gap:.9rem;font-size:.88rem;overflow-x:auto;white-space:nowrap;scrollbar-width:none;min-width:0}
-  .nav{gap:1rem}
-  .toc a{grid-template-columns:2rem 1fr auto;gap:.6rem}
-  .btn{width:100%;text-align:center}
+  .o-plates,.o-plates--advocacy{grid-template-columns:1fr}
+  .o-plate--lead .o-plate__frame{aspect-ratio:4/3}
+  .o-nav__links{gap:.9rem;font-size:.88rem;overflow-x:auto;white-space:nowrap;scrollbar-width:none;min-width:0}
+  .o-nav{gap:1rem}
+  .o-toc a{grid-template-columns:2rem 1fr auto;gap:.6rem}
+  .o-btn{width:100%;text-align:center}
 }
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
-  .cover__art,.masthead,.cover__issue,.cover__kicker,.cover__line,.cover__credit,.cover__note,.cover__foot{opacity:1;transform:none}
-  .cover__line{color:var(--bone);-webkit-text-stroke-color:transparent}
+  .orig *,.orig *::before,.orig *::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .o-cover__art,.o-masthead,.o-cover__issue,.o-cover__kicker,.o-cover__line,.o-cover__credit,.o-cover__note,.o-cover__foot{opacity:1;transform:none}
+  .o-cover__line{color:var(--bone);-webkit-text-stroke-color:transparent}
 }
+
+.o-plate__frame img,.o-profile__portrait img,.o-cover__art{color:transparent}
+.o-ph{position:absolute;inset:0;display:grid;place-items:center;padding:1rem;text-align:center;font-family:var(--display);font-style:italic;color:#8C8577;background:repeating-linear-gradient(135deg,rgba(237,231,218,.04) 0 2px,transparent 2px 12px),var(--ink-raised)}
+.o-plate__frame img{position:relative;z-index:1}
+.o-profile__portrait{background:#D9D2C4}.o-profile__portrait .o-ph{color:#6B655A;background:repeating-linear-gradient(135deg,rgba(11,23,18,.05) 0 2px,transparent 2px 12px),#D9D2C4;aspect-ratio:4/5;position:relative;inset:auto}
+.o-nav__back{background:none;border:1px solid var(--rule-dark);color:var(--bone);font:inherit;font-style:italic;font-size:.88rem;padding:.25rem .8rem;cursor:pointer;min-height:36px}
+.o-nav__back:hover{border-color:var(--peach)}
+.o-nav.o-settled .o-nav__back{display:inline-block}
+.o-backfloat{position:fixed;top:14px;right:var(--gut);z-index:950}
+.o-nav.o-settled ~ .o-backfloat{display:none}
+
+@media (prefers-reduced-motion: reduce){.foil,.bob,.typing i,.steam,.ping{animation:none}}
+.still .foil,.still .bob,.still .typing i,.still .steam,.still .ping{animation:none}
 </style>
 </head>
 <body>
+<div id="desk-root"></div>
+<template id="desk-template">
 
-<nav class="nav" id="nav">
-  <a href="#top" class="nav__name">Isaac Sarfo Adjei</a>
-  <ul class="nav__links">
+<div data-dc-class="{{rootClass}}" style="background: #1E130C">
+  <sc-if data-dc-value="{{tourOn}}" data-dc-hint-placeholder-val="{{ true }}">
+  <header class="top">
+    <a class="brand" href="#cover">Isaac Sarfo Adjei</a>
+    <sc-if data-dc-value="{{tourOn}}" data-dc-hint-placeholder-val="{{ true }}">
+      <span class="chap">{{chapLabel}}</span>
+    </sc-if>
+    <sc-if data-dc-value="{{tourOn}}" data-dc-hint-placeholder-val="{{ true }}">
+      <nav class="dots" aria-label="Chapters">
+        <sc-for data-dc-list="{{chapters}}" as="c" hint-placeholder-count="8">
+          <a data-dc-href="{{c.href}}" data-dc-aria-label="{{c.name}}" data-dc-aria-current="{{c.cur}}" data-dc-style="{{c.style}}"><span aria-hidden="true">{{c.num}}</span><span class="tip" aria-hidden="true">{{c.label}}</span></a>
+        </sc-for>
+      </nav>
+    </sc-if>
+    <div class="acts">
+      <button type="button" class="btn" data-dc-onClick="{{toggleReader}}" data-dc-aria-pressed="{{readerStr}}">{{readerLabel}}</button>
+      <button type="button" class="btn hide-sm" data-dc-onClick="{{togglePause}}" data-dc-aria-pressed="{{pausedStr}}">{{pauseLabel}}</button>
+      <a class="btn hide-sm" href="mailto:adjeisarfoike@gmail.com">Email</a>
+      <a class="btn solid" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf">Résumé</a>
+    </div>
+  </header>
+  </sc-if>
+
+  <!-- ================= READ AS A PAGE: the original site ================= -->
+  <sc-if data-dc-value="{{reader}}" data-dc-hint-placeholder-val="{{ false }}">
+    <div class="orig">
+<nav data-dc-class="o-nav {{navCls}}" id="nav">
+  <a href="#top" class="o-nav__name">Isaac Sarfo Adjei</a>
+  <ul class="o-nav__links">
     <li><a href="#research">Thesis</a></li>
     <li><a href="#essays">Essays</a></li>
     <li><a href="#profile">Profile</a></li>
     <li><a href="#advocacy">Advocacy</a></li>
     <li><a href="#design">Design</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><button type="button" class="o-nav__back" data-dc-onClick="{{toggleReader}}">Back to the desk</button></li>
   </ul>
 </nav>
+<button type="button" class="o-nav__back o-backfloat" data-dc-onClick="{{toggleReader}}">Back to the desk</button>
 
 <!-- ── Cover ───────────────────────────────────────── -->
-<header class="cover" id="top">
-  <img class="cover__art" src="Images/Advocacy%20(3).jpg" alt="Illustration of many arms wearing gold jewellery arranged to form the shape of a skull.">
+<header class="o-cover" id="top">
+  <span class="o-ph" style="position: absolute; inset: 0; align-items: center; color: rgba(237,231,218,.35)">Where do you get your gold from? · Advocacy (3).jpg</span>
+  <img class="o-cover__art" src="Images/Advocacy%20(3).jpg" alt="Illustration of many arms wearing gold jewellery arranged to form the shape of a skull.">
 
   <div>
-    <p class="masthead">Isaac Sarfo Adjei</p>
-    <p class="cover__issue">
+    <p class="o-masthead">Isaac Sarfo Adjei</p>
+    <p class="o-cover__issue">
       <span>Portfolio, No. 1</span>
       <span>Communication research, design &amp; digital media</span>
       <span>Accra / San Marcos</span>
     </p>
   </div>
 
-  <div class="coverlines">
-    <p class="cover__kicker">On the cover</p>
-    <h1 class="cover__line">Where do you get your gold from?</h1>
-    <p class="cover__credit">
+  <div class="o-coverlines">
+    <p class="o-cover__kicker">On the cover</p>
+    <h1 class="o-cover__line">Where do you get your gold from?</h1>
+    <p class="o-cover__credit">
       <em>Save Asaase Yaa</em>
       <span>Advocacy illustration</span>
       <span>Ghana, 2025</span>
     </p>
-    <p class="cover__note">A piece built to put the buyer inside the transaction — asking whose river, whose forest, whose child paid for the metal on your wrist.</p>
+    <p class="o-cover__note">A piece built to put the buyer inside the transaction — asking whose river, whose forest, whose child paid for the metal on your wrist.</p>
   </div>
 
-  <div class="cover__foot">
+  <div class="o-cover__foot">
     <span>Thesis, essays, illustration &amp; design</span>
     <a href="#contents" style="text-decoration:none">Turn to contents</a>
   </div>
 </header>
 
 <!-- ── Contents ────────────────────────────────────── -->
-<section class="contents" id="contents">
-  <div class="wrap contents__grid">
+<section class="o-contents" id="contents">
+  <div class="o-wrap o-contents__grid">
     <div>
       <h2>Contents</h2>
-      <nav class="toc">
+      <nav class="o-toc">
         <a href="#research">
-          <span class="toc__no">I</span>
-          <span class="toc__ttl">Thesis and essays<span class="toc__sub">How students decide whether to trust AI, and what I write about on the side</span></span>
-          <span class="toc__pg">Research</span>
+          <span class="o-toc__no">I</span>
+          <span class="o-toc__ttl">Thesis and essays<span class="o-toc__sub">How students decide whether to trust AI, and what I write about on the side</span></span>
+          <span class="o-toc__pg">Research</span>
         </a>
         <a href="#profile">
-          <span class="toc__no">II</span>
-          <span class="toc__ttl">Profile<span class="toc__sub">Why someone who makes persuasive messages studies them</span></span>
-          <span class="toc__pg">Interview</span>
+          <span class="o-toc__no">II</span>
+          <span class="o-toc__ttl">Profile<span class="o-toc__sub">Why someone who makes persuasive messages studies them</span></span>
+          <span class="o-toc__pg">Interview</span>
         </a>
         <a href="#advocacy">
-          <span class="toc__no">III</span>
-          <span class="toc__ttl">Save Asaase Yaa<span class="toc__sub">Four illustrations on illegal mining in Ghana</span></span>
-          <span class="toc__pg">Feature</span>
+          <span class="o-toc__no">III</span>
+          <span class="o-toc__ttl">Save Asaase Yaa<span class="o-toc__sub">Four illustrations on illegal mining in Ghana</span></span>
+          <span class="o-toc__pg">Feature</span>
         </a>
         <a href="#design">
-          <span class="toc__no">IV</span>
-          <span class="toc__ttl">Campaign and brand design<span class="toc__sub">Nine posters for retail, arts and student work</span></span>
-          <span class="toc__pg">Portfolio</span>
+          <span class="o-toc__no">IV</span>
+          <span class="o-toc__ttl">Campaign and brand design<span class="o-toc__sub">Nine posters for retail, arts and student work</span></span>
+          <span class="o-toc__pg">Portfolio</span>
         </a>
         <a href="#contact">
-          <span class="toc__no">V</span>
-          <span class="toc__ttl">Contact<span class="toc__sub">Research conversations, collaboration and correspondence</span></span>
-          <span class="toc__pg">Back page</span>
+          <span class="o-toc__no">V</span>
+          <span class="o-toc__ttl">Contact<span class="o-toc__sub">Research conversations, collaboration and correspondence</span></span>
+          <span class="o-toc__pg">Back page</span>
         </a>
       </nav>
     </div>
 
-    <aside class="contents__aside">
+    <aside class="o-contents__aside">
       <p>This issue collects my thesis in progress, essays, advocacy illustration, campaign design and written work made between Accra and San Marcos, Texas.</p>
-      <div class="rule"></div>
+      <div class="o-rule"></div>
       <p>Words, images and design by Isaac Sarfo Adjei. Cover illustration from the Save Asaase Yaa series.</p>
     </aside>
   </div>
 </section>
 
   <!-- ── I. Thesis and essays ───────────────────────── -->
-  <section class="feature" id="research">
-    <div class="wrap">
-      <div class="runhead"><span>Research I</span><span>Thesis and essays</span></div>
-      <div class="opener">
+  <section class="o-feature" id="research">
+    <div class="o-wrap">
+      <div class="o-runhead"><span>Research I</span><span>Thesis and essays</span></div>
+      <div class="o-opener">
         <h2>Thesis and essays</h2>
-        <p class="standfirst">There&rsquo;s a question I keep coming back to: when the answer comes from a machine, how do we decide whether to believe it? My thesis takes that question to college students. My essays are where I think out loud about AI, online platforms and the companies behind them.</p>
+        <p class="o-standfirst">There&rsquo;s a question I keep coming back to: when the answer comes from a machine, how do we decide whether to believe it? My thesis takes that question to college students. My essays are where I think out loud about AI, online platforms and the companies behind them.</p>
       </div>
 
-      <div class="thesis">
+      <div class="o-thesis">
         <div>
-          <span class="essay__no">My master&rsquo;s thesis</span>
+          <span class="o-essay__no">My master&rsquo;s thesis</span>
           <h3>How undergraduates judge the credibility of generative AI</h3>
         </div>
-        <div class="thesis__body">
+        <div class="o-thesis__body">
           <p>Look over a student&rsquo;s shoulder these days and there&rsquo;s a good chance ChatGPT, Claude or Gemini is open in another tab. Every answer those tools give asks for a quick judgment: do I trust this? I want to understand how students actually make that call.</p>
           <p>I&rsquo;m working from S. Shyam Sundar&rsquo;s MAIN model, which suggests that the features of a technology can set off mental shortcuts. I&rsquo;m focusing on two. One is about form: whether the way a tool presents information makes it feel more real. The other is about agency: whether knowing a machine, not a person, is doing the answering makes it feel more objective.</p>
           <p>Instead of measuring those shortcuts from a distance, I&rsquo;m sitting down with undergraduates and asking them to talk me through the AI tool they use most &mdash; what makes them believe it, and when they stop.</p>
-          <p class="thesis__meta">Texas State University, 2026&ndash;27 &middot; Advised by Dr. Heidi Makady</p>
+          <p class="o-thesis__meta">Texas State University, 2026&ndash;27 &middot; Advised by Dr. Heidi Makady</p>
         </div>
       </div>
 
-      <div class="subhead" id="essays">
+      <div class="o-subhead" id="essays">
         <h3>Essays</h3>
         <p>I write these on my blog, <a href="https://isaacdigitalmedia0.wordpress.com/" target="_blank" rel="noopener">Hermes Post</a>, usually when a question won&rsquo;t leave me alone.</p>
       </div>
-      <div class="essays">
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2026/02/10/a-reflection-on-corporate-social-responsibility-and-its-communication-restrictions/" target="_blank" rel="noopener">
-        <span class="essay__no">Feb ’26</span>
+      <div class="o-essays">
+      <a class="o-essay" href="https://isaacdigitalmedia0.wordpress.com/2026/02/10/a-reflection-on-corporate-social-responsibility-and-its-communication-restrictions/" target="_blank" rel="noopener">
+        <span class="o-essay__no">Feb ’26</span>
         <h3>A reflection on corporate social responsibility and its communication restrictions</h3>
         <p>Why the companies doing the most CSR work are often the least able to talk about it, and what that costs them.</p>
       </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/12/28/the-pantheon-show-a-discussion-about-data-centers-and-their-implications/" target="_blank" rel="noopener">
-        <span class="essay__no">Dec ’25</span>
+      <a class="o-essay" href="https://isaacdigitalmedia0.wordpress.com/2025/12/28/the-pantheon-show-a-discussion-about-data-centers-and-their-implications/" target="_blank" rel="noopener">
+        <span class="o-essay__no">Dec ’25</span>
         <h3>The Pantheon show: data centres and their implications</h3>
         <p>The environmental bill arriving behind the server racks that make everything else feel weightless.</p>
       </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/11/26/shelves-of-selves-a-look-at-our-online-identities-as-products/" target="_blank" rel="noopener">
-        <span class="essay__no">Nov ’25</span>
+      <a class="o-essay" href="https://isaacdigitalmedia0.wordpress.com/2025/11/26/shelves-of-selves-a-look-at-our-online-identities-as-products/" target="_blank" rel="noopener">
+        <span class="o-essay__no">Nov ’25</span>
         <h3>Shelves of selves: our online identities as products</h3>
         <p>Endless shelves of animate products — restless, self-aware, and caught in a loop of trying to attract a buyer.</p>
       </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/11/02/virtually-everything-how-extended-realities-are-shaping-our-real-lives/" target="_blank" rel="noopener">
-        <span class="essay__no">Nov ’25</span>
+      <a class="o-essay" href="https://isaacdigitalmedia0.wordpress.com/2025/11/02/virtually-everything-how-extended-realities-are-shaping-our-real-lives/" target="_blank" rel="noopener">
+        <span class="o-essay__no">Nov ’25</span>
         <h3>Virtually everything: how extended realities shape our real lives</h3>
         <p>The metaverse as promised, the metaverse as delivered, and the gap where the communication happens.</p>
       </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/26/the-legal-remix-navigating-ai-and-digital-creativity/" target="_blank" rel="noopener">
-        <span class="essay__no">Oct ’25</span>
+      <a class="o-essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/26/the-legal-remix-navigating-ai-and-digital-creativity/" target="_blank" rel="noopener">
+        <span class="o-essay__no">Oct ’25</span>
         <h3>The legal remix: navigating AI and digital creativity</h3>
         <p>Where copyright sits when the tools that make the work were trained on other people's.</p>
       </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/17/the-ai-showdown-chatgpt-vs-gemini/" target="_blank" rel="noopener">
-        <span class="essay__no">Oct ’25</span>
+      <a class="o-essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/17/the-ai-showdown-chatgpt-vs-gemini/" target="_blank" rel="noopener">
+        <span class="o-essay__no">Oct ’25</span>
         <h3>The AI showdown: ChatGPT versus Gemini</h3>
         <p>A working comparison from someone who uses both daily, rather than a benchmark table.</p>
       </a>
-      <a class="essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/12/dear-chatgpt-how-do-i-stay-relevant/" target="_blank" rel="noopener">
-        <span class="essay__no">Oct ’25</span>
+      <a class="o-essay" href="https://isaacdigitalmedia0.wordpress.com/2025/10/12/dear-chatgpt-how-do-i-stay-relevant/" target="_blank" rel="noopener">
+        <span class="o-essay__no">Oct ’25</span>
         <h3>Dear ChatGPT, how do I stay relevant?</h3>
         <p>Asking the machine directly about the future of the job it is most likely to change.</p>
       </a>
@@ -494,25 +700,26 @@ footer{
   </section>
 
   <!-- ── II. Profile ─────────────────────────────────── -->
-  <section class="feature feature--bone" id="profile">
-    <div class="wrap">
-      <div class="runhead"><span>Profile II</span><span>Isaac Sarfo Adjei</span></div>
-      <div class="profile">
-        <figure class="profile__portrait">
-          <img src="Images/port 2.JPG" alt="Portrait of Isaac Sarfo Adjei.">
+  <section class="o-feature o-feature--bone" id="profile">
+    <div class="o-wrap">
+      <div class="o-runhead"><span>Profile II</span><span>Isaac Sarfo Adjei</span></div>
+      <div class="o-profile">
+        <figure class="o-profile__portrait">
+          <img src="Images/port 2.JPG" style="position: absolute; inset: 0; z-index: 1; height: auto" alt="Portrait of Isaac Sarfo Adjei.">
+          <span class="o-ph">Portrait of Isaac Sarfo Adjei · port 2.JPG</span>
           <figcaption>Photographed in San Marcos, Texas.</figcaption>
         </figure>
         <div>
           <h2>I make persuasive messages, and I study them</h2>
-          <div class="cols">
+          <div class="o-cols">
             <p>I am a second-year master&rsquo;s student in digital media communication at Texas State University in San Marcos. Before that, I studied Publishing Studies at Kwame Nkrumah University of Science and Technology (KNUST) in Ghana.</p>
             <p>Most days I&rsquo;m at the School of Journalism and Mass Communication, where I&rsquo;m a graduate assistant. I help with a course called AI and Automation for Media Professionals and look after the school&rsquo;s web content, so I see the questions my thesis asks play out every week.</p>
             <p>I also design. The posters and the Save Asaase Yaa illustrations further down are that side of me, and making persuasive messages has taught me a lot about how to take them apart. Now I&rsquo;m applying to PhD programs in communication and advertising, hoping to keep doing both and to build a life in teaching and research.</p>
           </div>
-          <p class="pullquote">Making persuasive messages taught me how to take them apart.</p>
-          <div class="profile__actions">
-            <button class="btn" type="button" id="openResume">Read résumé</button>
-            <a class="btn btn--quiet" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" download>Download PDF</a>
+          <p class="o-pullquote">Making persuasive messages taught me how to take them apart.</p>
+          <div class="o-profile__actions">
+            <a class="o-btn" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" target="_blank" rel="noopener">Read résumé</a>
+            <a class="o-btn o-btn--quiet" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" download="">Download PDF</a>
           </div>
         </div>
       </div>
@@ -520,132 +727,55 @@ footer{
   </section>
 
 <!-- ── III. Advocacy ─────────────────────────────────── -->
-<section class="feature" id="advocacy">
-  <div class="wrap">
-    <div class="runhead"><span>Feature III</span><span>Save Asaase Yaa</span></div>
-    <div class="opener">
+<section class="o-feature" id="advocacy">
+  <div class="o-wrap">
+    <div class="o-runhead"><span>Feature III</span><span>Save Asaase Yaa</span></div>
+    <div class="o-opener">
       <h2>Save Asaase Yaa</h2>
-      <p class="standfirst">Four illustrations on galamsey — illegal small-scale mining — and what it takes from Ghana's rivers, forests, and the people who live beside them. The series runs on Instagram as <a href="https://www.instagram.com/saveasaaseyaa" target="_blank" rel="noopener">@saveasaaseyaa</a>.</p>
+      <p class="o-standfirst">Four illustrations on galamsey — illegal small-scale mining — and what it takes from Ghana's rivers, forests, and the people who live beside them. The series runs on Instagram as <a href="https://www.instagram.com/saveasaaseyaa" target="_blank" rel="noopener">@saveasaaseyaa</a>.</p>
     </div>
 
-    <div class="plates plates--advocacy" data-gallery="advocacy">
-      <button class="plate" type="button"
-        data-src="Images/Advocacy%20(2).jpg" data-title="Before the clearing"
-        data-note="An excavator at the edge of forest that has stood for centuries, moments before it is taken down.">
-        <span class="plate__frame"><img src="Images/Advocacy%20(2).jpg" alt="An excavator standing at the edge of dense forest."></span>
-        <span class="plate__cap"><h3>Before the clearing</h3><span><span class="fig">Fig. 1</span> — Advocacy illustration</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/Advocacy%20(1).jpg" data-title="Raft on a brown river"
-        data-note="Alluvial mining turns Ghana's waterways to silt. The rafts stay; the water does not come back clear.">
-        <span class="plate__frame"><img src="Images/Advocacy%20(1).jpg" alt="A mining raft floating on a muddy brown river."></span>
-        <span class="plate__cap"><h3>Raft on a brown river</h3><span><span class="fig">Fig. 2</span> — Advocacy illustration</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/Advocacy%20(4).jpg" data-title="The boy and the dead river"
-        data-note="What mining runoff leaves behind for the communities downstream, and for everything that used to live in the water.">
-        <span class="plate__frame"><img src="Images/Advocacy%20(4).jpg" alt="A young boy standing in a river surrounded by dead fish."></span>
-        <span class="plate__cap"><h3>The boy and the dead river</h3><span><span class="fig">Fig. 3</span> — Advocacy illustration</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/Advocacy%20(3).jpg" data-title="Where do you get your gold from?"
-        data-note="Arms in gold jewellery arranged into a skull — the true cost of the metal, carried by the person wearing it.">
-        <span class="plate__frame"><img src="Images/Advocacy%20(3).jpg" alt="Many arms wearing gold jewellery arranged to form a skull."></span>
-        <span class="plate__cap"><h3>Where do you get your gold from?</h3><span><span class="fig">Fig. 4</span> — Cover illustration</span></span>
-      </button>
+    <div class="o-plates o-plates--advocacy">
+      <sc-for data-dc-list="{{advPlates}}" as="p" hint-placeholder-count="4">
+        <button data-dc-class="{{p.cls}}" type="button" data-dc-onClick="{{p.open}}">
+          <span class="o-plate__frame"><span class="o-ph">{{p.title}}</span><img data-dc-src="{{p.src}}" data-dc-alt="{{p.alt}}"></span>
+          <span class="o-plate__cap"><h3>{{p.title}}</h3><span><span class="o-fig">{{p.fig}}</span> — {{p.kind}}</span></span>
+        </button>
+      </sc-for>
     </div>
   </div>
 </section>
 
 <!-- ── IV. Design ──────────────────────────────────── -->
-<section class="feature feature--bone" id="design">
-  <div class="wrap">
-    <div class="runhead"><span>Portfolio IV</span><span>Campaign and brand design</span></div>
-    <div class="opener">
+<section class="o-feature o-feature--bone" id="design">
+  <div class="o-wrap">
+    <div class="o-runhead"><span>Portfolio IV</span><span>Campaign and brand design</span></div>
+    <div class="o-opener">
       <h2>Campaign and brand design</h2>
-      <p class="standfirst">Posters and product advertising built for retail, arts, and student organisations, in Accra and at Texas State.</p>
+      <p class="o-standfirst">Posters and product advertising built for retail, arts, and student organisations, in Accra and at Texas State.</p>
     </div>
 
-    <div class="plates" data-gallery="design">
-      <button class="plate plate--lead" type="button"
-        data-src="Images/ACE%2015.jpg" data-title="Accra Zoo"
-        data-note="Visitor campaign poster for the Accra Zoo.">
-        <span class="plate__frame"><img src="Images/ACE%2015.jpg" alt="Poster advertising the Accra Zoo."></span>
-        <span class="plate__cap"><h3>Accra Zoo</h3><span><span class="fig">Plate I</span> — Visitor campaign</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/Grace%20(1).jpg" data-title="Grace"
-        data-note="Performance poster for a ballet production, built around a single figurine and a lot of quiet space.">
-        <span class="plate__frame"><img src="Images/Grace%20(1).jpg" alt="Ballet performance poster featuring a ballerina figurine."></span>
-        <span class="plate__cap"><h3>Grace</h3><span><span class="fig">Plate II</span> — Performance poster</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/HYBRID%20(1).jpg" data-title="Hybrid generator"
-        data-note="Product advertisement placing a hybrid generator in a forest setting, leaning on the quiet-running claim.">
-        <span class="plate__frame"><img src="Images/HYBRID%20(1).jpg" alt="Product advertisement for a hybrid generator set in a forest."></span>
-        <span class="plate__cap"><h3>Hybrid generator</h3><span><span class="fig">Plate III</span> — Product advertising</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/sea.jpg" data-title="Seafood house"
-        data-note="Restaurant poster built around the catch rather than the plate.">
-        <span class="plate__frame"><img src="Images/sea.jpg" alt="Poster design for a seafood restaurant."></span>
-        <span class="plate__cap"><h3>Seafood house</h3><span><span class="fig">Plate IV</span> — Restaurant poster</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/Cline.jpg" data-title="Cline"
-        data-note="Brand design for a sale of antique padded chairs — furniture treated as portraiture.">
-        <span class="plate__frame"><img src="Images/Cline.jpg" alt="Brand design advertising an antique padded chair."></span>
-        <span class="plate__cap"><h3>Cline</h3><span><span class="fig">Plate V</span> — Brand design</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/ACE%2011%20(1).jpg" data-title="Shelter and pet store"
-        data-note="Adoption poster for a dog shelter and pet store.">
-        <span class="plate__frame"><img src="Images/ACE%2011%20(1).jpg" alt="Poster design for a dog shelter and pet store."></span>
-        <span class="plate__cap"><h3>Shelter and pet store</h3><span><span class="fig">Plate VI</span> — Adoption poster</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/Ace%206%20(1).jpg" data-title="Laptop store"
-        data-note="Retail poster for a laptop store.">
-        <span class="plate__frame"><img src="Images/Ace%206%20(1).jpg" alt="Poster design for a laptop store."></span>
-        <span class="plate__cap"><h3>Laptop store</h3><span><span class="fig">Plate VII</span> — Retail poster</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/SPJ%20A4.jpg" data-title="SPJ, Texas State"
-        data-note="Recruitment poster for the Texas State student chapter of the Society of Professional Journalists.">
-        <span class="plate__frame"><img src="Images/SPJ%20A4.jpg" alt="Poster for the Texas State SPJ student chapter."></span>
-        <span class="plate__cap"><h3>SPJ, Texas State</h3><span><span class="fig">Plate VIII</span> — Chapter recruitment</span></span>
-      </button>
-
-      <button class="plate" type="button"
-        data-src="Images/poster.jpg" data-title="Mass Communication Week"
-        data-note="Event poster for the School of Journalism and Mass Communication's annual Mass Communication Week.">
-        <span class="plate__frame"><img src="Images/poster.jpg" alt="Poster for SJMC Mass Communication Week."></span>
-        <span class="plate__cap"><h3>Mass Communication Week</h3><span><span class="fig">Plate IX</span> — Event poster, SJMC</span></span>
-      </button>
+    <div class="o-plates">
+      <sc-for data-dc-list="{{desPlates}}" as="p" hint-placeholder-count="9">
+        <button data-dc-class="{{p.cls}}" type="button" data-dc-onClick="{{p.open}}">
+          <span class="o-plate__frame"><span class="o-ph">{{p.title}}</span><img data-dc-src="{{p.src}}" data-dc-alt="{{p.alt}}"></span>
+          <span class="o-plate__cap"><h3>{{p.title}}</h3><span><span class="o-fig">{{p.fig}}</span> — {{p.kind}}</span></span>
+        </button>
+      </sc-for>
     </div>
   </div>
 </section>
 
 <!-- ── V. Back page ────────────────────────────────── -->
-<section class="feature feature--emerald" id="contact">
-  <div class="wrap">
-    <div class="runhead"><span>Back page V</span><span>Contact</span></div>
-    <div class="colophon">
+<section class="o-feature o-feature--emerald" id="contact">
+  <div class="o-wrap">
+    <div class="o-runhead"><span>Back page V</span><span>Contact</span></div>
+    <div class="o-colophon">
       <div>
         <h2>Let&rsquo;s talk</h2>
         <p>I&rsquo;m applying to PhD programs in communication and advertising, and I&rsquo;d love to hear from faculty whose work overlaps with mine, whether it&rsquo;s about research fit, a project, or just a conversation. I still take on the occasional design project, too. Email is the quickest way to reach me.</p>
       </div>
-      <div class="clist">
+      <div class="o-clist">
         <a href="mailto:adjeisarfoike@gmail.com"><span>adjeisarfoike@gmail.com</span><span>Email</span></a>
         <a href="https://www.linkedin.com/in/isaac-adjei-b94b90381" target="_blank" rel="noopener"><span>Isaac Adjei</span><span>LinkedIn</span></a>
         <a href="https://x.com/isaacsarfoadjei" target="_blank" rel="noopener"><span>@isaacsarfoadjei</span><span>X</span></a>
@@ -660,97 +790,919 @@ footer{
   <span>Set in Bodoni Moda and Newsreader</span>
 </footer>
 
-<!-- ── Lightbox ────────────────────────────────────── -->
-<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Work viewer">
-  <button class="viewer__ctrl viewer__close" id="viewerClose" aria-label="Close viewer">✕</button>
-  <button class="viewer__ctrl viewer__prev" id="viewerPrev" aria-label="Previous work">←</button>
-  <button class="viewer__ctrl viewer__next" id="viewerNext" aria-label="Next work">→</button>
-  <div class="viewer__stage"><img id="viewerImg" src="" alt=""></div>
-  <div class="viewer__cap"><h3 id="viewerTitle"></h3><p id="viewerNote"></p></div>
-</div>
 
-<!-- ── Résumé ──────────────────────────────────────── -->
-<div class="paper" id="paper" role="dialog" aria-modal="true" aria-label="Résumé">
-  <div class="paper__sheet">
-    <div class="paper__bar"><h3>Résumé</h3><button type="button" id="paperClose" aria-label="Close résumé">✕</button></div>
-    <iframe id="paperFrame" title="Résumé of Isaac Sarfo Adjei" src=""></iframe>
-    <div class="paper__foot"><a class="btn" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" download>Download PDF</a></div>
+<sc-if data-dc-value="{{vw.open}}" data-dc-hint-placeholder-val="{{ false }}">
+  <div class="o-viewer o-open" role="dialog" aria-modal="true" aria-label="Work viewer" data-dc-onClick="{{vwBackdrop}}">
+    <button type="button" class="o-viewer__ctrl o-viewer__close" data-dc-onClick="{{vwClose}}" aria-label="Close viewer">✕</button>
+    <button type="button" class="o-viewer__ctrl o-viewer__prev" data-dc-onClick="{{vwPrev}}" aria-label="Previous work">←</button>
+    <button type="button" class="o-viewer__ctrl o-viewer__next" data-dc-onClick="{{vwNext}}" aria-label="Next work">→</button>
+    <div class="o-viewer__stage"><img data-dc-src="{{vw.src}}" data-dc-alt="{{vw.alt}}"></div>
+    <div class="o-viewer__cap"><h3>{{vw.title}}</h3><p>{{vw.note}}</p></div>
   </div>
+</sc-if>
+    </div>
+  </sc-if>
+
+  <!-- ================= THE DESK TOUR ================= -->
+  <sc-if data-dc-value="{{tourOn}}" data-dc-hint-placeholder-val="{{ true }}">
+  <div id="tour" class="tour">
+    <div id="cover" style="position: absolute; top: 0"></div>
+    <div id="thesis" style="position: absolute; top: 108vh"></div>
+    <div id="essays" style="position: absolute; top: 198vh"></div>
+    <div id="profile" style="position: absolute; top: 288vh"></div>
+    <div id="advocacy" style="position: absolute; top: 378vh"></div>
+    <div id="design" style="position: absolute; top: 468vh"></div>
+    <div id="contact" style="position: absolute; top: 558vh"></div>
+    <div id="desk" style="position: absolute; top: 648vh"></div>
+
+    <div class="stage" data-dc-onTouchStart="{{touchStart}}" data-dc-onTouchEnd="{{touchEnd}}">
+      <!-- ================= THE DESK (decorative; its text is repeated in the placards) ================= -->
+      <div class="world" aria-hidden="true" data-dc-style="{{camera}}">
+
+        <!-- leather desk mat under the centre of the desk -->
+        <div class="obj" style="left: 1270px; top: 200px; width: 700px; height: 1520px; border-radius: 22px; background-color: #2B2622; background-image: radial-gradient(rgba(255,255,255,.035) 1px, transparent 1.5px), linear-gradient(135deg, rgba(255,255,255,.06), transparent 45%, rgba(0,0,0,.25)); background-size: 5px 5px, 100% 100%; box-shadow: -10px 16px 26px rgba(0,0,0,.35), inset 0 0 0 10px #241F1B">
+          <div style="position: absolute; inset: 18px; border: 2px dashed rgba(200,180,150,.25); border-radius: 14px"></div>
+        </div>
+
+        <!-- ===== the laptop ===== -->
+        <div class="obj" data-dc-style="left: 120px; top: 90px; width: 820px; height: 960px; --a: {{a.a1}}">
+          <div style="position: relative; height: 504px; box-sizing: border-box; padding: 6px; border-radius: 26px 26px 8px 8px; background: linear-gradient(200deg, #E1E4E8, #A9AEB5); box-shadow: -18px 26px 36px rgba(0,0,0,.42)">
+            <div style="position: relative; height: 100%; box-sizing: border-box; padding: 20px 18px 22px; border-radius: 20px 20px 4px 4px; background: #0B0C0E">
+              <div style="position: absolute; top: 7px; left: 50%; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #3A4A6A, #0B0C0E 70%)"></div>
+              <div style="position: relative; height: 100%; border-radius: 4px; overflow: hidden; background: #F6F7F9; font-family: Archivo, sans-serif; color: #1E2430; display: flex">
+                <div style="width: 178px; flex: 0 0 auto; background: #ECEEF2; border-right: 1px solid #DCE0E6; padding: 14px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; font-size: 13px">
+                  <div style="display: flex; gap: 6px; margin-bottom: 10px"><span style="width: 10px; height: 10px; border-radius: 50%; background: #E2685F"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #E9B54A"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #67B657"></span></div>
+                  <div style="padding: 8px 10px; border-radius: 8px; border: 1px solid #CDD2DA; background: #FFFFFF; font-weight: 800">＋ New chat</div>
+                  <div style="margin-top: 8px; font-size: 11px; color: #8A92A0; letter-spacing: .08em; text-transform: uppercase">Today</div>
+                  <div style="padding: 8px 10px; border-radius: 8px; background: #DDE4F7; color: #1E3A8A; font-weight: 600">Is this source credible?</div>
+                  <div style="padding: 8px 10px; color: #4B5563">Summarize week 6 reading</div>
+                  <div style="padding: 8px 10px; color: #4B5563">APA 7 reference check</div>
+                  <div style="margin-top: 8px; font-size: 11px; color: #8A92A0; letter-spacing: .08em; text-transform: uppercase">Yesterday</div>
+                  <div style="padding: 8px 10px; color: #4B5563">Explain framing theory</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; min-width: 0">
+                  <div style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0 18px; border-bottom: 1px solid #E1E4EA; font-weight: 800; font-size: 16px"><span>AI assistant <span style="margin-left: 6px; padding: 2px 8px; border-radius: 99px; background: #EEF0F4; font-size: 11px; font-weight: 600; color: #6B7280">[model]</span></span><span style="color: #9AA1AE; letter-spacing: 3px">•••</span></div>
+                  <div style="flex: 1; position: relative; padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; overflow: hidden">
+                    <div class="appear" style="--t: .05; align-self: flex-end; max-width: 72%; background: #2F5BEA; color: #FFFFFF; padding: 10px 16px; border-radius: 18px 18px 4px 18px; font-size: 16px; line-height: 1.35">Is this source credible enough to cite?</div>
+                    <div class="appear typing" style="--t: .12; align-self: flex-start; padding: 8px 4px"><i></i><i style="animation-delay: .15s"></i><i style="animation-delay: .3s"></i></div>
+                    <div class="appear" style="--t: .25; align-self: flex-start; max-width: 86%; display: flex; gap: 10px">
+                      <div style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #7C5CFF, #2F5BEA)"></div>
+                      <div style="background: #FFFFFF; border: 1px solid #E1E4EA; padding: 10px 14px; border-radius: 4px 18px 18px 18px; font-size: 15px; line-height: 1.45"><b>Yes.</b> It reads like a peer-reviewed study, and I’ve checked it against three other sources.<div style="display: flex; gap: 6px; margin-top: 8px"><span style="padding: 2px 8px; border-radius: 6px; background: #EEF0F4; font-size: 11px; font-weight: 600; color: #4B5563">[1] journal</span><span style="padding: 2px 8px; border-radius: 6px; background: #EEF0F4; font-size: 11px; font-weight: 600; color: #4B5563">[2] report</span><span style="padding: 2px 8px; border-radius: 6px; background: #EEF0F4; font-size: 11px; font-weight: 600; color: #4B5563">[3] news</span></div></div>
+                    </div>
+                    <div class="appear" style="--t: .5; position: absolute; right: 16px; top: 112px; font-family: Caveat, cursive; font-size: 27px; line-height: 1; color: #C2361F; transform: rotate(-4deg)">← agency cue: “I’ve checked”</div>
+                    <div class="appear" style="--t: .62; position: absolute; left: 70px; top: 230px; font-family: Caveat, cursive; font-size: 27px; line-height: 1; color: #C2361F; transform: rotate(-2deg)">↑ modality cue: tidy formatting, citations</div>
+                  </div>
+                  <div style="margin: 0 18px 14px; display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 16px; border: 1px solid #D5DAE2; border-radius: 14px; background: #FFFFFF">
+                    <span class="appear" style="--t: .8; flex: 1; font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 17px; color: #1E2430">…but should I believe it?</span>
+                    <span style="width: 32px; height: 32px; border-radius: 50%; background: #1E2430; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 16px">↑</span>
+                  </div>
+                </div>
+                <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(242deg, rgba(255,255,255,.24) 0%, rgba(255,255,255,0) 34%)"></div>
+              </div>
+            </div>
+          </div>
+          <div style="height: 16px; margin: 0 22px; background: linear-gradient(180deg, #5E636B, #9CA1A8 45%, #C8CCD2)"></div>
+          <div style="height: 440px; box-sizing: border-box; padding: 22px 34px 0; border-radius: 6px 6px 30px 30px; background: repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 3px), linear-gradient(200deg, #E4E7EB, #BDC1C7); box-shadow: -18px 24px 36px rgba(0,0,0,.42), inset 0 -3px 0 rgba(0,0,0,.08)">
+            <div style="height: 10px; margin: 0 40px 14px; background-image: radial-gradient(circle, rgba(0,0,0,.28) 1.3px, transparent 1.6px); background-size: 7px 7px"></div>
+            <div style="padding: 8px; border-radius: 10px; background: #A3A8B0; box-shadow: inset 0 2px 5px rgba(0,0,0,.3); display: flex; flex-direction: column; gap: 6px">
+              <sc-for data-dc-list="{{keyRows}}" as="row" hint-placeholder-count="5">
+                <div style="display: flex; gap: 6px">
+                  <sc-for data-dc-list="{{row.keys}}" as="k" hint-placeholder-count="12">
+                    <div data-dc-style="{{k.style}}">{{k.label}}</div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+            <div style="width: 330px; height: 128px; margin: 18px auto 0; border-radius: 12px; background: linear-gradient(200deg, #DADDE1, #C4C8CE); border: 1px solid rgba(0,0,0,.07); box-shadow: inset 0 1px 3px rgba(0,0,0,.2)"></div>
+          </div>
+          <a class="hot" href="#thesis" tabindex="-1"></a>
+        </div>
+
+        <!-- index card: the MAIN model -->
+        <div class="obj paper" data-dc-style="left: 990px; top: 140px; width: 360px; height: 240px; transform: rotate(4deg); --a: {{a.a1}}; background-color: #FFFDF7; background-image: repeating-linear-gradient(180deg, transparent 0 29px, rgba(90,130,190,.2) 29px 30px); background-position: 0 40px; padding: 14px 18px; font-family: Caveat, cursive; color: #22303F">
+          <div style="font-size: 26px; font-weight: 700">MAIN model (Sundar, 2008)</div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 18px; font-size: 22px"><span style="border: 2px solid #22303F; padding: 0 8px">Modality</span><span class="draw" style="--t: .2; display: inline-block; width: 36px; height: 2px; background: #22303F"></span><span>realism heuristic</span></div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 22px"><span style="border: 2px solid #22303F; padding: 0 8px">Agency</span><span class="draw" style="--t: .35; display: inline-block; width: 36px; height: 2px; background: #22303F"></span><span>machine heuristic</span></div>
+          <div class="appear" style="--t: .55; margin-top: 16px; font-size: 26px; font-weight: 700; color: #C2361F">→ perceived credibility</div>
+          <a class="hot" href="#thesis" tabindex="-1"></a>
+        </div>
+        <div class="obj" style="left: 1010px; top: 430px; width: 190px; height: 190px; transform: rotate(-7deg); background: linear-gradient(200deg, #FFEC92, #F5D862); box-shadow: -10px 14px 18px rgba(0,0,0,.3); padding: 18px; font-family: Caveat, cursive; font-size: 30px; line-height: 1.05; color: #3A2E10">Texas State<br>2026–27<br><span style="color: #C2361F">advised by Dr. Makady</span><a class="hot" href="#thesis" tabindex="-1"></a></div>
+        <div class="obj" style="left: 990px; top: 720px; width: 370px; height: 22px; transform: rotate(28deg)">
+          <div style="position: absolute; left: 34px; right: 40px; top: 0; bottom: 0; background: linear-gradient(180deg, #F6CC5A, #E3A92F 55%, #C78C1E); box-shadow: -8px 10px 10px rgba(0,0,0,.35)"></div>
+          <div style="position: absolute; left: 0; top: 0; width: 36px; height: 22px; background: #E8C9A0; clip-path: polygon(0 50%, 100% 0, 100% 100%)"></div>
+          <div style="position: absolute; left: 0; top: 7px; width: 10px; height: 8px; background: #2E2E2E; clip-path: polygon(0 50%, 100% 0, 100% 100%)"></div>
+          <div style="position: absolute; right: 22px; top: 0; width: 20px; height: 22px; background: linear-gradient(180deg, #D9D9D9, #9E9E9E)"></div>
+          <div style="position: absolute; right: 0; top: 0; width: 24px; height: 22px; border-radius: 0 6px 6px 0; background: #E88A8A"></div>
+        </div>
+
+
+        <!-- ===== the leather research notebook ===== -->
+        <div class="obj" data-dc-style="left: 1400px; top: 300px; width: 520px; height: 660px; transform: rotate(-3deg); --open: {{open}}">
+          <div class="paper" style="position: absolute; inset: 0; border-radius: 6px 14px 14px 6px; padding: 54px 48px; box-sizing: border-box; font-family: 'Bodoni Moda', serif; color: #1D1A16; background-image: repeating-linear-gradient(180deg, transparent 0 39px, rgba(90,130,190,.14) 39px 40px)">
+            <div style="font-family: Newsreader, serif; font-style: italic; font-size: 22px; color: #6B6458">Contents</div>
+            <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 14px; font-size: 23px">
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #9C947F"><span>I · Thesis and essays</span><span style="font-family: Newsreader, serif; font-style: italic; font-size: 20px">laptop</span></div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #9C947F"><span>II · Profile</span><span style="font-family: Newsreader, serif; font-style: italic; font-size: 20px">photograph</span></div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #9C947F"><span>III · Save Asaase Yaa</span><span style="font-family: Newsreader, serif; font-style: italic; font-size: 20px">phone</span></div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #9C947F"><span>IV · Campaign and brand design</span><span style="font-family: Newsreader, serif; font-style: italic; font-size: 20px">posters</span></div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #9C947F"><span>V · Contact</span><span style="font-family: Newsreader, serif; font-style: italic; font-size: 20px">letter</span></div>
+            </div>
+            <div style="position: absolute; right: 44px; top: 352px; width: 180px; transform: rotate(3deg); background: #FFFFFF; padding: 10px 10px 30px; box-shadow: -6px 9px 12px rgba(0,0,0,.28)">
+              <div style="position: relative; width: 160px; height: 160px"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #2A2016; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #E9C877; font-size: 15px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Where do you get your gold from?</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">cover · Advocacy (3).jpg</span></div></div>
+              <div style="position: absolute; left: 50%; top: -12px; width: 76px; height: 24px; margin-left: -38px; background: rgba(240,228,190,.85); transform: rotate(-4deg)"></div>
+              <div style="position: absolute; left: 10px; right: 10px; bottom: 6px; font-family: Caveat, cursive; font-size: 19px; color: #1D1A16; text-align: center">on the cover</div>
+            </div>
+            <div style="position: absolute; left: 48px; bottom: 44px; font-family: Caveat, cursive; font-size: 30px; color: #C2361F; transform: rotate(-3deg)">tap anything on the desk →</div>
+          </div>
+          <div class="cover" style="position: absolute; inset: 0; border-radius: 6px 14px 14px 6px; background-color: #1F5240; background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1.6px), radial-gradient(rgba(0,0,0,.16) 1px, transparent 1.6px), linear-gradient(225deg, rgba(255,255,255,.12), transparent 40%, rgba(0,0,0,.32)); background-size: 6px 6px, 9px 9px, 100% 100%; box-shadow: -18px 28px 44px rgba(0,0,0,.5), inset 6px 0 10px rgba(0,0,0,.35)">
+            <div style="position: absolute; inset: 20px; border: 2px dashed rgba(226,198,119,.5); border-radius: 8px"></div>
+            <div style="position: absolute; right: 52px; top: -8px; bottom: -8px; width: 24px; background: linear-gradient(90deg, #0E0E0E, #2A2A2A 50%, #0E0E0E); box-shadow: -4px 0 6px rgba(0,0,0,.5)"></div>
+            <div style="position: absolute; left: 54px; right: 100px; top: 116px; font-family: 'Bodoni Moda', serif">
+              <div class="foil" style="font-family: Newsreader, serif; font-style: italic; font-size: 24px">Portfolio, No. 1</div>
+              <div class="foil" style="margin-top: 26px; font-size: 74px; font-weight: 500; line-height: .98">Isaac<br>Sarfo<br>Adjei</div>
+              <div class="foil" style="margin-top: 30px; font-family: Newsreader, serif; font-size: 21px; font-style: italic">Communication research, design &amp; digital media</div>
+              <div class="foil" style="margin-top: 80px; font-family: Newsreader, serif; font-style: italic; font-size: 21px">Accra / San Marcos</div>
+            </div>
+          </div>
+          <a class="hot" href="#cover" tabindex="-1"></a>
+        </div>
+
+        <!-- ===== the Hermes Post: seven essays ===== -->
+        <div class="obj" data-dc-style="left: 2000px; top: 90px; width: 700px; height: 900px; transform: rotate(2.5deg); --a: {{a.a2}}; color: #1A1A1A">
+          <div class="paper" style="position: absolute; left: 0; right: 0; top: 0; height: 450px; padding: 22px 30px 0; box-sizing: border-box; background-color: #F4EEDD; background-image: radial-gradient(rgba(70,45,10,.08) 0.6px, transparent 1px), linear-gradient(200deg, rgba(255,255,255,.4), transparent 50%); background-size: 4px 4px, 100% 100%">
+            <div style="text-align: center; font-family: UnifrakturMaguntia, serif; font-size: 64px; line-height: 1">The Hermes Post</div>
+            <div style="display: flex; justify-content: space-between; margin-top: 10px; padding: 5px 0; border-top: 2px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase"><span>Essays by Isaac Sarfo Adjei</span><span>Seven essays</span><span>Oct ’25 – Feb ’26</span></div>
+            <div style="margin-top: 14px; text-align: center; font-family: 'Bodoni Moda', serif; font-weight: 700; font-size: 33px; line-height: 1.02">A reflection on corporate social responsibility and its communication restrictions</div>
+            <div style="display: flex; gap: 20px; margin-top: 14px">
+              <div style="width: 250px; height: 160px; flex: 0 0 auto; background-image: radial-gradient(circle, rgba(25,15,5,.5) 30%, transparent 36%), linear-gradient(168deg,#C9C1A8 0%,#8C8670 40%,#5E5A4A 100%); background-size: 6px 6px, 100% 100%"></div>
+              <div style="font-family: Newsreader, serif; font-size: 17px; line-height: 1.4"><b>FEB ’26</b> — Why the companies doing the most CSR work are often the least able to talk about it, and what that costs them.<div style="margin-top: 8px; font-style: italic; font-size: 15px">Usually written when a question won’t leave me alone.</div></div>
+            </div>
+            <div style="position: absolute; right: 26px; bottom: 26px; width: 110px; height: 110px; border-radius: 50%; border: 7px solid rgba(110,70,30,.22); box-shadow: inset 0 0 0 2px rgba(110,70,30,.1)"></div>
+          </div>
+          <div class="unfold paper" style="position: absolute; left: 0; right: 0; top: 450px; height: 450px; padding: 20px 30px; box-sizing: border-box; background-color: #F4EEDD; background-image: radial-gradient(rgba(70,45,10,.08) 0.6px, transparent 1px); background-size: 4px 4px">
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 22px; border-top: 2px solid #1A1A1A; padding-top: 12px; font-family: Newsreader, serif"><div><div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 12px; letter-spacing: .08em">DEC ’25</div><div style="font-family: 'Bodoni Moda', serif; font-weight: 700; font-size: 17px; line-height: 1.12; margin-top: 3px">The Pantheon show: data centres and their implications</div><div style="font-size: 14px; line-height: 1.35; margin-top: 4px; color: #3A3530">The environmental bill arriving behind the server racks.</div></div><div><div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 12px; letter-spacing: .08em">NOV ’25</div><div style="font-family: 'Bodoni Moda', serif; font-weight: 700; font-size: 17px; line-height: 1.12; margin-top: 3px">Shelves of selves: our online identities as products</div><div style="font-size: 14px; line-height: 1.35; margin-top: 4px; color: #3A3530">Restless, self-aware, trying to attract a buyer.</div></div><div><div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 12px; letter-spacing: .08em">NOV ’25</div><div style="font-family: 'Bodoni Moda', serif; font-weight: 700; font-size: 17px; line-height: 1.12; margin-top: 3px">Virtually everything: how extended realities shape our real lives</div><div style="font-size: 14px; line-height: 1.35; margin-top: 4px; color: #3A3530">The metaverse as promised, and as delivered.</div></div><div><div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 12px; letter-spacing: .08em">OCT ’25</div><div style="font-family: 'Bodoni Moda', serif; font-weight: 700; font-size: 17px; line-height: 1.12; margin-top: 3px">The legal remix: navigating AI and digital creativity</div><div style="font-size: 14px; line-height: 1.35; margin-top: 4px; color: #3A3530">Where copyright sits when tools learn from others.</div></div><div><div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 12px; letter-spacing: .08em">OCT ’25</div><div style="font-family: 'Bodoni Moda', serif; font-weight: 700; font-size: 17px; line-height: 1.12; margin-top: 3px">The AI showdown: ChatGPT versus Gemini</div><div style="font-size: 14px; line-height: 1.35; margin-top: 4px; color: #3A3530">A working comparison, not a benchmark table.</div></div><div><div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 12px; letter-spacing: .08em">OCT ’25</div><div style="font-family: 'Bodoni Moda', serif; font-weight: 700; font-size: 17px; line-height: 1.12; margin-top: 3px">Dear ChatGPT, how do I stay relevant?</div><div style="font-size: 14px; line-height: 1.35; margin-top: 4px; color: #3A3530">Asking the machine about the job it may change.</div></div></div>
+            <div class="stampin" style="position: absolute; right: 30px; bottom: 22px; border: 4px solid #A4462A; color: #A4462A; padding: 6px 14px; font-family: 'JetBrains Mono', monospace; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: 18px">On the blog</div>
+            <div class="foldshade" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.1)); pointer-events: none"></div>
+          </div>
+          <a class="hot" href="#essays" tabindex="-1"></a>
+        </div>
+
+        <!-- coffee cup on a saucer, top view, with steam -->
+        <div class="obj" style="left: 1820px; top: 960px; width: 260px; height: 260px">
+          <div style="position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 62% 32%, #FFFFFF, #F1ECE3 48%, #DDD5C7 78%, #C9C0B0); box-shadow: -18px 26px 32px rgba(0,0,0,.45), inset 0 -3px 6px rgba(0,0,0,.12)"></div>
+          <div style="position: absolute; inset: 30px; border-radius: 50%; background: radial-gradient(circle at 58% 38%, #F7F3EC, #E7E0D4 70%, #D8CFBF); box-shadow: inset -4px 6px 10px rgba(0,0,0,.16), 0 1px 0 rgba(255,255,255,.8)"></div>
+          <div style="position: absolute; left: 22px; top: 176px; width: 112px; height: 10px; border-radius: 5px; background: linear-gradient(180deg, #F2F3F5, #B9BEC6 60%, #8E949C); transform: rotate(-38deg); transform-origin: 0 50%; box-shadow: -4px 6px 6px rgba(0,0,0,.3)"></div>
+          <div style="position: absolute; left: 6px; top: 180px; width: 34px; height: 24px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #FFFFFF, #C9CDD3 55%, #8E949C); transform: rotate(-38deg); box-shadow: -4px 6px 6px rgba(0,0,0,.3)"></div>
+          <div style="position: absolute; left: 196px; top: 104px; width: 58px; height: 52px; border-radius: 0 30px 30px 0; border: 14px solid #F2EDE4; border-left: 0; box-sizing: border-box; box-shadow: -6px 10px 10px rgba(0,0,0,.32), inset -2px 0 0 rgba(0,0,0,.06)"></div>
+          <div style="position: absolute; inset: 48px; border-radius: 50%; background: radial-gradient(circle at 64% 30%, #FFFFFF, #F3EEE6 50%, #DCD4C6); box-shadow: -12px 18px 18px rgba(0,0,0,.38), inset 0 0 0 2px rgba(255,255,255,.7)"></div>
+          <div style="position: absolute; inset: 58px; border-radius: 50%; background: radial-gradient(circle at 40% 62%, #EAE3D7, #CDC3B2); box-shadow: inset 2px -3px 4px rgba(255,255,255,.6)"></div>
+          <div style="position: absolute; inset: 64px; border-radius: 50%; background: radial-gradient(circle at 50% 46%, #D29A62 0%, #B0713F 26%, #7A4422 58%, #4E2B14 100%); box-shadow: inset 0 5px 9px rgba(0,0,0,.5), inset 0 -2px 4px rgba(255,220,180,.18)"></div>
+          <svg viewBox="0 0 60 56" aria-hidden="true" style="position: absolute; left: 100px; top: 102px; width: 60px; height: 56px; opacity: .92"><path d="M30 52 C14 40 4 30 6 18 C8 8 20 4 30 16 C40 4 52 8 54 18 C56 30 46 40 30 52 Z" fill="#F3E2C4"></path><path d="M30 46 C20 38 13 30 14 21 C15 14 23 12 30 22 C37 12 45 14 46 21 C47 30 40 38 30 46 Z" fill="#C88F59" opacity=".55"></path><path d="M30 40 C24 34 20 29 21 23 C22 19 27 18 30 25 C33 18 38 19 39 23 C40 29 36 34 30 40 Z" fill="#F6E8CF"></path></svg>
+          <div style="position: absolute; left: 104px; top: 84px; width: 30px; height: 12px; border-radius: 50%; background: rgba(255,244,228,.45); filter: blur(3px)"></div>
+          <div class="steam" style="left: 96px; top: 46px"></div>
+          <div class="steam" style="left: 124px; top: 64px; animation-delay: 1.8s"></div>
+        </div>
+
+        <!-- paperclips -->
+        <div class="obj" style="left: 1990px; top: 1240px; width: 26px; height: 70px; border: 3px solid #B7BCC4; border-radius: 13px; transform: rotate(24deg); box-shadow: -3px 4px 4px rgba(0,0,0,.3)"><div style="position: absolute; left: 4px; right: 4px; top: 12px; bottom: 4px; border: 3px solid #B7BCC4; border-top: 0; border-radius: 0 0 10px 10px"></div></div>
+        <div class="obj" style="left: 1960px; top: 1320px; width: 26px; height: 70px; border: 3px solid #C9A64A; border-radius: 13px; transform: rotate(-38deg); box-shadow: -3px 4px 4px rgba(0,0,0,.3)"><div style="position: absolute; left: 4px; right: 4px; top: 12px; bottom: 4px; border: 3px solid #C9A64A; border-top: 0; border-radius: 0 0 10px 10px"></div></div>
+
+        <!-- ===== profile: a portrait print clipped to the résumé ===== -->
+        <div class="obj" data-dc-style="left: 2060px; top: 1060px; width: 560px; height: 680px; transform: rotate(-2deg); --a: {{a.a3}}">
+          <div class="paper" style="position: absolute; inset: 0; transform: rotate(3deg) translate(14px, 10px); background: #EFEBE2"></div>
+          <div class="paper" style="position: absolute; inset: 0; padding: 40px 40px 40px 300px; box-sizing: border-box; font-family: Newsreader, serif; color: #1D1A16; background-image: linear-gradient(200deg, rgba(255,255,255,.5), transparent 45%)">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #6B6458">Résumé</div>
+            <div style="margin-top: 8px; font-family: 'Bodoni Moda', serif; font-weight: 500; font-size: 30px; line-height: 1">Isaac Sarfo Adjei</div>
+            <div style="margin-top: 22px; font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 11px; letter-spacing: .1em">EDUCATION</div>
+            <div style="font-size: 15px; line-height: 1.35; margin-top: 4px">Texas State University — digital media communication, second year</div>
+            <div style="font-size: 15px; line-height: 1.35; margin-top: 4px">KNUST, Ghana — Publishing Studies</div>
+            <div style="margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 11px; letter-spacing: .1em">NOW</div>
+            <div style="font-size: 15px; line-height: 1.35; margin-top: 4px">Graduate assistant, School of Journalism and Mass Communication</div>
+            <div style="height: 9px; width: 96%; background: #D3CEC2; margin-top: 9px"></div><div style="height: 9px; width: 84%; background: #D3CEC2; margin-top: 9px"></div><div style="height: 9px; width: 90%; background: #D3CEC2; margin-top: 9px"></div><div style="height: 9px; width: 70%; background: #D3CEC2; margin-top: 9px"></div>
+          </div>
+          <div style="position: absolute; left: 30px; top: 60px; width: 250px; padding: 14px 14px 58px; box-sizing: border-box; background: #FFFFFF; transform: rotate(-5deg); box-shadow: -12px 18px 22px rgba(0,0,0,.38)">
+            <div style="position: relative; width: 222px; height: 278px"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #5B4A3E; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #F4EEDD; font-size: 17px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Portrait of Isaac Sarfo Adjei</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">port 2.JPG</span></div></div>
+            <div style="position: absolute; left: 14px; right: 14px; bottom: 14px; font-family: Caveat, cursive; font-size: 24px; color: #1D1A16; text-align: center">San Marcos, Texas</div>
+          </div>
+          <div style="position: absolute; left: 150px; top: 30px; width: 26px; height: 74px; border: 3px solid #B7BCC4; border-radius: 13px; box-sizing: border-box; transform: rotate(-8deg); box-shadow: -3px 4px 4px rgba(0,0,0,.3)"><div style="position: absolute; left: 4px; right: 4px; top: 12px; bottom: 4px; border: 3px solid #B7BCC4; border-top: 0; border-radius: 0 0 10px 10px"></div></div>
+          <div class="appear" style="--t: .5; position: absolute; left: 40px; right: 40px; bottom: 54px; font-family: Caveat, cursive; font-size: 34px; line-height: 1.05; color: #C2361F; transform: rotate(-2deg)">Making persuasive messages taught me how to take them apart.</div>
+          <a class="hot" href="#profile" tabindex="-1"></a>
+        </div>
+
+        <!-- ===== the phone: Save Asaase Yaa on Instagram ===== -->
+        <div class="obj" data-dc-style="left: 1560px; top: 1080px; width: 270px; height: 540px; transform: rotate(6deg); --a: {{a.a4}}">
+          <div style="position: absolute; left: -4px; top: 104px; width: 5px; height: 30px; border-radius: 3px 0 0 3px; background: linear-gradient(90deg, #2A3142, #5A6378)"></div>
+          <div style="position: absolute; left: -4px; top: 150px; width: 5px; height: 52px; border-radius: 3px 0 0 3px; background: linear-gradient(90deg, #2A3142, #5A6378)"></div>
+          <div style="position: absolute; left: -4px; top: 212px; width: 5px; height: 52px; border-radius: 3px 0 0 3px; background: linear-gradient(90deg, #2A3142, #5A6378)"></div>
+          <div style="position: absolute; right: -4px; top: 170px; width: 5px; height: 78px; border-radius: 0 3px 3px 0; background: linear-gradient(270deg, #2A3142, #5A6378)"></div>
+          <div style="position: absolute; inset: 0; border-radius: 46px; background: linear-gradient(225deg, #7A8398, #2B3245 32%, #1A2030 68%, #4A5368); box-shadow: -18px 26px 36px rgba(0,0,0,.5), inset 0 0 0 1.5px rgba(255,255,255,.18)"></div>
+          <div style="position: absolute; inset: 9px; border-radius: 38px; background: #000000; overflow: hidden; font-family: Archivo, sans-serif; color: #FFFFFF">
+            <div class="feed">
+              <div style="position: relative; height: 522px; overflow: hidden; background: #FFFFFF; color: #111111; padding-top: 44px; box-sizing: border-box">
+                <div style="display: flex; align-items: center; gap: 8px; height: 42px; padding: 0 10px"><span style="width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #6FA36E, #1F5240); box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 3.5px #C2366B"></span><b style="font-size: 13px">saveasaaseyaa</b><span style="margin-left: auto; letter-spacing: 2px; color: #555555">•••</span></div>
+                <div style="position: relative; width: 252px; height: 252px"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #2F5A3A; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #F4EEDD; font-size: 16px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Before the clearing</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Fig. 1 · Advocacy (2).jpg</span></div></div>
+                <div style="display: flex; gap: 14px; padding: 8px 10px 4px; font-size: 20px"><span>♡</span><span>✎</span><span>↗</span><span style="margin-left: auto">⌑</span></div>
+                <div style="padding: 0 10px; font-size: 12px; line-height: 1.4"><b>saveasaaseyaa</b> Before the clearing — An excavator at the edge of forest that has stood for centuries, moments before it is taken down.</div>
+              </div>
+              <div style="position: relative; height: 522px; overflow: hidden; background: #FFFFFF; color: #111111; padding-top: 44px; box-sizing: border-box">
+                <div style="display: flex; align-items: center; gap: 8px; height: 42px; padding: 0 10px"><span style="width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #6FA36E, #1F5240); box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 3.5px #C2366B"></span><b style="font-size: 13px">saveasaaseyaa</b><span style="margin-left: auto; letter-spacing: 2px; color: #555555">•••</span></div>
+                <div style="position: relative; width: 252px; height: 252px"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #8A6A3A; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #F4EEDD; font-size: 16px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Raft on a brown river</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Fig. 2 · Advocacy (1).jpg</span></div></div>
+                <div style="display: flex; gap: 14px; padding: 8px 10px 4px; font-size: 20px"><span>♡</span><span>✎</span><span>↗</span><span style="margin-left: auto">⌑</span></div>
+                <div style="padding: 0 10px; font-size: 12px; line-height: 1.4"><b>saveasaaseyaa</b> Raft on a brown river — Alluvial mining turns Ghana’s waterways to silt. The rafts stay; the water does not come back clear.</div>
+              </div>
+              <div style="position: relative; height: 522px; overflow: hidden; background: #FFFFFF; color: #111111; padding-top: 44px; box-sizing: border-box">
+                <div style="display: flex; align-items: center; gap: 8px; height: 42px; padding: 0 10px"><span style="width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #6FA36E, #1F5240); box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 3.5px #C2366B"></span><b style="font-size: 13px">saveasaaseyaa</b><span style="margin-left: auto; letter-spacing: 2px; color: #555555">•••</span></div>
+                <div style="position: relative; width: 252px; height: 252px"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #4F5A5A; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #F4EEDD; font-size: 16px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">The boy and the dead river</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Fig. 3 · Advocacy (4).jpg</span></div></div>
+                <div style="display: flex; gap: 14px; padding: 8px 10px 4px; font-size: 20px"><span>♡</span><span>✎</span><span>↗</span><span style="margin-left: auto">⌑</span></div>
+                <div style="padding: 0 10px; font-size: 12px; line-height: 1.4"><b>saveasaaseyaa</b> The boy and the dead river — What mining runoff leaves behind for the communities downstream.</div>
+              </div>
+              <div style="position: relative; height: 522px; overflow: hidden; background: #FFFFFF; color: #111111; padding-top: 44px; box-sizing: border-box">
+                <div style="display: flex; align-items: center; gap: 8px; height: 42px; padding: 0 10px"><span style="width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #6FA36E, #1F5240); box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 3.5px #C2366B"></span><b style="font-size: 13px">saveasaaseyaa</b><span style="margin-left: auto; letter-spacing: 2px; color: #555555">•••</span></div>
+                <div style="position: relative; width: 252px; height: 252px"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #2A2016; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #E9C877; font-size: 16px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Where do you get your gold from?</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Fig. 4 · Advocacy (3).jpg</span></div></div>
+                <div style="display: flex; gap: 14px; padding: 8px 10px 4px; font-size: 20px"><span>♡</span><span>✎</span><span>↗</span><span style="margin-left: auto">⌑</span></div>
+                <div style="padding: 0 10px; font-size: 12px; line-height: 1.4"><b>saveasaaseyaa</b> Where do you get your gold from? — Arms in gold jewellery arranged into a skull — the true cost of the metal.</div>
+              </div>
+            </div>
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px 0 26px; font-size: 13px; font-weight: 800; color: #111111; background: #FFFFFF">
+              <span>9:41</span>
+              <span style="display: flex; align-items: flex-end; gap: 6px"><span style="display: flex; align-items: flex-end; gap: 2px"><i style="display: block; width: 3px; height: 4px; background: #111111"></i><i style="display: block; width: 3px; height: 6px; background: #111111"></i><i style="display: block; width: 3px; height: 8px; background: #111111"></i><i style="display: block; width: 3px; height: 10px; background: #111111"></i></span><span style="position: relative; display: block; width: 22px; height: 11px; border: 1.5px solid #111111; border-radius: 3px; box-sizing: border-box"><i style="position: absolute; left: 1px; top: 1px; bottom: 1px; width: 70%; background: #111111; border-radius: 1px"></i></span></span>
+            </div>
+            <div style="position: absolute; top: 11px; left: 50%; width: 84px; height: 25px; margin-left: -42px; border-radius: 99px; background: #000000"></div>
+            <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 52px; background: #FFFFFF; border-top: 1px solid #E6E6E6; display: flex; align-items: center; justify-content: space-around; font-size: 10px; font-weight: 600; color: #777777">
+              <span style="color: #111111">Home</span><span>Search</span><span style="width: 24px; height: 24px; border-radius: 7px; border: 2px solid #111111; color: #111111; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; box-sizing: border-box">+</span><span>Reels</span><span>Profile</span>
+            </div>
+            <div style="position: absolute; bottom: 5px; left: 50%; width: 96px; height: 4px; margin-left: -48px; border-radius: 99px; background: rgba(0,0,0,.75)"></div>
+            <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(240deg, rgba(255,255,255,.13), rgba(255,255,255,0) 38%)"></div>
+          </div>
+          <a class="hot" href="#advocacy" tabindex="-1" style="border-radius: 56px"></a>
+        </div>
+
+        <!-- ===== campaign and brand design: nine posters fanned out ===== -->
+        <div class="obj" data-dc-style="left: 920px; top: 1060px; width: 580px; height: 640px; transform: rotate(-1.5deg); --a: {{a.a5}}">
+          <div class="fan" style="--fx: -185; --fy: -200; --fr: 2.0; position: absolute; left: 205px; top: 214px; width: 170px; height: 214px; padding: 8px 8px 30px; box-sizing: border-box; background: #FBF8F1; transform-origin: 50% 50%; rotate: -6.0deg; box-shadow: -10px 14px 18px rgba(0,0,0,.38)"><div style="position: relative; width: 100%; height: 100%"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #2F6B4E; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #F4EEDD; font-size: 12px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Accra Zoo</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Plate I · ACE 15.jpg</span></div></div><div style="position: absolute; left: 8px; right: 8px; bottom: 6px; font-family: Caveat, cursive; font-size: 17px; line-height: 1; color: #1D1A16; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Plate I</div><div style="position: absolute; left: 50%; top: -7px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #F08A7A, #B03A22); box-shadow: -2px 3px 3px rgba(0,0,0,.35)"></div></div>
+          <div class="fan" style="--fx: 0; --fy: -200; --fr: 6.5; position: absolute; left: 205px; top: 214px; width: 170px; height: 214px; padding: 8px 8px 30px; box-sizing: border-box; background: #FBF8F1; transform-origin: 50% 50%; rotate: -4.5deg; box-shadow: -10px 14px 18px rgba(0,0,0,.38)"><div style="position: relative; width: 100%; height: 100%"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #E8DCCB; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #1D1A16; font-size: 12px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Grace</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Plate II · Grace (1).jpg</span></div></div><div style="position: absolute; left: 8px; right: 8px; bottom: 6px; font-family: Caveat, cursive; font-size: 17px; line-height: 1; color: #1D1A16; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Plate II</div><div style="position: absolute; left: 50%; top: -7px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #F08A7A, #B03A22); box-shadow: -2px 3px 3px rgba(0,0,0,.35)"></div></div>
+          <div class="fan" style="--fx: 185; --fy: -200; --fr: 1.0; position: absolute; left: 205px; top: 214px; width: 170px; height: 214px; padding: 8px 8px 30px; box-sizing: border-box; background: #FBF8F1; transform-origin: 50% 50%; rotate: -3.0deg; box-shadow: -10px 14px 18px rgba(0,0,0,.38)"><div style="position: relative; width: 100%; height: 100%"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #3E6A3A; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #F4EEDD; font-size: 12px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Hybrid generator</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Plate III · HYBRID (1).jpg</span></div></div><div style="position: absolute; left: 8px; right: 8px; bottom: 6px; font-family: Caveat, cursive; font-size: 17px; line-height: 1; color: #1D1A16; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Plate III</div><div style="position: absolute; left: 50%; top: -7px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #F08A7A, #B03A22); box-shadow: -2px 3px 3px rgba(0,0,0,.35)"></div></div>
+          <div class="fan" style="--fx: -185; --fy: 0; --fr: 4.5; position: absolute; left: 205px; top: 214px; width: 170px; height: 214px; padding: 8px 8px 30px; box-sizing: border-box; background: #FBF8F1; transform-origin: 50% 50%; rotate: -1.5deg; box-shadow: -10px 14px 18px rgba(0,0,0,.38)"><div style="position: relative; width: 100%; height: 100%"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #1F4E6E; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #F4EEDD; font-size: 12px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Seafood house</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Plate IV · sea.jpg</span></div></div><div style="position: absolute; left: 8px; right: 8px; bottom: 6px; font-family: Caveat, cursive; font-size: 17px; line-height: 1; color: #1D1A16; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Plate IV</div><div style="position: absolute; left: 50%; top: -7px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #F08A7A, #B03A22); box-shadow: -2px 3px 3px rgba(0,0,0,.35)"></div></div>
+          <div class="fan" style="--fx: 0; --fy: 0; --fr: -3.0; position: absolute; left: 205px; top: 214px; width: 170px; height: 214px; padding: 8px 8px 30px; box-sizing: border-box; background: #FBF8F1; transform-origin: 50% 50%; rotate: 0.0deg; box-shadow: -10px 14px 18px rgba(0,0,0,.38)"><div style="position: relative; width: 100%; height: 100%"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #8A4A3A; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #F4EEDD; font-size: 12px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Cline</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Plate V · Cline.jpg</span></div></div><div style="position: absolute; left: 8px; right: 8px; bottom: 6px; font-family: Caveat, cursive; font-size: 17px; line-height: 1; color: #1D1A16; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Plate V</div><div style="position: absolute; left: 50%; top: -7px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #F08A7A, #B03A22); box-shadow: -2px 3px 3px rgba(0,0,0,.35)"></div></div>
+          <div class="fan" style="--fx: 185; --fy: 0; --fr: -0.5; position: absolute; left: 205px; top: 214px; width: 170px; height: 214px; padding: 8px 8px 30px; box-sizing: border-box; background: #FBF8F1; transform-origin: 50% 50%; rotate: 1.5deg; box-shadow: -10px 14px 18px rgba(0,0,0,.38)"><div style="position: relative; width: 100%; height: 100%"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #D98C3A; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #1D1A16; font-size: 12px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Shelter and pet store</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Plate VI · ACE 11 (1).jpg</span></div></div><div style="position: absolute; left: 8px; right: 8px; bottom: 6px; font-family: Caveat, cursive; font-size: 17px; line-height: 1; color: #1D1A16; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Plate VI</div><div style="position: absolute; left: 50%; top: -7px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #F08A7A, #B03A22); box-shadow: -2px 3px 3px rgba(0,0,0,.35)"></div></div>
+          <div class="fan" style="--fx: -185; --fy: 200; --fr: -4.0; position: absolute; left: 205px; top: 214px; width: 170px; height: 214px; padding: 8px 8px 30px; box-sizing: border-box; background: #FBF8F1; transform-origin: 50% 50%; rotate: 3.0deg; box-shadow: -10px 14px 18px rgba(0,0,0,.38)"><div style="position: relative; width: 100%; height: 100%"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #2B3245; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #F4EEDD; font-size: 12px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Laptop store</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Plate VII · Ace 6 (1).jpg</span></div></div><div style="position: absolute; left: 8px; right: 8px; bottom: 6px; font-family: Caveat, cursive; font-size: 17px; line-height: 1; color: #1D1A16; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Plate VII</div><div style="position: absolute; left: 50%; top: -7px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #F08A7A, #B03A22); box-shadow: -2px 3px 3px rgba(0,0,0,.35)"></div></div>
+          <div class="fan" style="--fx: 0; --fy: 200; --fr: -0.5; position: absolute; left: 205px; top: 214px; width: 170px; height: 214px; padding: 8px 8px 30px; box-sizing: border-box; background: #FBF8F1; transform-origin: 50% 50%; rotate: 4.5deg; box-shadow: -10px 14px 18px rgba(0,0,0,.38)"><div style="position: relative; width: 100%; height: 100%"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #7A1E2A; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #F4EEDD; font-size: 12px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">SPJ, Texas State</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Plate VIII · SPJ A4.jpg</span></div></div><div style="position: absolute; left: 8px; right: 8px; bottom: 6px; font-family: Caveat, cursive; font-size: 17px; line-height: 1; color: #1D1A16; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Plate VIII</div><div style="position: absolute; left: 50%; top: -7px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #F08A7A, #B03A22); box-shadow: -2px 3px 3px rgba(0,0,0,.35)"></div></div>
+          <div class="fan" style="--fx: 185; --fy: 200; --fr: -8.0; position: absolute; left: 205px; top: 214px; width: 170px; height: 214px; padding: 8px 8px 30px; box-sizing: border-box; background: #FBF8F1; transform-origin: 50% 50%; rotate: 6.0deg; box-shadow: -10px 14px 18px rgba(0,0,0,.38)"><div style="position: relative; width: 100%; height: 100%"><div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; box-sizing: border-box; text-align: center; background-color: #E3A78D; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 12px), linear-gradient(200deg, rgba(255,255,255,.14), transparent 55%, rgba(0,0,0,.25)); color: #1D1A16; font-size: 12px"><span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 1.15em; line-height: 1.15">Mass Communication Week</span><span style="font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; opacity: .8">Plate IX · poster.jpg</span></div></div><div style="position: absolute; left: 8px; right: 8px; bottom: 6px; font-family: Caveat, cursive; font-size: 17px; line-height: 1; color: #1D1A16; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Plate IX</div><div style="position: absolute; left: 50%; top: -7px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #F08A7A, #B03A22); box-shadow: -2px 3px 3px rgba(0,0,0,.35)"></div></div>
+          <a class="hot" href="#design" tabindex="-1"></a>
+        </div>
+
+        <!-- ===== contact: a letter sliding out of its envelope, and a card ===== -->
+        <div class="obj" data-dc-style="left: 120px; top: 1080px; width: 760px; height: 560px; --a: {{a.a6}}">
+          <div style="position: absolute; left: 40px; top: 220px; width: 540px; height: 320px; transform: rotate(-3deg)">
+            <div style="position: absolute; inset: 0; background: linear-gradient(200deg, #DCC69F, #C9AE80); box-shadow: -14px 20px 26px rgba(0,0,0,.4)"></div>
+            <div class="slide paper" style="position: absolute; left: 34px; right: 34px; top: -170px; height: 400px; padding: 28px 30px; box-sizing: border-box; background-color: #FFFDF7; font-family: Newsreader, serif; color: #1D1A16">
+              <div style="font-family: 'Bodoni Moda', serif; font-size: 34px; line-height: 1">Let’s talk</div>
+              <div style="margin-top: 12px; font-size: 16px; line-height: 1.45">I’m applying to PhD programs in communication and advertising, and I’d love to hear from faculty whose work overlaps with mine — research fit, a project, or just a conversation.</div>
+              <div style="margin-top: 10px; font-family: Caveat, cursive; font-size: 26px; color: #C2361F">— Isaac</div>
+            </div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(200deg, #E2CDA6, #CDB285); clip-path: polygon(0 26%, 50% 64%, 100% 26%, 100% 100%, 0 100%); box-shadow: inset 0 -3px 6px rgba(0,0,0,.12)"></div>
+            <div style="position: absolute; right: 34px; bottom: 30px; width: 92px; height: 92px; border-radius: 50%; border: 3px solid rgba(90,50,20,.55); display: flex; align-items: center; justify-content: center; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 1.3; letter-spacing: .06em; color: rgba(90,50,20,.75); transform: rotate(-12deg)">ACCRA<br>→<br>SAN MARCOS</div>
+          </div>
+          <div class="appear paper" style="--t: .45; position: absolute; left: 420px; top: 40px; width: 320px; height: 186px; padding: 22px 24px; box-sizing: border-box; transform: rotate(6deg); font-family: Newsreader, serif; color: #1D1A16">
+            <div style="font-family: 'Bodoni Moda', serif; font-weight: 500; font-size: 22px">Isaac Sarfo Adjei</div>
+            <div style="font-style: italic; font-size: 13px; color: #6B6458">Communication research, design &amp; digital media</div>
+            <div style="margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.6">adjeisarfoike@gmail.com<br>LinkedIn · Isaac Adjei<br>X @isaacsarfoadjei · IG @saveasaaseyaa</div>
+          </div>
+          <a class="hot" href="#contact" tabindex="-1"></a>
+        </div>
+      </div>
+
+      <div class="lamp" aria-hidden="true"></div>
+
+      <!-- leader line from the placard to the detail it explains -->
+      <svg class="leader" aria-hidden="true" data-dc-style="opacity: {{ld.op}}">
+        <line data-dc-x1="{{ld.x1}}" data-dc-y1="{{ld.y1}}" data-dc-x2="{{ld.x2}}" data-dc-y2="{{ld.y2}}" stroke="#EDE7DA" stroke-width="1.5" stroke-dasharray="5 5"></line>
+        <circle class="ping" data-dc-cx="{{ld.x1}}" data-dc-cy="{{ld.y1}}" r="8" fill="none" stroke="#E3A78D" stroke-width="2"></circle>
+        <circle data-dc-cx="{{ld.x1}}" data-dc-cy="{{ld.y1}}" r="7" fill="#B03A22" stroke="#EDE7DA" stroke-width="2.5"></circle>
+      </svg>
+
+      <!-- ================= EXPLAINER PLACARDS (the real text) ================= -->
+      <article data-dc-class="card {{cardClass}}" data-dc-style="{{cs.c0}}">
+        <button type="button" class="collapse" data-dc-onClick="{{toggleCard}}" data-dc-aria-expanded="{{cardOpen}}">{{collapseLabel}}</button>
+        <div class="card-scroll">
+        <div class="card-head"><span class="num" aria-hidden="true">01</span><p class="kicker">Cover · Portfolio, No. 1</p></div>
+        <div class="card-body">
+        <div class="page-top"><h1 class="h" style="font-size: 34px">Isaac Sarfo Adjei</h1></div>
+        <div class="ruled">
+        <p class="look"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#B03A22" stroke-width="1.5"></circle><circle cx="8" cy="8" r="2.5" fill="#B03A22"></circle></svg><span>On the desk: the green notebook. It opens to the contents, with the cover piece taped inside.</span></p>
+        <p class="meta">Communication research, design &amp; digital media · Accra / San Marcos</p>
+        <p><b>On the cover:</b> <i>Where do you get your gold from?</i> — Save Asaase Yaa, advocacy illustration, Ghana, 2025. A piece built to put the buyer inside the transaction — asking whose river, whose forest, whose child paid for the metal on your wrist.</p>
+        <p class="meta">Thesis, essays, illustration &amp; design · scroll, swipe or tap anything on the desk.</p>
+        <div class="ctas"><button type="button" class="cta" data-dc-onClick="{{toggleReader}}">Read as a page</button><a class="cta ghost" href="#thesis">Start the tour →</a></div>
+        <div class="prog" aria-hidden="true"><i class="now"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <nav class="cardnav" aria-label="Chapter navigation"><a href="#thesis">The thesis →</a></nav>
+        </div>
+        </div>
+        </div>
+        <svg class="comb" aria-hidden="true" focusable="false"><defs><pattern id="combRing0" width="34" height="25" patternUnits="userSpaceOnUse"><rect x="3" y="7.5" width="8" height="10" rx="2" fill="rgba(0,0,0,.4)"></rect><rect x="5" y="8" width="27" height="9" rx="4.5" fill="#1C1C20"></rect><rect x="7" y="9" width="22" height="2" rx="1" fill="#55555D"></rect></pattern></defs><rect x="0" y="0" width="34" height="100%" fill="url(#combRing0)"></rect><rect x="24" y="0" width="9" height="100%" rx="4" fill="#18181B"></rect><rect x="26" y="0" width="2" height="100%" rx="1" fill="#4A4A52"></rect></svg>
+      </article>
+
+      <article data-dc-class="card {{cardClass}}" data-dc-style="{{cs.c1}}">
+        <button type="button" class="collapse" data-dc-onClick="{{toggleCard}}" data-dc-aria-expanded="{{cardOpen}}">{{collapseLabel}}</button>
+        <div class="card-scroll">
+        <div class="card-head"><span class="num" aria-hidden="true">02</span><p class="kicker">Research I · My master’s thesis</p></div>
+        <div class="card-body">
+        <div class="page-top"><h2 class="h" style="font-size: 26px">How undergraduates judge the credibility of generative AI</h2></div>
+        <div class="ruled">
+        <p class="look"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#B03A22" stroke-width="1.5"></circle><circle cx="8" cy="8" r="2.5" fill="#B03A22"></circle></svg><span>On the laptop: the red-pencil notes mark the two cues I study.</span></p>
+        <p>Every answer ChatGPT, Claude or Gemini gives asks for a quick judgment: do I trust this? Working from S. Shyam Sundar’s MAIN model, the red-pencil notes mark the two shortcuts I study — <i>form</i>, whether the way a tool presents information makes it feel more real, and <i>agency</i>, whether knowing a machine is answering makes it feel more objective.</p>
+        <p>I’m sitting down with undergraduates and asking them to talk me through the AI tool they use most — what makes them believe it, and when they stop.</p>
+        <p class="meta">Texas State University, 2026–27 · Advised by Dr. Heidi Makady</p>
+        <div class="prog" aria-hidden="true"><i class="done"></i><i class="now"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <nav class="cardnav" aria-label="Chapter navigation"><a href="#cover">← Cover</a><a href="#essays">Essays →</a></nav>
+        </div>
+        </div>
+        </div>
+        <svg class="comb" aria-hidden="true" focusable="false"><defs><pattern id="combRing1" width="34" height="25" patternUnits="userSpaceOnUse"><rect x="3" y="7.5" width="8" height="10" rx="2" fill="rgba(0,0,0,.4)"></rect><rect x="5" y="8" width="27" height="9" rx="4.5" fill="#1C1C20"></rect><rect x="7" y="9" width="22" height="2" rx="1" fill="#55555D"></rect></pattern></defs><rect x="0" y="0" width="34" height="100%" fill="url(#combRing1)"></rect><rect x="24" y="0" width="9" height="100%" rx="4" fill="#18181B"></rect><rect x="26" y="0" width="2" height="100%" rx="1" fill="#4A4A52"></rect></svg>
+      </article>
+
+      <article data-dc-class="card {{cardClass}}" data-dc-style="{{cs.c2}}">
+        <button type="button" class="collapse" data-dc-onClick="{{toggleCard}}" data-dc-aria-expanded="{{cardOpen}}">{{collapseLabel}}</button>
+        <div class="card-scroll">
+        <div class="card-head"><span class="num" aria-hidden="true">03</span><p class="kicker">Research I · Essays</p></div>
+        <div class="card-body">
+        <div class="page-top"><h2 class="h" style="font-size: 26px">Essays, on Hermes Post</h2></div>
+        <div class="ruled">
+        <p class="look"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#B03A22" stroke-width="1.5"></circle><circle cx="8" cy="8" r="2.5" fill="#B03A22"></circle></svg><span>The Hermes Post: the lead story up top, six more essays as it unfolds.</span></p>
+        <p>I write these on my blog, <a href="https://isaacdigitalmedia0.wordpress.com/" target="_blank" rel="noopener">Hermes Post</a>, usually when a question won’t leave me alone — about AI, online platforms and the companies behind them.</p>
+        <ul style="margin: 8px 0 0; padding-left: 18px; font-size: 14.5px; line-height: 1.35"><li style="margin-top: 6px"><a href="https://isaacdigitalmedia0.wordpress.com/2026/02/10/a-reflection-on-corporate-social-responsibility-and-its-communication-restrictions/" target="_blank" rel="noopener">A reflection on corporate social responsibility and its communication restrictions</a> <span class="meta">· Feb ’26</span></li><li style="margin-top: 6px"><a href="https://isaacdigitalmedia0.wordpress.com/2025/12/28/the-pantheon-show-a-discussion-about-data-centers-and-their-implications/" target="_blank" rel="noopener">The Pantheon show: data centres and their implications</a> <span class="meta">· Dec ’25</span></li><li style="margin-top: 6px"><a href="https://isaacdigitalmedia0.wordpress.com/2025/11/26/shelves-of-selves-a-look-at-our-online-identities-as-products/" target="_blank" rel="noopener">Shelves of selves: our online identities as products</a> <span class="meta">· Nov ’25</span></li><li style="margin-top: 6px"><a href="https://isaacdigitalmedia0.wordpress.com/2025/11/02/virtually-everything-how-extended-realities-are-shaping-our-real-lives/" target="_blank" rel="noopener">Virtually everything: how extended realities shape our real lives</a> <span class="meta">· Nov ’25</span></li><li style="margin-top: 6px"><a href="https://isaacdigitalmedia0.wordpress.com/2025/10/26/the-legal-remix-navigating-ai-and-digital-creativity/" target="_blank" rel="noopener">The legal remix: navigating AI and digital creativity</a> <span class="meta">· Oct ’25</span></li><li style="margin-top: 6px"><a href="https://isaacdigitalmedia0.wordpress.com/2025/10/17/the-ai-showdown-chatgpt-vs-gemini/" target="_blank" rel="noopener">The AI showdown: ChatGPT versus Gemini</a> <span class="meta">· Oct ’25</span></li><li style="margin-top: 6px"><a href="https://isaacdigitalmedia0.wordpress.com/2025/10/12/dear-chatgpt-how-do-i-stay-relevant/" target="_blank" rel="noopener">Dear ChatGPT, how do I stay relevant?</a> <span class="meta">· Oct ’25</span></li></ul>
+        <div class="ctas"><a class="cta" href="https://isaacdigitalmedia0.wordpress.com/" target="_blank" rel="noopener">Visit Hermes Post ↗</a></div>
+        <div class="prog" aria-hidden="true"><i class="done"></i><i class="done"></i><i class="now"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <nav class="cardnav" aria-label="Chapter navigation"><a href="#thesis">← Thesis</a><a href="#profile">Profile →</a></nav>
+        </div>
+        </div>
+        </div>
+        <svg class="comb" aria-hidden="true" focusable="false"><defs><pattern id="combRing2" width="34" height="25" patternUnits="userSpaceOnUse"><rect x="3" y="7.5" width="8" height="10" rx="2" fill="rgba(0,0,0,.4)"></rect><rect x="5" y="8" width="27" height="9" rx="4.5" fill="#1C1C20"></rect><rect x="7" y="9" width="22" height="2" rx="1" fill="#55555D"></rect></pattern></defs><rect x="0" y="0" width="34" height="100%" fill="url(#combRing2)"></rect><rect x="24" y="0" width="9" height="100%" rx="4" fill="#18181B"></rect><rect x="26" y="0" width="2" height="100%" rx="1" fill="#4A4A52"></rect></svg>
+      </article>
+
+      <article data-dc-class="card {{cardClass}}" data-dc-style="{{cs.c3}}">
+        <button type="button" class="collapse" data-dc-onClick="{{toggleCard}}" data-dc-aria-expanded="{{cardOpen}}">{{collapseLabel}}</button>
+        <div class="card-scroll">
+        <div class="card-head"><span class="num" aria-hidden="true">04</span><p class="kicker">Profile II · Isaac Sarfo Adjei</p></div>
+        <div class="card-body">
+        <div class="page-top"><h2 class="h" style="font-size: 26px">I make persuasive messages, and I study them</h2></div>
+        <div class="ruled">
+        <p class="look"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#B03A22" stroke-width="1.5"></circle><circle cx="8" cy="8" r="2.5" fill="#B03A22"></circle></svg><span>A portrait print, clipped to the résumé.</span></p>
+        <p>A second-year master’s student in digital media communication at Texas State University, after Publishing Studies at KNUST in Ghana. Most days I’m a graduate assistant at the School of Journalism and Mass Communication, helping with AI and Automation for Media Professionals and looking after the school’s web content.</p>
+        <p>I also design — the posters and the Save Asaase Yaa illustrations are that side of me. Now I’m applying to PhD programs in communication and advertising.</p>
+        <div class="ctas"><a class="cta" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" target="_blank" rel="noopener">Open résumé ↗</a><a class="cta ghost" href="Images/ISAAC-SARFO-ADJEI-RESUME.pdf" download="">Download PDF</a></div>
+        <div class="prog" aria-hidden="true"><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <nav class="cardnav" aria-label="Chapter navigation"><a href="#essays">← Essays</a><a href="#advocacy">Save Asaase Yaa →</a></nav>
+        </div>
+        </div>
+        </div>
+        <svg class="comb" aria-hidden="true" focusable="false"><defs><pattern id="combRing3" width="34" height="25" patternUnits="userSpaceOnUse"><rect x="3" y="7.5" width="8" height="10" rx="2" fill="rgba(0,0,0,.4)"></rect><rect x="5" y="8" width="27" height="9" rx="4.5" fill="#1C1C20"></rect><rect x="7" y="9" width="22" height="2" rx="1" fill="#55555D"></rect></pattern></defs><rect x="0" y="0" width="34" height="100%" fill="url(#combRing3)"></rect><rect x="24" y="0" width="9" height="100%" rx="4" fill="#18181B"></rect><rect x="26" y="0" width="2" height="100%" rx="1" fill="#4A4A52"></rect></svg>
+      </article>
+
+      <article data-dc-class="card {{cardClass}}" data-dc-style="{{cs.c4}}">
+        <button type="button" class="collapse" data-dc-onClick="{{toggleCard}}" data-dc-aria-expanded="{{cardOpen}}">{{collapseLabel}}</button>
+        <div class="card-scroll">
+        <div class="card-head"><span class="num" aria-hidden="true">05</span><p class="kicker">Feature III · Advocacy illustration</p></div>
+        <div class="card-body">
+        <div class="page-top"><h2 class="h" style="font-size: 26px">Save Asaase Yaa</h2></div>
+        <div class="ruled">
+        <p class="look"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#B03A22" stroke-width="1.5"></circle><circle cx="8" cy="8" r="2.5" fill="#B03A22"></circle></svg><span>The phone: scroll the feed to see all four illustrations.</span></p>
+        <p>Four illustrations on galamsey — illegal small-scale mining — and what it takes from Ghana’s rivers, forests, and the people who live beside them. The series runs on Instagram as <a href="https://www.instagram.com/saveasaaseyaa" target="_blank" rel="noopener">@saveasaaseyaa</a>.</p>
+        <p class="meta">Fig. 1 Before the clearing · Fig. 2 Raft on a brown river · Fig. 3 The boy and the dead river · Fig. 4 Where do you get your gold from?</p>
+        <div class="ctas"><a class="cta" href="https://www.instagram.com/saveasaaseyaa" target="_blank" rel="noopener">See @saveasaaseyaa ↗</a></div>
+        <div class="prog" aria-hidden="true"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <nav class="cardnav" aria-label="Chapter navigation"><a href="#profile">← Profile</a><a href="#design">Design →</a></nav>
+        </div>
+        </div>
+        </div>
+        <svg class="comb" aria-hidden="true" focusable="false"><defs><pattern id="combRing4" width="34" height="25" patternUnits="userSpaceOnUse"><rect x="3" y="7.5" width="8" height="10" rx="2" fill="rgba(0,0,0,.4)"></rect><rect x="5" y="8" width="27" height="9" rx="4.5" fill="#1C1C20"></rect><rect x="7" y="9" width="22" height="2" rx="1" fill="#55555D"></rect></pattern></defs><rect x="0" y="0" width="34" height="100%" fill="url(#combRing4)"></rect><rect x="24" y="0" width="9" height="100%" rx="4" fill="#18181B"></rect><rect x="26" y="0" width="2" height="100%" rx="1" fill="#4A4A52"></rect></svg>
+      </article>
+
+      <article data-dc-class="card {{cardClass}}" data-dc-style="{{cs.c5}}">
+        <button type="button" class="collapse" data-dc-onClick="{{toggleCard}}" data-dc-aria-expanded="{{cardOpen}}">{{collapseLabel}}</button>
+        <div class="card-scroll">
+        <div class="card-head"><span class="num" aria-hidden="true">06</span><p class="kicker">Portfolio IV · Campaign and brand design</p></div>
+        <div class="card-body">
+        <div class="page-top"><h2 class="h" style="font-size: 26px">Nine posters, Accra to San Marcos</h2></div>
+        <div class="ruled">
+        <p class="look"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#B03A22" stroke-width="1.5"></circle><circle cx="8" cy="8" r="2.5" fill="#B03A22"></circle></svg><span>Nine posters, pinned. They fan out as you scroll.</span></p>
+        <p>Posters and product advertising built for retail, arts, and student organisations, in Accra and at Texas State.</p>
+        <p class="meta">I Accra Zoo · II Grace · III Hybrid generator · IV Seafood house · V Cline · VI Shelter and pet store · VII Laptop store · VIII SPJ, Texas State · IX Mass Communication Week</p>
+        <div class="ctas"><button type="button" class="cta ghost" data-dc-onClick="{{toggleReader}}">See them full size</button></div>
+        <div class="prog" aria-hidden="true"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i><i class=""></i><i class=""></i></div>
+        <nav class="cardnav" aria-label="Chapter navigation"><a href="#advocacy">← Save Asaase Yaa</a><a href="#contact">Contact →</a></nav>
+        </div>
+        </div>
+        </div>
+        <svg class="comb" aria-hidden="true" focusable="false"><defs><pattern id="combRing5" width="34" height="25" patternUnits="userSpaceOnUse"><rect x="3" y="7.5" width="8" height="10" rx="2" fill="rgba(0,0,0,.4)"></rect><rect x="5" y="8" width="27" height="9" rx="4.5" fill="#1C1C20"></rect><rect x="7" y="9" width="22" height="2" rx="1" fill="#55555D"></rect></pattern></defs><rect x="0" y="0" width="34" height="100%" fill="url(#combRing5)"></rect><rect x="24" y="0" width="9" height="100%" rx="4" fill="#18181B"></rect><rect x="26" y="0" width="2" height="100%" rx="1" fill="#4A4A52"></rect></svg>
+      </article>
+
+      <article data-dc-class="card {{cardClass}}" data-dc-style="{{cs.c6}}">
+        <button type="button" class="collapse" data-dc-onClick="{{toggleCard}}" data-dc-aria-expanded="{{cardOpen}}">{{collapseLabel}}</button>
+        <div class="card-scroll">
+        <div class="card-head"><span class="num" aria-hidden="true">07</span><p class="kicker">Back page V · Contact</p></div>
+        <div class="card-body">
+        <div class="page-top"><h2 class="h" style="font-size: 30px">Let’s talk</h2></div>
+        <div class="ruled">
+        <p class="look"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#B03A22" stroke-width="1.5"></circle><circle cx="8" cy="8" r="2.5" fill="#B03A22"></circle></svg><span>A letter, half out of its envelope, and a card with every way to reach me.</span></p>
+        <p>I’m applying to PhD programs in communication and advertising, and I’d love to hear from faculty whose work overlaps with mine, whether it’s about research fit, a project, or just a conversation. I still take on the occasional design project, too. Email is the quickest way to reach me.</p>
+        <p style="font-size: 15px; line-height: 1.8">adjeisarfoike@gmail.com<br><a href="https://www.linkedin.com/in/isaac-adjei-b94b90381" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://x.com/isaacsarfoadjei" target="_blank" rel="noopener">X</a> · <a href="https://www.instagram.com/saveasaaseyaa" target="_blank" rel="noopener">Instagram</a></p>
+        <div class="ctas"><a class="cta" href="mailto:adjeisarfoike@gmail.com">Email me</a><a class="cta ghost" href="https://www.linkedin.com/in/isaac-adjei-b94b90381" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+        <div class="prog" aria-hidden="true"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i><i class=""></i></div>
+        <nav class="cardnav" aria-label="Chapter navigation"><a href="#design">← Design</a><a href="#desk">The whole desk →</a></nav>
+        </div>
+        </div>
+        </div>
+        <svg class="comb" aria-hidden="true" focusable="false"><defs><pattern id="combRing6" width="34" height="25" patternUnits="userSpaceOnUse"><rect x="3" y="7.5" width="8" height="10" rx="2" fill="rgba(0,0,0,.4)"></rect><rect x="5" y="8" width="27" height="9" rx="4.5" fill="#1C1C20"></rect><rect x="7" y="9" width="22" height="2" rx="1" fill="#55555D"></rect></pattern></defs><rect x="0" y="0" width="34" height="100%" fill="url(#combRing6)"></rect><rect x="24" y="0" width="9" height="100%" rx="4" fill="#18181B"></rect><rect x="26" y="0" width="2" height="100%" rx="1" fill="#4A4A52"></rect></svg>
+      </article>
+
+      <article data-dc-class="card {{cardClass}}" data-dc-style="{{cs.c7}}">
+        <button type="button" class="collapse" data-dc-onClick="{{toggleCard}}" data-dc-aria-expanded="{{cardOpen}}">{{collapseLabel}}</button>
+        <div class="card-scroll">
+        <div class="card-head"><span class="num" aria-hidden="true">08</span><p class="kicker">Colophon</p></div>
+        <div class="card-body">
+        <div class="page-top"><h2 class="h" style="font-size: 30px">The whole desk</h2></div>
+        <div class="ruled">
+        <p class="look"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#B03A22" stroke-width="1.5"></circle><circle cx="8" cy="8" r="2.5" fill="#B03A22"></circle></svg><span>Everything at once. Tap any object to go back to it.</span></p>
+        <p>Thesis, essays, illustration &amp; design — words, images and design by Isaac Sarfo Adjei. Cover illustration from the Save Asaase Yaa series.</p>
+        <div class="cite">
+          <div class="meta">Cite this site</div>
+          <div role="group" aria-label="Citation style" class="cite-tabs">
+            <sc-for data-dc-list="{{styles}}" as="st" hint-placeholder-count="3">
+              <button type="button" data-dc-onClick="{{st.pick}}" data-dc-aria-pressed="{{st.pressed}}" data-dc-style="{{st.btnStyle}}">{{st.label}}</button>
+            </sc-for>
+          </div>
+          <p class="cite-text">{{citation}}</p>
+          <button type="button" class="cta cite-copy" data-dc-onClick="{{copy}}">{{copyLabel}}</button>
+        </div>
+        <div class="prog" aria-hidden="true"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i></div>
+        <nav class="cardnav" aria-label="Chapter navigation"><a href="#contact">← Contact</a><a href="#cover">Cover ↑</a></nav>
+        </div>
+        </div>
+        </div>
+        <svg class="comb" aria-hidden="true" focusable="false"><defs><pattern id="combRing7" width="34" height="25" patternUnits="userSpaceOnUse"><rect x="3" y="7.5" width="8" height="10" rx="2" fill="rgba(0,0,0,.4)"></rect><rect x="5" y="8" width="27" height="9" rx="4.5" fill="#1C1C20"></rect><rect x="7" y="9" width="22" height="2" rx="1" fill="#55555D"></rect></pattern></defs><rect x="0" y="0" width="34" height="100%" fill="url(#combRing7)"></rect><rect x="24" y="0" width="9" height="100%" rx="4" fill="#18181B"></rect><rect x="26" y="0" width="2" height="100%" rx="1" fill="#4A4A52"></rect></svg>
+      </article>
+
+      <div class="cue" data-dc-style="opacity: {{cueOp}}"><span class="bob">scroll ↓</span></div>
+    </div>
+  </div>
+  </sc-if>
 </div>
-
+</template>
 <script>
-(function(){
+(function () {
   'use strict';
-
-  var nav = document.getElementById('nav');
-  var settle = function(){ nav.classList.toggle('settled', window.scrollY > 140); };
-  settle();
-  window.addEventListener('scroll', settle, {passive:true});
-
-  /* Lightbox */
-  var viewer = document.getElementById('viewer');
-  var vImg   = document.getElementById('viewerImg');
-  var vTitle = document.getElementById('viewerTitle');
-  var vNote  = document.getElementById('viewerNote');
-  var set = [], at = 0, opener = null;
-
-  function paint(i){
-    at = (i + set.length) % set.length;
-    var p = set[at];
-    vImg.src = p.dataset.src;
-    vImg.alt = p.querySelector('img').alt;
-    vTitle.textContent = p.dataset.title;
-    vNote.textContent  = p.dataset.note;
+  var HOLE = /\{\{\s*([^}]+?)\s*\}\}/g;
+  function look(scope, path) {
+    var parts = path.split('.'), v = scope;
+    for (var i = 0; i < parts.length; i++) { if (v == null) return undefined; v = v[parts[i]]; }
+    return v;
   }
-  function open(list, i, el){
-    set = list; opener = el; paint(i);
-    viewer.setAttribute('open','');
-    document.body.style.overflow = 'hidden';
-    document.getElementById('viewerClose').focus();
+  function str(v) { return v == null ? '' : String(v); }
+  function interp(text, scope) {
+    return text.replace(HOLE, function (_, p) { return str(look(scope, p)); });
   }
-  function close(){
-    viewer.removeAttribute('open');
-    vImg.src = '';
-    document.body.style.overflow = '';
-    if (opener) { opener.focus(); opener = null; }
+  function single(text) { var m = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/.exec(text); return m ? m[1] : null; }
+
+  // An instance owns a set of live nodes and a list of updaters run on every render.
+  function Instance(frag) {
+    this.ups = [];
+    this.scope = null;
+    this.walk(frag);
   }
-  Array.prototype.forEach.call(document.querySelectorAll('[data-gallery]'), function(grid){
-    var plates = Array.prototype.slice.call(grid.querySelectorAll('.plate'));
-    plates.forEach(function(p, i){
-      p.addEventListener('click', function(){ open(plates, i, p); });
+  Instance.prototype.walk = function (node) {
+    var kids = Array.prototype.slice.call(node.childNodes);
+    for (var i = 0; i < kids.length; i++) this.visit(kids[i]);
+  };
+  Instance.prototype.visit = function (n) {
+    var self = this;
+    if (n.nodeType === 3) {
+      if (n.data.indexOf('{{') < 0) return;
+      var tpl = n.data, last = null;
+      n.data = '';
+      this.ups.push(function (sc) { var t = interp(tpl, sc); if (t !== last) { n.data = t; last = t; } });
+      return;
+    }
+    if (n.nodeType !== 1) return;
+    var tag = n.localName;
+    if (tag === 'sc-if' || tag === 'sc-for') {
+      var anchor = document.createComment(tag);
+      var tmpl = document.createDocumentFragment();
+      while (n.firstChild) tmpl.appendChild(n.firstChild);
+      n.parentNode.replaceChild(anchor, n);
+      if (tag === 'sc-if') {
+        var expr = single(n.getAttribute('data-dc-value') || ''), child = null, nodes = [];
+        this.ups.push(function (sc) {
+          var on = !!look(sc, expr);
+          if (on && !child) {
+            var f = tmpl.cloneNode(true);
+            child = new Instance(f);
+            nodes = Array.prototype.slice.call(f.childNodes);
+            child.update(sc);
+            anchor.parentNode.insertBefore(f, anchor);
+          } else if (!on && child) {
+            nodes.forEach(function (x) { if (x.parentNode) x.parentNode.removeChild(x); });
+            child = null; nodes = [];
+          } else if (child) child.update(sc);
+        });
+      } else {
+        var lexpr = single(n.getAttribute('data-dc-list') || ''), as = n.getAttribute('as') || 'item', items = [];
+        this.ups.push(function (sc) {
+          var list = look(sc, lexpr) || [];
+          while (items.length > list.length) {
+            items.pop().nodes.forEach(function (x) { if (x.parentNode) x.parentNode.removeChild(x); });
+          }
+          for (var k = 0; k < list.length; k++) {
+            var cs = Object.create(sc); cs[as] = list[k];
+            if (!items[k]) {
+              var f = tmpl.cloneNode(true), inst = new Instance(f);
+              items[k] = { inst: inst, nodes: Array.prototype.slice.call(f.childNodes) };
+              inst.update(cs);
+              anchor.parentNode.insertBefore(f, anchor);
+            } else items[k].inst.update(cs);
+          }
+        });
+      }
+      return;
+    }
+    var attrs = Array.prototype.slice.call(n.attributes);
+    attrs.forEach(function (a) {
+      if (a.name.indexOf('data-dc-') !== 0) return;
+      var name = a.name.slice(8), tpl = a.value;
+      n.removeAttribute(a.name);
+      if (/^on[a-z]+$/.test(name)) {
+        var ex = single(tpl);
+        var holder = { fn: null };
+        n.addEventListener(name.slice(2), function (e) { if (typeof holder.fn === 'function') holder.fn(e); },
+          /^touch/.test(name.slice(2)) ? { passive: true } : false);
+        self.ups.push(function (sc) { holder.fn = look(sc, ex); });
+        return;
+      }
+      var last = null;
+      self.ups.push(function (sc) { var v = interp(tpl, sc); if (v !== last) { n.setAttribute(name, v); last = v; } });
     });
-  });
-  document.getElementById('viewerClose').addEventListener('click', close);
-  document.getElementById('viewerPrev').addEventListener('click', function(){ paint(at - 1); });
-  document.getElementById('viewerNext').addEventListener('click', function(){ paint(at + 1); });
-  viewer.addEventListener('click', function(e){ if (e.target === viewer) close(); });
+    this.walk(n);
+  };
+  Instance.prototype.update = function (sc) {
+    this.scope = sc;
+    for (var i = 0; i < this.ups.length; i++) this.ups[i](sc);
+  };
 
-  /* Résumé */
-  var paper = document.getElementById('paper');
-  var frame = document.getElementById('paperFrame');
-  document.getElementById('openResume').addEventListener('click', function(){
-    frame.src = 'Images/ISAAC-SARFO-ADJEI-RESUME.pdf';
-    paper.setAttribute('open','');
-    document.body.style.overflow = 'hidden';
-    document.getElementById('paperClose').focus();
-  });
-  function shut(){
-    paper.removeAttribute('open');
-    frame.src = '';
-    document.body.style.overflow = '';
+  // The component base class the desk was written against.
+  var queued = false, comp = null, root = null;
+  function render() {
+    queued = false;
+    if (comp && root) root.update(comp.renderVals());
   }
-  document.getElementById('paperClose').addEventListener('click', shut);
-  paper.addEventListener('click', function(e){ if (e.target === paper) shut(); });
-
-  /* Keyboard */
-  document.addEventListener('keydown', function(e){
-    if (paper.hasAttribute('open')){ if (e.key === 'Escape') shut(); return; }
-    if (!viewer.hasAttribute('open')) return;
-    if (e.key === 'Escape')     close();
-    if (e.key === 'ArrowLeft')  paint(at - 1);
-    if (e.key === 'ArrowRight') paint(at + 1);
-  });
+  function DCLogic(props) { this.props = props || {}; this.state = {}; }
+  DCLogic.prototype.setState = function (patch) {
+    var p = typeof patch === 'function' ? patch(this.state, this.props) : patch;
+    this.state = Object.assign({}, this.state, p);
+    if (!queued) { queued = true; Promise.resolve().then(render); }
+  };
+  window.DCLogic = DCLogic;
+  window.__mountDesk = function (Component, props) {
+    var tpl = document.getElementById('desk-template');
+    var mount = document.getElementById('desk-root');
+    var frag = tpl.content.cloneNode(true);
+    comp = new Component(props);
+    root = new Instance(frag);
+    root.update(comp.renderVals());
+    mount.appendChild(frag);
+    if (comp.componentDidMount) comp.componentDidMount();
+  };
 })();
+</script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { style: 'APA', copied: false, tick: 0, reader: false, paused: false, collapsed: false, settled: false, vg: null, vi: 0 };
+    this.cur = { raw: 0, vw: 1440, vh: 900 };
+    this.target = null;
+    this.raf = 0;
+    this.running = false;
+    this.reduce = false;
+    this.idleT = 0;
+    this.lastHash = '';
+    this.touch = null;
+    this.slugs = ['cover', 'thesis', 'essays', 'profile', 'advocacy', 'design', 'contact', 'desk'];
+    this.keyRows = this.buildKeys();
+    this.onScroll = this.onScroll.bind(this);
+    this.tick = this.tick.bind(this);
+  }
+
+  buildKeys() {
+    const rows = [
+      [['`', 1], ['1', 1], ['2', 1], ['3', 1], ['4', 1], ['5', 1], ['6', 1], ['7', 1], ['8', 1], ['9', 1], ['0', 1], ['-', 1], ['=', 1], ['delete', 1.6]],
+      [['tab', 1.5], ['Q', 1], ['W', 1], ['E', 1], ['R', 1], ['T', 1], ['Y', 1], ['U', 1], ['I', 1], ['O', 1], ['P', 1], ['[', 1], [']', 1], ['\\', 1.1]],
+      [['caps', 1.8], ['A', 1], ['S', 1], ['D', 1], ['F', 1], ['G', 1], ['H', 1], ['J', 1], ['K', 1], ['L', 1], [';', 1], ["'", 1], ['return', 1.8]],
+      [['shift', 2.3], ['Z', 1], ['X', 1], ['C', 1], ['V', 1], ['B', 1], ['N', 1], ['M', 1], [',', 1], ['.', 1], ['/', 1], ['shift', 2.3]],
+      [['fn', 1], ['ctrl', 1], ['alt', 1.1], ['', 5.4], ['alt', 1.1], ['ctrl', 1], ['←', 1], ['↑', 1], ['↓', 1], ['→', 1]]
+    ];
+    const KEY = 'flex-basis:0;min-width:0;height:38px;border-radius:6px;background:linear-gradient(200deg,#34373E,#1D1F24);box-shadow:-1px 2px 0 #0B0C0E, inset 0 1px 0 rgba(255,255,255,.1);color:#C9CDD4;font-family:Archivo,sans-serif;font-size:11px;display:flex;align-items:flex-end;justify-content:flex-start;padding:0 0 5px 7px;box-sizing:border-box;overflow:hidden;';
+    return rows.map((r) => ({ keys: r.map((k) => ({ label: k[0], style: KEY + 'flex-grow:' + k[1] + ';' })) }));
+  }
+
+  componentDidMount() {
+    try { this.reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (e) {}
+    try {
+      document.addEventListener('scroll', this.onScroll, { passive: true, capture: true });
+      window.addEventListener('resize', this.onScroll, { passive: true });
+    } catch (e) {}
+    const t = this.measure();
+    if (t) { this.cur = { raw: t.raw, vw: t.vw, vh: t.vh }; this.target = t; }
+    this.setState({ tick: this.state.tick + 1 });
+  }
+
+  componentWillUnmount() {
+    try {
+      document.removeEventListener('scroll', this.onScroll, { capture: true });
+      window.removeEventListener('resize', this.onScroll);
+      if (this.raf) cancelAnimationFrame(this.raf);
+      if (this.idleT) clearTimeout(this.idleT);
+    } catch (e) {}
+  }
+
+  measure() {
+    try {
+      const vw = window.innerWidth || 1440, vh = window.innerHeight || 900;
+      const el = document.getElementById('tour');
+      if (!el) return { raw: 0, vw: vw, vh: vh, none: true };
+      const r = el.getBoundingClientRect();
+      const span = Math.max(1, r.height - vh);
+      const p = Math.max(0, Math.min(1, -r.top / span));
+      return { raw: p * 7.4, vw: vw, vh: vh };
+    } catch (e) { return null; }
+  }
+
+  goTo(k) {
+    try {
+      const el = document.getElementById('tour');
+      if (!el) return;
+      const kk = Math.max(0, Math.min(7, k));
+      const vh = window.innerHeight || 900;
+      const r = el.getBoundingClientRect();
+      const top = r.top + (window.pageYOffset || document.documentElement.scrollTop || 0);
+      const span = Math.max(1, r.height - vh);
+      const y = top + ((kk + 0.2) / 7.4) * span;
+      const instant = this.reduce || this.state.paused;
+      window.scrollTo({ top: y, behavior: instant ? 'auto' : 'smooth' });
+    } catch (e) {}
+  }
+
+  onScroll() {
+    try {
+      const y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      if ((y > 140) !== this.state.settled) this.setState({ settled: y > 140 });
+    } catch (e) {}
+    const t = this.measure();
+    if (!t) return;
+    this.target = t;
+    this.cur.vw = t.vw; this.cur.vh = t.vh;
+    if (!this.running) { this.running = true; this.raf = requestAnimationFrame(this.tick); }
+    if (this.idleT) clearTimeout(this.idleT);
+    this.idleT = setTimeout(() => this.settle(), 180);
+  }
+
+  settle() {
+    const T = this.target;
+    if (!T || T.none || this.state.reader) return;
+    const raw = T.raw;
+    const i = Math.min(7, Math.floor(raw)), t = raw - i;
+    if (i < 7 && t > 0.42 && t < 0.98) {
+      const u = (t - 0.4) / 0.6;
+      const fe = i + u * u * (3 - 2 * u);
+      this.goTo(Math.round(fe));
+      return;
+    }
+    const near = Math.max(0, Math.min(7, Math.round(raw - 0.2)));
+    const hash = '#' + this.slugs[near];
+    if (hash !== this.lastHash) {
+      this.lastHash = hash;
+      try { window.history.replaceState(null, '', hash); } catch (e) {}
+    }
+  }
+
+  tick() {
+    const T = this.target;
+    if (!T) { this.running = false; return; }
+    const k = (this.reduce || this.state.paused) ? 1 : 0.11;
+    const d = T.raw - this.cur.raw;
+    if (Math.abs(d) < 0.0005) {
+      this.cur.raw = T.raw;
+      this.running = false;
+      this.setState({ tick: this.state.tick + 1 });
+      return;
+    }
+    this.cur.raw += d * k;
+    this.setState({ tick: this.state.tick + 1 });
+    this.raf = requestAnimationFrame(this.tick);
+  }
+
+  renderVals() {
+    const paused = this.state.paused;
+    const motion = (this.props.motion ?? true) && !this.reduce && !paused;
+    const reader = this.state.reader;
+    const clamp = (v) => Math.max(0, Math.min(1, v));
+    const smooth = (x) => x * x * (3 - 2 * x);
+    const raw = Math.max(0, Math.min(7.4, this.cur.raw || 0));
+    const i = Math.min(7, Math.floor(raw));
+    const t = raw - i;
+    const fe = motion ? Math.min(7, i + smooth(clamp((t - 0.4) / 0.6))) : Math.max(0, Math.min(7, Math.round(raw - 0.2)));
+
+    // the object fills most of the screen; its placard sits beside it as an explainer
+    const vw = this.cur.vw || 1440, vh = this.cur.vh || 900;
+    const mobile = vw < 820;
+    const TOP = 52, M = 28, CW = 340;
+    const R = [
+      [1380, 280, 560, 700],
+      [110, 80, 1260, 580],
+      [1985, 75, 730, 930],
+      [2040, 1040, 680, 720],
+      [1520, 1060, 360, 600],
+      [900, 1040, 620, 680],
+      [100, 960, 900, 720],
+      [0, 0, 2800, 1800]
+    ];
+    // where each placard sits, and the detail its leader line points at
+    const PL = [
+      { side: 'r', pin: [1660, 560] },
+      { side: 'bl', pin: [640, 330] },
+      { side: 'r', pin: [2340, 300] },
+      { side: 'l', pin: [2180, 1270] },
+      { side: 'r', pin: [1690, 1300] },
+      { side: 'l', pin: [1210, 1380] },
+      { side: 'r', pin: [450, 1260] },
+      { side: 'l', pin: null }
+    ];
+    const frame = (k) => {
+      const r = R[k], side = PL[k].side;
+      if (mobile) {
+        const s = Math.min((vw * 0.96) / r[2], (vh * 0.44) / r[3]);
+        return { cx: r[0] + r[2] / 2, cy: r[1] + r[3] / 2, s: s, fx: vw * 0.5, fy: TOP + (vh * 0.5 - TOP) * 0.62 };
+      }
+      const room = vw - CW - M * 2;          // width left for the object beside the placard
+      const wide = side === 'bl' || k === 7; // the laptop and the overview take the full width
+      const aw = wide ? vw * 0.92 : Math.max(vw * 0.6, room * 0.98);
+      const ah = (vh - TOP) * (side === 'bl' ? 0.8 : 0.88);
+      const s = Math.min(aw / r[2], ah / r[3]);
+      let fx = vw * 0.5;
+      if (!wide) fx = side === 'r' ? (vw - CW - M) / 2 + 6 : CW + M + (vw - CW - M) / 2 - 6;
+      const fy = side === 'bl' ? TOP + (vh - TOP) * 0.42 : TOP + (vh - TOP) * 0.5;
+      return { cx: r[0] + r[2] / 2, cy: r[1] + r[3] / 2, s: s, fx: fx, fy: fy };
+    };
+    const k0 = Math.floor(fe), k1 = Math.min(7, k0 + 1), u = fe - k0;
+    const A = frame(k0), B = frame(k1);
+    const lerp = (p, q) => p + (q - p) * u;
+    const cx = lerp(A.cx, B.cx), cy = lerp(A.cy, B.cy), fx = lerp(A.fx, B.fx), fy = lerp(A.fy, B.fy);
+    const s = Math.exp(Math.log(A.s) * (1 - u) + Math.log(B.s) * u) * (1 - 0.22 * Math.sin(Math.PI * u));
+    const camera = 'transform:translate(' + (fx - cx * s).toFixed(1) + 'px,' + (fy - cy * s).toFixed(1) + 'px) scale(' + s.toFixed(4) + ');';
+
+    const amt = (k) => (motion ? clamp((raw - k + 0.3) / 0.6) : 1);
+    const fmt = (v) => (Math.round(v * 1000) / 1000).toString();
+    const a = { a1: fmt(amt(1)), a2: fmt(amt(2)), a3: fmt(amt(3)), a4: fmt(amt(4)), a5: fmt(amt(5)), a6: fmt(amt(6)) };
+    const open = fmt(motion ? clamp((raw - 0.3) / 0.5) : (fe >= 1 ? 1 : 0));
+
+    const cs = {};
+    const ocs = [];
+    for (let k = 0; k < 8; k++) {
+      const oc = clamp(1 - Math.abs(fe - k) * 3);
+      ocs.push(oc);
+      const dy = (1 - oc) * 24 * (fe > k ? -1 : 1);
+      const side = PL[k].side;
+      let pos, mid = false;
+      if (side === 'r') { pos = 'right:' + M + 'px;top:calc(50% + ' + (TOP / 2) + 'px);'; mid = true; }
+      else if (side === 'l') { pos = 'left:' + M + 'px;top:calc(50% + ' + (TOP / 2) + 'px);'; mid = true; }
+      else { pos = 'left:' + M + 'px;bottom:' + M + 'px;'; }
+      cs['c' + k] = pos + 'transform:translateY(calc(' + (mid ? '-50% + ' : '') + dy.toFixed(1) + 'px));--dy:' + dy.toFixed(1) + 'px;opacity:' + oc.toFixed(3) + ';visibility:' + (oc < 0.02 ? 'hidden' : 'visible') + ';pointer-events:' + (oc > 0.5 ? 'auto' : 'none') + ';';
+    }
+
+    const near = Math.round(fe);
+    const pl = PL[near];
+    let ld = { x1: 0, y1: 0, x2: 0, y2: 0, op: '0' };
+    if (pl.pin && !mobile) {
+      const px = fx + (pl.pin[0] - cx) * s, py = fy + (pl.pin[1] - cy) * s;
+      let ax, ay;
+      if (pl.side === 'r') { ax = vw - M - CW; ay = TOP + (vh - TOP) / 2; }
+      else if (pl.side === 'l') { ax = M + CW; ay = TOP + (vh - TOP) / 2; }
+      else { ax = M + CW; ay = vh - M - 120; }
+      const lo = clamp((ocs[near] - 0.7) / 0.3);
+      ld = { x1: px.toFixed(1), y1: py.toFixed(1), x2: ax.toFixed(1), y2: ay.toFixed(1), op: lo.toFixed(3) };
+    }
+
+    const labels = ['Cover', 'The thesis', 'Essays', 'Profile', 'Save Asaase Yaa', 'Design', 'Contact', 'The whole desk'];
+    const romans = ['', 'I', 'I', 'II', 'III', 'IV', 'V', ''];
+    const chapters = labels.map((nm, k) => ({
+      href: '#' + this.slugs[k],
+      name: 'Chapter ' + k + ': ' + nm,
+      label: nm,
+      num: String(k),
+      cur: k === near ? 'step' : 'false',
+      style: k === near ? 'background:#EDE7DA;color:#1E130C;' : 'color:#EDE7DA;border:1px solid rgba(237,231,218,.4);'
+    }));
+
+    const cites = {
+      APA: 'Adjei, I. S. (2026). Isaac Sarfo Adjei: Communication research, design, digital media [Personal website]. [SITE URL]',
+      MLA: 'Adjei, Isaac Sarfo. Isaac Sarfo Adjei: Communication Research, Design, Digital Media. 2026, [SITE URL].',
+      Chicago: 'Adjei, Isaac Sarfo. “Isaac Sarfo Adjei: Communication Research, Design, Digital Media.” Personal website, 2026. [SITE URL].'
+    };
+    const current = this.state.style;
+    const base = "min-height: 40px; padding: 0 12px; border: 1.5px solid #1D1A16; font-family: Newsreader, serif; font-size: 15px; cursor: pointer;";
+    const styles = ['APA', 'MLA', 'Chicago'].map((label) => ({
+      label: label,
+      pressed: label === current ? 'true' : 'false',
+      btnStyle: base + (label === current ? ' background: #1D1A16; color: #FBF8F1;' : ' background: transparent; color: #1D1A16;'),
+      pick: () => this.setState({ style: label, copied: false })
+    }));
+
+
+    const ADV = [
+      ['Images/Advocacy%20(2).jpg', 'Before the clearing', 'An excavator standing at the edge of dense forest.', 'An excavator at the edge of forest that has stood for centuries, moments before it is taken down.', 'Fig. 1', 'Advocacy illustration'],
+      ['Images/Advocacy%20(1).jpg', 'Raft on a brown river', 'A mining raft floating on a muddy brown river.', "Alluvial mining turns Ghana's waterways to silt. The rafts stay; the water does not come back clear.", 'Fig. 2', 'Advocacy illustration'],
+      ['Images/Advocacy%20(4).jpg', 'The boy and the dead river', 'A young boy standing in a river surrounded by dead fish.', 'What mining runoff leaves behind for the communities downstream, and for everything that used to live in the water.', 'Fig. 3', 'Advocacy illustration'],
+      ['Images/Advocacy%20(3).jpg', 'Where do you get your gold from?', 'Many arms wearing gold jewellery arranged to form a skull.', 'Arms in gold jewellery arranged into a skull — the true cost of the metal, carried by the person wearing it.', 'Fig. 4', 'Cover illustration']
+    ];
+    const DES = [
+      ['Images/ACE%2015.jpg', 'Accra Zoo', 'Poster advertising the Accra Zoo.', 'Visitor campaign poster for the Accra Zoo.', 'Plate I', 'Visitor campaign'],
+      ['Images/Grace%20(1).jpg', 'Grace', 'Ballet performance poster featuring a ballerina figurine.', 'Performance poster for a ballet production, built around a single figurine and a lot of quiet space.', 'Plate II', 'Performance poster'],
+      ['Images/HYBRID%20(1).jpg', 'Hybrid generator', 'Product advertisement for a hybrid generator set in a forest.', 'Product advertisement placing a hybrid generator in a forest setting, leaning on the quiet-running claim.', 'Plate III', 'Product advertising'],
+      ['Images/sea.jpg', 'Seafood house', 'Poster design for a seafood restaurant.', 'Restaurant poster built around the catch rather than the plate.', 'Plate IV', 'Restaurant poster'],
+      ['Images/Cline.jpg', 'Cline', 'Brand design advertising an antique padded chair.', 'Brand design for a sale of antique padded chairs — furniture treated as portraiture.', 'Plate V', 'Brand design'],
+      ['Images/ACE%2011%20(1).jpg', 'Shelter and pet store', 'Poster design for a dog shelter and pet store.', 'Adoption poster for a dog shelter and pet store.', 'Plate VI', 'Adoption poster'],
+      ['Images/Ace%206%20(1).jpg', 'Laptop store', 'Poster design for a laptop store.', 'Retail poster for a laptop store.', 'Plate VII', 'Retail poster'],
+      ['Images/SPJ%20A4.jpg', 'SPJ, Texas State', 'Poster for the Texas State SPJ student chapter.', 'Recruitment poster for the Texas State student chapter of the Society of Professional Journalists.', 'Plate VIII', 'Chapter recruitment'],
+      ['Images/poster.jpg', 'Mass Communication Week', 'Poster for SJMC Mass Communication Week.', "Event poster for the School of Journalism and Mass Communication's annual Mass Communication Week.", 'Plate IX', 'Event poster, SJMC']
+    ];
+    const SETS = { adv: ADV, des: DES };
+    const mk = (g) => SETS[g].map((r, n) => ({
+      src: r[0], title: r[1], alt: r[2], fig: r[4], kind: r[5],
+      cls: 'o-plate' + (g === 'des' && n === 0 ? ' o-plate--lead' : ''),
+      open: () => this.setState({ vg: g, vi: n })
+    }));
+    const vg = this.state.vg;
+    const vset = vg ? SETS[vg] : null;
+    const vr = vset ? vset[((this.state.vi % vset.length) + vset.length) % vset.length] : null;
+    const viewerVals = vr ? { open: true, src: vr[0], title: vr[1], alt: vr[2], note: vr[3] } : { open: false, src: '', title: '', alt: '', note: '' };
+    const collapsed = this.state.collapsed;
+    return {
+      rootClass: motion ? 'moving' : 'still',
+      reader: reader,
+      tourOn: !reader,
+      readerStr: reader ? 'true' : 'false',
+      readerLabel: reader ? 'Back to the desk' : 'Read as a page',
+      toggleReader: () => {
+        this.setState({ reader: !this.state.reader, vg: null, settled: false });
+        try { window.scrollTo(0, 0); } catch (e) {}
+      },
+      pausedStr: paused ? 'true' : 'false',
+      pauseLabel: paused ? 'Motion off' : 'Motion on',
+      togglePause: () => this.setState({ paused: !this.state.paused }),
+      cardClass: collapsed ? 'collapsed' : '',
+      cardOpen: collapsed ? 'false' : 'true',
+      collapseLabel: collapsed ? 'Show ▴' : 'Hide ▾',
+      toggleCard: () => this.setState({ collapsed: !this.state.collapsed }),
+      touchStart: (e) => {
+        try { const p = e.touches[0]; this.touch = { x: p.clientX, y: p.clientY }; } catch (err) { this.touch = null; }
+      },
+      touchEnd: (e) => {
+        try {
+          if (!this.touch) return;
+          const p = e.changedTouches[0];
+          const dx = p.clientX - this.touch.x, dy = p.clientY - this.touch.y;
+          this.touch = null;
+          if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) this.goTo(near + (dx < 0 ? 1 : -1));
+        } catch (err) {}
+      },
+      navCls: this.state.settled ? 'o-settled' : '',
+      advPlates: mk('adv'),
+      desPlates: mk('des'),
+      vw: viewerVals,
+      vwClose: () => this.setState({ vg: null }),
+      vwBackdrop: (e) => { try { if (e.target === e.currentTarget) this.setState({ vg: null }); } catch (err) {} },
+      vwPrev: () => this.setState({ vi: this.state.vi - 1 }),
+      vwNext: () => this.setState({ vi: this.state.vi + 1 }),
+      keyRows: this.keyRows,
+      camera: camera,
+      a: a,
+      open: open,
+      cs: cs,
+      ld: ld,
+      cueOp: clamp(1 - fe * 3).toFixed(3),
+      chapters: chapters,
+      chapLabel: (romans[near] ? romans[near] + ' · ' : '') + labels[near],
+      styles: styles,
+      citation: cites[current],
+      copyLabel: this.state.copied ? 'Copied ✓' : 'Copy',
+      copy: () => {
+        try {
+          navigator.clipboard.writeText(cites[current]).then(() => this.setState({ copied: true }), () => {});
+        } catch (e) {}
+      }
+    };
+  }
+}
+window.__mountDesk(Component, { motion: true });
 </script>
 </body>
 </html>
